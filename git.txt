@@ -1,0 +1,201 @@
+beryl@rajan:~$ git --version
+git version 2.7.4
+beryl@rajan:~$ cd razfile/tutorial
+beryl@rajan:~/razfile/tutorial$ mkdir git_hub
+beryl@rajan:~/razfile/tutorial$ git --version
+git version 2.7.4
+
+beryl@rajan:~/razfile/tutorial$ git config --global user.name "vickyberylsystems"
+
+beryl@rajan:~/razfile/tutorial$ git config --global user.email "vicky.raz@berylsystems.com"
+
+beryl@rajan:~/razfile/tutorial$ cd '/home/beryl/razfile/tutorial/git_hub' 
+
+beryl@rajan:~/razfile/tutorial/git_hub$ mkdir "hello-world"
+
+beryl@rajan:~/razfile/tutorial/git_hub$ cd hello-world
+......................................................................................git init........................................
+
+beryl@rajan:~/razfile/tutorial/git_hub/hello-world$ git init
+
+Initialized empty Git repository in /home/beryl/razfile/tutorial/git_hub/hello-world/.git/
+
+beryl@rajan:~/razfile/tutorial/git_hub/hello-world$ touch index.html
+
+beryl@rajan:~/razfile/tutorial/git_hub/hello-world$ 
+..................................................................................
+
+beryl@rajan:~/razfile/tutorial/git_hub/hello-world$ git status
+On branch master
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+beryl@rajan:~/razfile/tutorial/git_hub/hello-world$ git add index.html
+
+................................................................................................
+beryl@rajan:~/razfile/tutorial/git_hub/hello-world$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   index.html
+.....................................................................................to commit the the file to repo................
+
+beryl@rajan:~/razfile/tutorial/git_hub/hello-world$ git commit -m 'my first commit'
+[master (root-commit) c175d2e] my first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.html
+
+....................................................................................... ##restore the deleted file..........
+
+beryl@rajan:~/razfile/tutorial/git_hub/hello-world$ git checkout -- .
+beryl@rajan:~/razfile/tutorial/git_hub/hello-world$ cd ..
+.............................................................................................................
+beryl@rajan:~/razfile/tutorial/git_hub$ git clone https://github.com/LearnwebCode/welcome-to-git.git
+Cloning into 'welcome-to-git'...
+remote: Enumerating objects: 9, done.
+remote: Total 9 (delta 0), reused 0 (delta 0), pack-reused 9
+Unpacking objects: 100% (9/9), done.
+Checking connectivity... done.
+beryl@rajan:~/razfile/tutorial/git_hub$ git clone https://github.com/LearnwebCode/travel-site-files.git
+Cloning into 'travel-site-files'...
+remote: Enumerating objects: 98, done.
+remote: Total 98 (delta 0), reused 0 (delta 0), pack-reused 98
+Unpacking objects: 100% (98/98), done.
+Checking connectivity... done.
+..........................................................................................................
+beryl@rajan:~/razfile/tutorial/git_hub$ cd '/home/beryl/razfile/tutorial/git_hub/vicky-training' 
+
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ 
+..........................................................................................to check fecth and push url..................
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ git remote -v
+origin	https://github.com/LearnwebCode/travel-site-files.git (fetch)
+origin	https://github.com/LearnwebCode/travel-site-files.git (push)
+
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ 
+.............................................................................. .....to set new push url...................................
+
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ git remote set-url origin https://github.com/vickyberylsystems/vicky-training.git
+
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ git remote -v
+origin	https://github.com/vickyberylsystems/vicky-training.git (fetch)
+origin	https://github.com/vickyberylsystems/vicky-training.git (push)
+
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ 
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ 
+................................................................................to push to the repo......................................
+
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ git push origin master
+Username for 'https://github.com': vickyberylsystems
+Password for 'https://vickyberylsystems@github.com': 
+
+Counting objects: 98, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (95/95), done.
+Writing objects: 100% (98/98), 3.37 MiB | 1.15 MiB/s, done.
+Total 98 (delta 12), reused 0 (delta 0)
+remote: Resolving deltas: 100% (12/12), done.
+To https://github.com/vickyberylsystems/vicky-training.git
+ * [new branch]      master -> master
+......................................................................................to check the status.......................
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ git status
+
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   app/index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ git add -A
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   app/index.html
+.................................................................................................use -m to print m
+
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ git commit -m 'added new meta keyword'
+[master 1245c21] added new meta keyword
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+.................................................................................push modified file.............................
+
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ git push origin master
+Username for 'https://github.com': vickyberylsystems
+Password for 'https://vickyberylsystems@github.com': 
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 413 bytes | 0 bytes/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vickyberylsystems/vicky-training.git
+   308a29b..1245c21  master -> master
+beryl@rajan:~/razfile/tutorial/git_hub/vicky-training$ cd ..
+beryl@rajan:~/razfile/tutorial/git_hub$ touch git.txt
+beryl@rajan:~/razfile/tutorial/git_hub$
+
+......................................................................create new branch in current brach........................
+
+beryl@rajan:~/razfile/tutorial/training$ git remote -v
+origin	https://github.com/vickyberylsystems/training.git (fetch)
+origin	https://github.com/vickyberylsystems/training.git (push)
+
+.......................................................................show the list of branches...............................
+beryl@rajan:~/razfile/tutorial/training$ git branch main1
+
+beryl@rajan:~/razfile/tutorial/training$ git branch -a
+* main
+  main1
+  remotes/origin/main
+....................................................................................delete a branch.............................
+beryl@rajan:~/razfile/tutorial/training$ git branch -d main1
+Deleted branch main1 (was cda86c6).
+.....................................................................switch branch using checkout cmd.........................
+beryl@rajan:~/razfile/tutorial/training$ git branch main1
+beryl@rajan:~/razfile/tutorial/training$ git checkout main1
+Switched to branch 'main1'
+........................................................................merge new branch to main branch.....................
+
+beryl@rajan:~/razfile/tutorial/training$ git merge main1
+Updating cda86c6..f87a14b
+Fast-forward
+ app/index.html | 1 +
+ 1 file changed, 1 insertion(+)
+.......................................................................push new branch to the main branch........................
+ 
+beryl@rajan:~/razfile/tutorial/training$ git push origin main1
+Username for 'https://github.com': vickyberylsystems
+Password for 'https://vickyberylsystems@github.com': 
+
+Counting objects: 23, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (23/23), 2.23 KiB | 0 bytes/s, done.
+Total 23 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+remote: 
+remote: Create a pull request for 'main1' on GitHub by visiting:
+remote:      https://github.com/vickyberylsystems/training/pull/new/main1
+remote: 
+To https://github.com/vickyberylsystems/training.git
+ * [new branch]      main1 -> main1
+beryl@rajan:~/razfile/tutorial/training$ 
+
+..........................................................................pull from remote to local...............................
+
+
+
+
