@@ -1,0 +1,47 @@
+beryl@rajan:~/razfile/tutorial/linux$ touch utility_cmd.txt
+
+beryl@rajan:~/razfile/tutorial/linux$ find .name "*.txt"
+find: ‘.name’: No such file or directory
+find: ‘*.txt’: No such file or directory
+
+beryl@rajan:~/razfile/tutorial/linux$ find .marks ".txt"
+find: ‘.marks’: No such file or directory
+find: ‘.txt’: No such file or directory
+
+beryl@rajan:~/razfile/tutorial/linux$ find .marks ".pdf"
+find: ‘.marks’: No such file or directory
+find: ‘.pdf’: No such file or directory
+
+beryl@rajan:~/razfile/tutorial/linux$ locate marks.txt
+/usr/share/plainbox-provider-checkbox/jobs/benchmarks.txt.in
+
+beryl@rajan:~/razfile/tutorial/linux$ cd
+
+beryl@rajan:~$ locate marks.txt
+/usr/share/plainbox-provider-checkbox/jobs/benchmarks.txt.in
+
+beryl@rajan:~$ date
+Fri Jul  2 18:08:56 IST 2021
+beryl@rajan:~$ 
+
+beryl@rajan:~$ cal
+     July 2021        
+Su Mo Tu We Th Fr Sa  
+             1  2  3  
+ 4  5  6  7  8  9 10  
+11 12 13 14 15 16 17  
+18 19 20 21 22 23 24  
+25 26 27 28 29 30 31  
+                      
+beryl@rajan:~$ sleep 4
+beryl@rajan:~$ 
+beryl@rajan:~$ time
+
+real	0m0.000s
+user	0m0.000s
+sys	0m0.000s
+beryl@rajan:~$ 
+beryl@rajan:~$ zcat marks.txt
+gzip: marks.txt.gz: No such file or directory
+beryl@rajan:~$ 
+

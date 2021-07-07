@@ -1,0 +1,385 @@
+
+beryl@rajan:~$ cd razfile/tutorial/linux
+beryl@rajan:~/razfile/tutorial/linux$ touch filter_cmd.txt
+beryl@rajan:~/razfile/tutorial/linux$ cat >marks.txt
+alex-50
+alen-60
+join-75
+carry-85
+celena-85
+justin-90
+vicky-96
+beryl@rajan:~/razfile/tutorial/linux$ cut -d- -f2 marks.txt
+50
+60
+75
+85
+85
+90
+96
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt | tac | cat | tac
+alex-50
+alen-60
+join-75
+carry-85
+celena-85
+justin-90
+vicky-96
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt |tac
+vicky-96
+justin-90
+celena-85
+carry-85
+join-75
+alen-60
+alex-50
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt |tac |cat
+vicky-96
+justin-90
+celena-85
+carry-85
+join-75
+alen-60
+alex-50
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt |tac | cat | tac
+alex-50
+alen-60
+join-75
+carry-85
+celena-85
+justin-90
+vicky-96
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt | grep 9
+justin-90
+vicky-96
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt | grep a
+alex-50
+alen-60
+carry-85
+celena-85
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt | grep alen
+alen-60
+beryl@rajan:~/razfile/tutorial/linux$ comm file.txt marks.txt
+1
+2
+3
+4
+5
+5
+6
+7
+7
+8
+comm: file 1 is not in sorted order
+6
+	alex-50
+comm: file 2 is not in sorted order
+	alen-60
+gr
+ererr445434
+3
+4
+34
+34
+4
+4
+34
+34
+3434
+34
+34
+34
+
+4
+566556
+6
+56
+666
+
+
+	join-75
+	carry-85
+	celena-85
+	justin-90
+	vicky-96
+beryl@rajan:~/razfile/tutorial/linux$ echo class777 | sed 's/class/vicky/'
+vicky777
+beryl@rajan:~/razfile/tutorial/linux$ cat file.txt | tee marks.txt | cat | tac
+
+
+666
+56
+6
+566556
+4
+
+34
+34
+34
+3434
+34
+34
+4
+4
+34
+34
+4
+3
+ererr445434
+gr
+6
+8
+7
+7
+6
+5
+5
+4
+3
+2
+1
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt
+1
+2
+3
+4
+5
+5
+6
+7
+7
+8
+6
+gr
+ererr445434
+3
+4
+34
+34
+4
+4
+34
+34
+3434
+34
+34
+34
+
+4
+566556
+6
+56
+666
+
+beryl@rajan:~/razfile/tutorial/linux$ cat > marks.txt
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+preet-85beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt | tr 'alen' 'ALEN'
+ALEN-50
+ALiAs-60
+root-70
+NNNNNNN-80
+vicky-86
+prEEt-85beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt | tr 'a' 'A'
+Alen-50
+AliAs-60
+root-70
+nnnnnnn-80
+vicky-86
+
+beryl@rajan:~$ cd /razfile/tutorial/linux
+-bash: cd: /razfile/tutorial/linux: No such file or directory
+beryl@rajan:~$ cd razfile/tutorial/linux
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+preet-85beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt | tee marks.txt
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+preet-85beryl@rajan:~/razfile/tutorial/linux$ 
+beryl@rajan:~/razfile/tutorial/linux$ echo 'khushbu-88' | tee -a marks.txt
+khushbu-88
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+preet-85khushbu-88
+beryl@rajan:~/razfile/tutorial/linux$ echo 'tarun-77' | tee -a marks.txt
+tarun-77
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+preet-85
+khushbu-88
+
+
+tarun-77
+beryl@rajan:~/razfile/tutorial/linux$ cat -b marks.txt
+     1	alen-50
+     2	alias-60
+     3	root-70
+     4	nnnnnnn-80
+     5	vicky-86
+     6	preet-85
+     7	khushbu-88
+
+
+     8	tarun-77
+
+preet-85beryl@rajan:~/razfile/tutorial/linux$ cut -d- -f1- marks.txt
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+preet-85
+beryl@rajan:~/razfile/tutorial/linux$ cut -d- -f1 marks.txt
+alen
+alias
+root
+nnnnnnn
+vicky
+preet
+beryl@rajan:~/razfile/tutorial/linux$ cut -d- -f1 marks.txt |tr 'a' 'A'
+Alen
+AliAs
+root
+nnnnnnn
+vicky
+preet
+
+
+beryl@rajan:~/razfile/tutorial/linux$ sort marks.txt
+alen-50
+alias-60
+nnnnnnn-80
+preet-85
+root-70
+vicky-86
+beryl@rajan:~/razfile/tutorial/linux$ sort marks.txt |uniq
+alen-50
+alias-60
+nnnnnnn-80
+preet-85
+root-70
+vicky-86
+
+beryl@rajan:~/razfile/tutorial/linux$ sort marks.txt |uniq
+
+alen-50
+alias-60
+khushbu-88
+nnnnnnn-80
+preet-85
+root-70
+tarun-77
+vicky-86
+beryl@rajan:~/razfile/tutorial/linux$ cat marks.txt |uniq
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+preet-85
+khushbu-88
+
+tarun-77
+beryl@rajan:~/razfile/tutorial/linux$ sort marks.txt | uniq -c
+      2 
+      1 alen-50
+      1 alias-60
+      1 khushbu-88
+      1 nnnnnnn-80
+      1 preet-85
+      1 root-70
+      1 tarun-77
+      1 vicky-86
+beryl@rajan:~/razfile/tutorial/linux$ sort marks.txt | uniq -d
+
+beryl@rajan:~/razfile/tutorial/linux$ sort marks.txt | uniq -i
+
+alen-50
+alias-60
+khushbu-88
+nnnnnnn-80
+preet-85
+root-70
+tarun-77
+vicky-86
+beryl@rajan:~/razfile/tutorial/linux$ sort marks.txt | uniq -u
+alen-50
+alias-60
+khushbu-88
+nnnnnnn-80
+preet-85
+root-70
+tarun-77
+vicky-86
+beryl@rajan:~/razfile/tutorial/linux$ sort marks.txt | uniq -s 2
+
+alen-50
+alias-60
+khushbu-88
+nnnnnnn-80
+preet-85
+root-70
+tarun-77
+vicky-86
+beryl@rajan:~/razfile/tutorial/linux$ uniq -f 2 marks.txt
+alen-50
+beryl@rajan:~/razfile/tutorial/linux$ 
+
+beryl@rajan:~/razfile/tutorial/linux$ wc marks.txt
+ 5  6 53 marks.txt
+beryl@rajan:~/razfile/tutorial/linux$ od -b marks.txt
+0000000 141 154 145 156 055 065 060 012 141 154 151 141 163 055 066 060
+0000020 012 162 157 157 164 055 067 060 012 156 156 156 156 156 156 156
+0000040 055 070 060 012 166 151 143 153 171 055 070 066 012 160 162 145
+0000060 145 164 055 070 065
+0000065
+beryl@rajan:~/razfile/tutorial/linux$ od -t x1 marks.txt
+0000000 61 6c 65 6e 2d 35 30 0a 61 6c 69 61 73 2d 36 30
+0000020 0a 72 6f 6f 74 2d 37 30 0a 6e 6e 6e 6e 6e 6e 6e
+0000040 2d 38 30 0a 76 69 63 6b 79 2d 38 36 0a 70 72 65
+0000060 65 74 2d 38 35
+0000065
+beryl@rajan:~/razfile/tutorial/linux$ od -c marks.txt
+0000000   a   l   e   n   -   5   0  \n   a   l   i   a   s   -   6   0
+0000020  \n   r   o   o   t   -   7   0  \n   n   n   n   n   n   n   n
+0000040   -   8   0  \n   v   i   c   k   y   -   8   6  \n   p   r   e
+0000060   e   t   -   8   5
+0000065
+....................................................................................
+
+beryl@rajan:~$ cd razfile/tutorial/linux
+beryl@rajan:~/razfile/tutorial/linux$ wc marks.txt
+10  8 76 marks.txt
+beryl@rajan:~/razfile/tutorial/linux$ wc -c marks.txt
+76 marks.txt
+beryl@rajan:~/razfile/tutorial/linux$ wc -l marks.txt
+10 marks.txt
+beryl@rajan:~/razfile/tutorial/linux$ wc -m marks.txt
+76 marks.txt
+...............................................................
+
+

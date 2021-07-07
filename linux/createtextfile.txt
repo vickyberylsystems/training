@@ -1,0 +1,65 @@
+beryl@rajan:~/razfile/tutorial/linux$ touch textfile.txt
+beryl@rajan:~/razfile/tutorial/linux$ 
+.........................................................
+
+beryl@rajan:~/razfile/tutorial/linux$ for i in {1..5}
+> do
+> touch $i.txt;
+> done;
+...................................................................................
+beryl@rajan:~/razfile/tutorial/linux$ ls
+1.txt  2.txt  3.txt  4.txt  5.txt  linux cd.txt  linux ls.txt  rename.txt
+............................................................................................
+beryl@rajan:~/razfile/tutorial/linux$ 
+beryl@rajan:~/razfile/tutorial/linux$ for i in *.txt
+> do
+> echo $i;
+> done;
+1.txt
+2.txt
+3.txt
+4.txt
+5.txt
+linux cd.txt
+linux ls.txt
+rename.txt
+....................................................................
+
+beryl@rajan:~$ cd razfile/tutorial/linux
+beryl@rajan:~/razfile/tutorial/linux$ ls
+createtextfile.txt  linux cd.txt  linux ls.txt  rename.txt
+
+rename using bais script...............................................create multiple txt file using touch. command
+
+beryl@rajan:~/razfile/tutorial/linux$ for i in {1..5}
+> do
+> touch $i.txt;
+> done;
+.................................................
+beryl@rajan:~/razfile/tutorial/linux$ ls
+1.txt  3.txt  5.txt               linux cd.txt  rename.txt
+2.txt  4.txt  createtextfile.txt  linux ls.txt
+.................................................................................txt to zip
+beryl@rajan:~/razfile/tutorial/linux$ for i in *.txt
+> do
+> newfile=${i/.txt/.zip};
+> echo $newfile;
+> done;
+1.zip
+2.zip
+3.zip
+4.zip
+5.zip
+createtextfile.zip
+linux cd.zip
+linux ls.zip
+rename.zip
+.....................................................................................zip to txt
+
+beryl@rajan:~/razfile/tutorial/linux$ for i in *.zip
+> do
+> newfile=${i/.zip/.txt};
+> echo $newfile;
+> done;
+1.txt 2.txt 3.txt 4.txt 5.txt createtextfile.txt linux cd.txt linux ls.txt rename.txt
+

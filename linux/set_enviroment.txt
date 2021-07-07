@@ -1,0 +1,247 @@
+beryl@rajan:~$ echo $PATH
+/home/beryl/.rvm/gems/ruby-2.6.0/bin:/home/beryl/.rvm/gems/ruby-2.6.0@global/bin:/home/beryl/.rvm/rubies/ruby-2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/PostgreSQL/10/bin/:/home/beryl/.rvm/bin:/home/beryl/.rvm/bin:/opt/PostgreSQL/10/bin/:/home/beryl/.rvm/bin
+beryl@rajan:~$ echo $ USER
+$ USER
+beryl@rajan:~$ echo $USER
+beryl
+beryl@rajan:~$ echo $HOME
+/home/beryl
+.......................................................................................
+beryl@rajan:~$ env
+NVM_RC_VERSION=
+XDG_VTNR=7
+XDG_SESSION_ID=c2
+rvm_bin_path=/home/beryl/.rvm/bin
+CLUTTER_IM_MODULE=xim
+XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/beryl
+GEM_HOME=/home/beryl/.rvm/gems/ruby-2.6.0
+NVM_CD_FLAGS=
+GPG_AGENT_INFO=/home/beryl/.gnupg/S.gpg-agent:0:1
+SHELL=/bin/bash
+TERM=xterm-256color
+VTE_VERSION=4205
+IRBRC=/home/beryl/.rvm/rubies/ruby-2.6.0/.irbrc
+QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
+WINDOWID=79691930
+UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/1399
+GNOME_KEYRING_CONTROL=
+MY_RUBY_HOME=/home/beryl/.rvm/rubies/ruby-2.6.0
+GTK_MODULES=gail:atk-bridge:unity-gtk-module
+rvm_stored_umask=0002
+NVM_DIR=/home/beryl/.nvm
+USER=beryl
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+QT_ACCESSIBILITY=1
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+rvm_path=/home/beryl/.rvm
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg
+rvm_prefix=/home/beryl
+PATH=/home/beryl/.rvm/gems/ruby-2.6.0/bin:/home/beryl/.rvm/gems/ruby-2.6.0@global/bin:/home/beryl/.rvm/rubies/ruby-2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/PostgreSQL/10/bin/:/home/beryl/.rvm/bin:/home/beryl/.rvm/bin:/opt/PostgreSQL/10/bin/:/home/beryl/.rvm/bin
+DESKTOP_SESSION=ubuntu
+QT_IM_MODULE=ibus
+QT_QPA_PLATFORMTHEME=appmenu-qt5
+rvm_loaded_flag=1
+XDG_SESSION_TYPE=x11
+PWD=/home/beryl
+JOB=gnome-session
+XMODIFIERS=@im=ibus
+GNOME_KEYRING_PID=
+LANG=en_IN
+GDM_LANG=en_US
+MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path
+IM_CONFIG_PHASE=1
+COMPIZ_CONFIG_PROFILE=ubuntu
+GDMSESSION=ubuntu
+rvm_version=1.29.9 (latest)
+SESSIONTYPE=gnome-session
+GTK2_MODULES=overlay-scrollbar
+HOME=/home/beryl
+XDG_SEAT=seat0
+SHLVL=1
+LANGUAGE=en_IN:en
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+UPSTART_INSTANCE=
+UPSTART_EVENTS=started starting
+XDG_SESSION_DESKTOP=ubuntu
+LOGNAME=beryl
+GEM_PATH=/home/beryl/.rvm/gems/ruby-2.6.0:/home/beryl/.rvm/gems/ruby-2.6.0@global
+QT4_IM_MODULE=xim
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/var/lib/snapd/desktop
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-jOoCeT3blI
+LESSOPEN=| /usr/bin/lesspipe %s
+INSTANCE=Unity
+UPSTART_JOB=unity-settings-daemon
+XDG_RUNTIME_DIR=/run/user/1000
+DISPLAY=:0
+XDG_CURRENT_DESKTOP=Unity
+GTK_IM_MODULE=ibus
+RUBY_VERSION=ruby-2.6.0
+LESSCLOSE=/usr/bin/lesspipe %s %s
+rvm_user_install_flag=1
+XAUTHORITY=/home/beryl/.Xauthority
+_=/usr/bin/env
+................................................................................
+beryl@rajan:~$ NEW_VAR=10
+beryl@rajan:~$ echo NEW_VAR
+NEW_VAR
+beryl@rajan:~$ echo $NEW_VAR
+10
+beryl@rajan:~$ unset NEW_VAR
+beryl@rajan:~$ echo $NEW_VAR
+
+beryl@rajan:~$ ^C
+beryl@rajan:~$ 
+................................................................................
+
+beryl@rajan:~$ export -p
+declare -x CLUTTER_IM_MODULE="xim"
+declare -x COMPIZ_CONFIG_PROFILE="ubuntu"
+declare -x DBUS_SESSION_BUS_ADDRESS="unix:abstract=/tmp/dbus-jOoCeT3blI"
+declare -x DEFAULTS_PATH="/usr/share/gconf/ubuntu.default.path"
+declare -x DESKTOP_SESSION="ubuntu"
+declare -x DISPLAY=":0"
+declare -x GDMSESSION="ubuntu"
+declare -x GDM_LANG="en_US"
+declare -x GEM_HOME="/home/beryl/.rvm/gems/ruby-2.6.0"
+declare -x GEM_PATH="/home/beryl/.rvm/gems/ruby-2.6.0:/home/beryl/.rvm/gems/ruby-2.6.0@global"
+declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
+declare -x GNOME_KEYRING_CONTROL=""
+declare -x GNOME_KEYRING_PID=""
+declare -x GPG_AGENT_INFO="/home/beryl/.gnupg/S.gpg-agent:0:1"
+declare -x GTK2_MODULES="overlay-scrollbar"
+declare -x GTK_IM_MODULE="ibus"
+declare -x GTK_MODULES="gail:atk-bridge:unity-gtk-module"
+declare -x HOME="/home/beryl"
+declare -x IM_CONFIG_PHASE="1"
+declare -x INSTANCE="Unity"
+declare -x IRBRC="/home/beryl/.rvm/rubies/ruby-2.6.0/.irbrc"
+declare -x JOB="gnome-session"
+declare -x LANG="en_IN"
+declare -x LANGUAGE="en_IN:en"
+declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
+declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+declare -x LOGNAME="beryl"
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:"
+declare -x MANDATORY_PATH="/usr/share/gconf/ubuntu.mandatory.path"
+declare -x MY_RUBY_HOME="/home/beryl/.rvm/rubies/ruby-2.6.0"
+declare -x NVM_CD_FLAGS=""
+declare -x NVM_DIR="/home/beryl/.nvm"
+declare -x NVM_RC_VERSION=""
+declare -x OLDPWD
+declare -x PATH="/home/beryl/.rvm/gems/ruby-2.6.0/bin:/home/beryl/.rvm/gems/ruby-2.6.0@global/bin:/home/beryl/.rvm/rubies/ruby-2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/PostgreSQL/10/bin/:/home/beryl/.rvm/bin:/home/beryl/.rvm/bin:/opt/PostgreSQL/10/bin/:/home/beryl/.rvm/bin:/home/jdk1.8/bin/"
+declare -x PWD="/home/beryl"
+declare -x QT4_IM_MODULE="xim"
+declare -x QT_ACCESSIBILITY="1"
+declare -x QT_IM_MODULE="ibus"
+declare -x QT_LINUX_ACCESSIBILITY_ALWAYS_ON="1"
+declare -x QT_QPA_PLATFORMTHEME="appmenu-qt5"
+declare -x RUBY_VERSION="ruby-2.6.0"
+declare -x SESSIONTYPE="gnome-session"
+declare -x SHELL="/bin/bash"
+declare -x SHLVL="1"
+declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+declare -x TERM="xterm-256color"
+declare -x UPSTART_EVENTS="started starting"
+declare -x UPSTART_INSTANCE=""
+declare -x UPSTART_JOB="unity-settings-daemon"
+declare -x UPSTART_SESSION="unix:abstract=/com/ubuntu/upstart-session/1000/1399"
+declare -x USER="beryl"
+declare -x VTE_VERSION="4205"
+declare -x WINDOWID="79691930"
+declare -x XAUTHORITY="/home/beryl/.Xauthority"
+declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg"
+declare -x XDG_CURRENT_DESKTOP="Unity"
+declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/var/lib/snapd/desktop"
+declare -x XDG_GREETER_DATA_DIR="/var/lib/lightdm-data/beryl"
+declare -x XDG_RUNTIME_DIR="/run/user/1000"
+declare -x XDG_SEAT="seat0"
+declare -x XDG_SEAT_PATH="/org/freedesktop/DisplayManager/Seat0"
+declare -x XDG_SESSION_DESKTOP="ubuntu"
+declare -x XDG_SESSION_ID="c2"
+declare -x XDG_SESSION_PATH="/org/freedesktop/DisplayManager/Session0"
+declare -x XDG_SESSION_TYPE="x11"
+declare -x XDG_VTNR="7"
+declare -x XMODIFIERS="@im=ibus"
+declare -x rvm_alias_expanded
+declare -x rvm_bin_flag
+declare -x rvm_bin_path="/home/beryl/.rvm/bin"
+declare -x rvm_delete_flag
+declare -x rvm_docs_type
+declare -x rvm_file_name
+declare -x rvm_gemstone_package_file
+declare -x rvm_gemstone_url
+declare -x rvm_hook
+declare -x rvm_loaded_flag="1"
+declare -x rvm_niceness
+declare -x rvm_nightly_flag
+declare -x rvm_only_path_flag
+declare -x rvm_path="/home/beryl/.rvm"
+declare -x rvm_prefix="/home/beryl"
+declare -x rvm_pretty_print_flag
+declare -x rvm_proxy
+declare -x rvm_quiet_flag
+declare -x rvm_ruby_alias
+declare -x rvm_ruby_bits
+declare -x rvm_ruby_configure
+declare -x rvm_ruby_file
+declare -x rvm_ruby_global_gems_path
+declare -x rvm_ruby_make
+declare -x rvm_ruby_make_install
+declare -x rvm_ruby_mode
+declare -x rvm_ruby_string
+declare -x rvm_ruby_url
+declare -x rvm_script_name
+declare -x rvm_sdk
+declare -x rvm_shell_nounset
+declare -x rvm_silent_flag
+declare -x rvm_sticky_flag
+declare -x rvm_stored_umask="0002"
+declare -x rvm_system_flag
+declare -x rvm_use_flag
+declare -x rvm_user_flag
+declare -x rvm_user_install_flag="1"
+declare -x rvm_version="1.29.9 (latest)"
+beryl@rajan:~$ 
+.....................................................................................
+beryl@rajan:~$ 
+beryl@rajan:~$ 
+beryl@rajan:~$ name() {echo "javapoint"}
+-bash: syntax error near unexpected token `{echo'
+beryl@rajan:~$ name() {echo "javapoint";}
+-bash: syntax error near unexpected token `{echo'
+beryl@rajan:~$ name() { echo "javapoint";}
+beryl@rajan:~$ export _f name
+beryl@rajan:~$ bash
+beryl@rajan:~$ name
+No command 'name' found, did you mean:
+ Command 'nama' from package 'nama' (universe)
+ Command 'nam' from package 'nam' (universe)
+ Command 'nvme' from package 'nvme-cli' (universe)
+ Command 'named' from package 'bind9' (main)
+ Command 'mame' from package 'mame' (multiverse)
+ Command 'uname' from package 'coreutils' (main)
+ Command 'namei' from package 'util-linux' (main)
+ Command 'lame' from package 'lame' (universe)
+name: command not found
+beryl@rajan:~$ name() { echo "javapoint";}
+beryl@rajan:~$ export -f name
+beryl@rajan:~$ bash
+beryl@rajan:~$ name
+javapoint
+beryl@rajan:~$ function hello
+> {
+> echo hello, welcome to javapoint
+> }
+beryl@rajan:~$ export -f hello
+beryl@rajan:~$ hello
+hello, welcome to javapoint
+beryl@rajan:~$ export a=5
+beryl@rajan:~$ printenv a
+5
+beryl@rajan:~$ export EDITOR=/usr/bin/vim
+beryl@rajan:~$ export | grep EDITOR
+declare -x EDITOR="/u
+

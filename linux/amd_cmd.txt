@@ -1,0 +1,61 @@
+beryl@rajan:~/razfile/tutorial/linux$ awk '{ print "welcome to awk cmd"}'
+welcome to awk cmd
+welcome to awk cmd
+
+welcome to awk cmd
+
+welcome to awk cmd
+^C
+beryl@rajan:~/razfile/tutorial/linux$ 
+beryl@rajan:~/razfile/tutorial/linux$ awk '{ print "welcome to awk cmd"}
+> 
+> -bash: unexpected EOF while looking for matching `''
+-bash: syntax error: unexpected end of file
+beryl@rajan:~/razfile/tutorial/linux$ 
+beryl@rajan:~/razfile/tutorial/linux$ 
+beryl@rajan:~/razfile/tutorial/linux$ awk '/vicky/{print}' marks.txt
+vicky-86
+beryl@rajan:~/razfile/tutorial/linux$ awk '{ print }' marks.txt
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+preet-85
+khushbu-88
+
+
+tarun-77
+beryl@rajan:~/razfile/tutorial/linux$ awk '{ print $1,$2}' marks.txt
+alen-50 
+alias-60 
+root-70 
+nnnnnnn-80 
+vicky-86 
+preet-85 
+khushbu-88 
+ 
+ 
+tarun-77 
+beryl@rajan:~/razfile/tutorial/linux$ awk '{ print $2}' marks.txt
+cs
+cse
+math
+EE
+me
+ec
+bbb
+sci
+beryl@rajan:~/razfile/tutorial/linux$ 
+
+beryl@rajan:~/razfile/tutorial/linux$ awk 'BEGIN { for(i=1;i<=8;i++)print"sqare of",i,"is ", i*i;}'
+sqare of 1 is  1
+sqare of 2 is  4
+sqare of 3 is  9
+sqare of 4 is  16
+sqare of 5 is  25
+sqare of 6 is  36
+sqare of 7 is  49
+sqare of 8 is  64
+
+

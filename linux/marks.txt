@@ -1,0 +1,12 @@
+name   marks  branch  yop
+alen   50     cs      2018
+alia   60     cse     2019
+root   70     ee      2020
+nnnnnn 80     EE      2021
+vicky  86     me      2021
+preet  85     cs      2020 
+khushbu88     EC      2016
+tarun  77     sci     2021
+dharvesh 88   cse     2020
+raushan  78   ec      2021
+

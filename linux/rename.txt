@@ -1,0 +1,75 @@
+using mv command.....................
+
+beryl@rajan:~$ mv razfile Razfile
+beryl@rajan:~$ cd Razfile/tutorial/linux
+beryl@rajan:~/Razfile/tutorial/linux$ cat > rename.txt
+^C
+beryl@rajan:~/Razfile/tutorial/linux$ mv Razfile razfile
+mv: cannot stat 'Razfile': No such file or directory
+beryl@rajan:~/Razfile/tutorial/linux$ cd ..
+beryl@rajan:~/Razfile/tutorial$ cd
+beryl@rajan:~$  mv Razfile razfile
+beryl@rajan:~$ echo "usin mv command" > rename.txt
+beryl@rajan:~$ 
+
+using find command..........................................
+
+
+
+
+
+
+using rename command ........................................
+
+beryl@rajan:~/razfile/tutorial$ ls
+linux  mysql  ruby
+beryl@rajan:~/razfile/tutorial$ rename 'Y/A-Z/a-z/' *
+Warning: Use of "-z" without parentheses is ambiguous at (eval 4) line 1.
+Search pattern not terminated at (user-supplied code).
+
+beryl@rajan:~/razfile/tutorial$ rename 'y/A-Z/a-z/' *
+beryl@rajan:~/razfile/tutorial$ ls
+linux  mysql  ruby
+
+beryl@rajan:~/razfile/tutorial$ cd linux
+beryl@rajan:~/razfile/tutorial/linux$ ls
+linux cd.txt  linux ls.txt  rename.txt
+
+change txt file to pdf file ...............................................
+
+beryl@rajan:~/razfile/tutorial/linux$ rename 's/\.txt$/\.pdf/' *.txt
+beryl@rajan:~/razfile/tutorial/linux$ ls
+linux cd.pdf  linux ls.pdf  rename.pdf
+
+change pdf to txt.....................................................
+
+beryl@rajan:~/razfile/tutorial/linux$ rename 's/\.pdf$/\.txt/' *.pdf
+beryl@rajan:~/razfile/tutorial/linux$ ls
+linux cd.txt  linux ls.txt  rename.txt
+beryl@rajan:~/razfile/tutorial/linux$ 
+
+...............................................................................
+
+change to zip file.............................................................
+
+beryl@rajan:~/razfile/tutorial/linux$ for i in *.txt
+> do
+> newfile=${i/.txt/.zip};
+> echo $newfile;
+> done;
+1.zip
+2.zip
+3.zip
+4.zip
+5.zip
+createtextfile.zip
+linux cd.zip
+linux ls.zip
+rename.zip
+
+..........................................................................................
+
+
+
+
+

@@ -1,0 +1,349 @@
+beryl@rajan:~$ cd /home/beryl/razfile/tutorial/linux 
+beryl@rajan:~/razfile/tutorial/linux$ ls /
+bin    core  home            lib         mnt   root  snap  tmp  vmlinuz
+boot   dev   initrd.img      lost+found  opt   run   srv   usr  vmlinuz.old
+cdrom  etc   initrd.img.old  media       proc  sbin  sys   var
+beryl@rajan:~/razfile/tutorial/linux$ cd
+beryl@rajan:~$ ls /
+bin    core  home            lib         mnt   root  snap  tmp  vmlinuz
+boot   dev   initrd.img      lost+found  opt   run   srv   usr  vmlinuz.old
+cdrom  etc   initrd.img.old  media       proc  sbin  sys   var
+beryl@rajan:~$ ls /bin
+bash           fusermount  networkctl        stty
+bunzip2        getfacl     nisdomainname     su
+busybox        grep        ntfs-3g           sync
+bzcat          gunzip      ntfs-3g.probe     systemctl
+bzcmp          gzexe       ntfs-3g.secaudit  systemd
+bzdiff         gzip        ntfs-3g.usermap   systemd-ask-password
+bzegrep        hciconfig   ntfscat           systemd-escape
+bzexe          hostname    ntfscluster       systemd-hwdb
+bzfgrep        ip          ntfscmp           systemd-inhibit
+bzgrep         journalctl  ntfsfallocate     systemd-machine-id-setup
+bzip2          kbd_mode    ntfsfix           systemd-notify
+bzip2recover   kill        ntfsinfo          systemd-tmpfiles
+bzless         kmod        ntfsls            systemd-tty-ask-password-agent
+bzmore         less        ntfsmove          tailf
+cat            lessecho    ntfstruncate      tar
+chacl          lessfile    ntfswipe          tempfile
+chgrp          lesskey     open              touch
+chmod          lesspipe    openvt            true
+chown          ln          pidof             udevadm
+chvt           loadkeys    ping              ulockmgr_server
+cp             login       ping6             umount
+cpio           loginctl    plymouth          uname
+dash           lowntfs-3g  ps                uncompress
+date           ls          pwd               unicode_start
+dd             lsblk       rbash             vdir
+df             lsmod       readlink          vmmouse_detect
+dir            mkdir       red               wdctl
+dmesg          mknod       rm                which
+dnsdomainname  mktemp      rmdir             whiptail
+domainname     more        rnano             ypdomainname
+dumpkeys       mount       run-parts         zcat
+echo           mountpoint  sed               zcmp
+ed             mt          setfacl           zdiff
+efibootmgr     mt-gnu      setfont           zegrep
+egrep          mv          setupcon          zfgrep
+false          nano        sh                zforce
+fgconsole      nc          sh.distrib        zgrep
+fgrep          nc.openbsd  sleep             zless
+findmnt        netcat      ss                zmore
+fuser          netstat     static-sh         znew
+beryl@rajan:~$ 
+beryl@rajan:~$ ls /sbin
+acpi_available   ip                     parted
+agetty           ip6tables              partprobe
+alsa             ip6tables-restore      pccardctl
+apm_available    ip6tables-save         pivot_root
+apparmor_parser  ipmaddr                plipconfig
+badblocks        iptables               plymouthd
+blkdiscard       iptables-restore       poweroff
+blkid            iptables-save          rarp
+blockdev         iptunnel               raw
+bridge           isosize                reboot
+brltty           iw                     regdbdump
+brltty-setup     iwconfig               reload
+capsh            iwevent                resize2fs
+cfdisk           iwgetid                resolvconf
+cgdisk           iwlist                 restart
+chcpu            iwpriv                 rmmod
+crda             iwspy                  route
+ctrlaltdel       kbdrate                rtacct
+debugfs          killall5               rtmon
+depmod           ldconfig               runlevel
+dhclient         ldconfig.real          runuser
+dhclient-script  logsave                setcap
+dosfsck          losetup                setvtrgb
+dosfslabel       lsmod                  sfdisk
+dumpe2fs         lspcmcia               sgdisk
+e2fsck           MAKEDEV                shadowconfig
+e2image          mii-tool               shutdown
+e2label          mkdosfs                slattach
+e2undo           mke2fs                 start
+ethtool          mkfs                   start-stop-daemon
+fatlabel         mkfs.bfs               status
+fdisk            mkfs.cramfs            stop
+findfs           mkfs.ext2              sulogin
+fixparts         mkfs.ext3              swaplabel
+fsck             mkfs.ext4              swapoff
+fsck.cramfs      mkfs.ext4dev           swapon
+fsck.ext2        mkfs.fat               switch_root
+fsck.ext3        mkfs.minix             sysctl
+fsck.ext4        mkfs.msdos             tc
+fsck.ext4dev     mkfs.ntfs              telinit
+fsck.fat         mkfs.vfat              tipc
+fsck.minix       mkhomedir_helper       tune2fs
+fsck.msdos       mkntfs                 u-d-c-print-pci-ids
+fsck.nfs         mkswap                 udevadm
+fsck.vfat        mntctl                 umount.udisks2
+fsfreeze         modinfo                unix_chkpwd
+fstab-decode     modprobe               unix_update
+fstrim           mountall               upstart
+gdisk            mount.fuse             upstart-dbus-bridge
+getcap           mount.lowntfs-3g       upstart-event-bridge
+getpcaps         mount.ntfs             upstart-file-bridge
+getty            mount.ntfs-3g          upstart-local-bridge
+halt             nameif                 upstart-socket-bridge
+hdparm           ntfsclone              upstart-udev-bridge
+hwclock          ntfscp                 ureadahead
+ifconfig         ntfslabel              wipefs
+ifdown           ntfsresize             wpa_action
+ifquery          ntfsundelete           wpa_cli
+ifup             on_ac_power            wpa_supplicant
+init             pam_extrausers_chkpwd  xtables-multi
+initctl          pam_extrausers_update  zramctl
+insmod           pam_tally
+installkernel    pam_tally2
+beryl@rajan:~$ ls /lib
+apparmor  i386-linux-gnu                        lsb            sysvinit
+brltty    ifupdown                              modprobe.d     terminfo
+cpp       init                                  modules        udev
+crda      klibc-rBb4n9zs2Ri-TucnLVZwCHjM8M4.so  recovery-mode  ufw
+firmware  ld-linux.so.2                         resolvconf     xtables
+hdparm    linux-sound-base                      systemd
+beryl@rajan:~$ ls /opt
+atom  PostgreSQL  Postman  sublime_text
+beryl@rajan:~$ 
+beryl@rajan:~$ ls /boot
+config-4.4.0-173-generic      memtest86+.elf
+config-4.4.0-174-generic      memtest86+_multiboot.bin
+grub                          System.map-4.4.0-173-generic
+initrd.img-4.4.0-173-generic  System.map-4.4.0-174-generic
+initrd.img-4.4.0-174-generic  vmlinuz-4.4.0-173-generic
+memtest86+.bin                vmlinuz-4.4.0-174-generic
+beryl@rajan:~$ 
+beryl@rajan:~$ ls /etc
+acpi                           hosts.allow              postgres-reg.ini
+adduser.conf                   hosts.deny               ppp
+alternatives                   hosts.save               printcap
+anacrontab                     hp                       profile
+apache2                        ifplugd                  profile.d
+apg.conf                       iftab                    protocols
+apm                            ImageMagick-6            pulse
+apparmor                       init                     python
+apparmor.d                     init.d                   python2.7
+apport                         initramfs-tools          python3
+appstream.conf                 inputrc                  python3.5
+apt                            insserv                  rc0.d
+aptdaemon                      insserv.conf             rc1.d
+at-spi2                        insserv.conf.d           rc2.d
+avahi                          iproute2                 rc3.d
+bash.bashrc                    issue                    rc4.d
+bash_completion                issue.net                rc5.d
+bash_completion.d              java-8-openjdk           rc6.d
+bindresvport.blacklist         kbd                      rc.local
+binfmt.d                       kernel                   rcS.d
+bluetooth                      kernel-img.conf          redis
+brlapi.key                     kerneloops.conf          resolvconf
+brltty                         ldap                     resolv.conf
+brltty.conf                    ld.so.cache              rmt
+ca-certificates                ld.so.conf               root
+ca-certificates.conf           ld.so.conf.d             rpc
+ca-certificates.conf.dpkg-old  legal                    rsyslog.conf
+calendar                       libao.conf               rsyslog.d
+chatscripts                    libaudit.conf            sane.d
+chromium-browser               libnl-3                  securetty
+compizconfig                   libpaper.d               security
+console-setup                  libreoffice              selinux
+cracklib                       lightdm                  sensors3.conf
+cron.d                         lighttpd                 sensors.d
+cron.daily                     lintianrc                services
+cron.hourly                    locale.alias             sgml
+cron.monthly                   locale.gen               shadow
+crontab                        localtime                shadow-
+cron.weekly                    logcheck                 shells
+cups                           login.defs               signond.conf
+cupshelpers                    logrotate.conf           signon-ui
+dbus-1                         logrotate.d              skel
+dconf                          lsb-release              speech-dispatcher
+debconf.conf                   ltrace.conf              ssh
+debian_version                 machine-id               ssl
+default                        machine-info             subgid
+deluser.conf                   magic                    subgid-
+depmod.d                       magic.mime               subuid
+dhcp                           mailcap                  subuid-
+dictionaries-common            mailcap.order            sudoers
+dnsmasq.d                      manpath.config           sudoers.d
+doc-base                       mime.types               sysctl.conf
+dpkg                           mke2fs.conf              sysctl.d
+drirc                          modprobe.d               sysstat
+emacs                          modules                  systemd
+environment                    modules-load.d           terminfo
+ffserver.conf                  mtab                     thermald
+firefox                        mtools.conf              thunderbird
+fonts                          mysql                    timezone
+fstab                          nanorc                   tmpfiles.d
+ftpusers                       network                  ucf.conf
+fuse.conf                      NetworkManager           udev
+fwupd.conf                     networks                 udisks2
+gai.conf                       newt                     ufw
+gconf                          nginx                    updatedb.conf
+gdb                            nsswitch.conf            update-manager
+ghostscript                    openal                   update-motd.d
+gnome                          opt                      update-notifier
+gnome-app-install              os-release               UPower
+groff                          pam.conf                 upstart-xsessions
+group                          pam.d                    usb_modeswitch.conf
+group-                         papersize                usb_modeswitch.d
+grub.d                         passwd                   vdpau_wrapper.cfg
+gshadow                        passwd-                  vim
+gshadow-                       pcmcia                   vsftpd.conf
+gss                            perl                     vtrgb
+gtk-2.0                        pki                      wgetrc
+gtk-3.0                        pm                       wpa_supplicant
+guest-session                  pnm2ppa.conf             X11
+hdparm.conf                    polkit-1                 xdg
+host.conf                      popularity-contest.conf  xml
+hostname                       postgresql               zprofile
+hosts                          postgresql-common        zsh_command_not_found
+beryl@rajan:~$ 
+beryl@rajan:~$ ls /etc/*.conf
+/etc/adduser.conf          /etc/host.conf        /etc/pam.conf
+/etc/apg.conf              /etc/insserv.conf     /etc/pnm2ppa.conf
+/etc/appstream.conf        /etc/kernel-img.conf  /etc/popularity-contest.conf
+/etc/brltty.conf           /etc/kerneloops.conf  /etc/resolv.conf
+/etc/ca-certificates.conf  /etc/ld.so.conf       /etc/rsyslog.conf
+/etc/debconf.conf          /etc/libao.conf       /etc/sensors3.conf
+/etc/deluser.conf          /etc/libaudit.conf    /etc/signond.conf
+/etc/ffserver.conf         /etc/logrotate.conf   /etc/sysctl.conf
+/etc/fuse.conf             /etc/ltrace.conf      /etc/ucf.conf
+/etc/fwupd.conf            /etc/mke2fs.conf      /etc/updatedb.conf
+/etc/gai.conf              /etc/mtools.conf      /etc/usb_modeswitch.conf
+/etc/hdparm.conf           /etc/nsswitch.conf    /etc/vsftpd.conf
+beryl@rajan:~$ ls /etc/init.d/
+acpid                   keyboard-setup.dpkg-bak  redis-server
+alsa-utils              killprocs                resolvconf
+anacron                 kmod                     rsync
+apparmor                lightdm                  rsyslog
+apport                  mountall-bootclean.sh    saned
+avahi-daemon            mountall.sh              sendsigs
+bluetooth               mountdevsubfs.sh         single
+bootmisc.sh             mountkernfs.sh           skeleton
+brltty                  mountnfs-bootclean.sh    speech-dispatcher
+checkfs.sh              mountnfs.sh              ssh
+checkroot-bootclean.sh  networking               sysstat
+checkroot.sh            network-manager          thermald
+console-setup           nginx                    udev
+cron                    ondemand                 ufw
+cups                    plymouth                 umountfs
+cups-browsed            plymouth-log             umountnfs.sh
+dbus                    postgresql               umountroot
+dns-clean               pppd-dns                 unattended-upgrades
+grub-common             procps                   urandom
+halt                    rc                       uuidd
+hostname.sh             rc.local                 vsftpd
+hwclock.sh              rcS                      whoopsie
+irqbalance              README                   x11-common
+kerneloops              reboot
+beryl@rajan:~$ ls /etc/X11/
+app-defaults             rgb.txt             Xreset      Xsession.d
+cursors                  xinit               Xreset.d    Xsession.options
+default-display-manager  xkb                 Xresources  xsm
+fonts                    xorg.conf.failsafe  Xsession
+beryl@rajan:~$ ls /etc/skel/
+examples.desktop
+beryl@rajan:~$ ls /proc
+1     1335  1581  1859  2374  3731  72   acpi         modules
+10    1336  1589  1866  2381  3736  724  asound       mounts
+1024  1337  1597  1880  2388  38    73   buddyinfo    mtrr
+1025  1341  16    189   241   39    74   bus          net
+1026  1353  1603  191   2415  41    75   cgroups      pagetypeinfo
+1027  1389  1615  1917  2486  43    76   cmdline      partitions
+1028  139   1625  192   25    44    764  consoles     sched_debug
+1050  140   1626  1982  252   45    766  cpuinfo      schedstat
+1051  141   163   1983  2555  46    77   crypto       scsi
+1083  142   1632  1985  26    4985  770  devices      self
+1085  143   164   1991  2606  4992  772  diskstats    slabinfo
+1090  144   1655  1993  27    5     776  dma          softirqs
+1093  1444  1656  1995  28    5103  778  driver       stat
+1094  1445  1672  2     289   5109  78   execdomains  swaps
+1095  145   17    20    29    5134  785  fb           sys
+1096  1451  1720  2011  3     5148  787  filesystems  sysrq-trigger
+1097  1453  1729  2020  30    5357  79   fs           sysvipc
+1098  146   1732  21    31    5384  791  interrupts   thread-self
+11    147   1738  2156  32    563   8    iomem        timer_list
+1102  148   1746  2164  3293  5674  809  ioports      timer_stats
+1145  149   1748  2169  33    5885  834  irq          tty
+1153  15    1763  2175  34    592   859  kallsyms     uptime
+1172  150   1764  2180  3440  603   861  kcore        version
+1173  151   1781  22    3453  6062  881  keys         version_signature
+1174  152   18    2225  3487  6066  888  key-users    vmallocinfo
+1175  1529  1820  2257  349   6072  9    kmsg         vmstat
+1176  153   1821  226   35    6085  908  kpagecgroup  zoneinfo
+12    154   1826  2278  3567  6090  92   kpagecount
+1254  1541  1829  228   36    62    925  kpageflags
+1256  155   1830  2288  37    647   93   loadavg
+13    1553  1831  2290  3721  67    945  locks
+1332  156   1832  23    3722  68    948  mdstat
+1333  157   1833  2311  3725  7     974  meminfo
+1334  1579  1848  2367  3728  71    987  misc
+beryl@rajan:~$ ls -al /proc/cpuinfo
+-r--r--r-- 1 root root 0 Jul  5 10:51 /proc/cpuinfo
+beryl@rajan:~$ 
+beryl@rajan:~$ 
+beryl@rajan:~$ ls -al /proc/cpuinfo
+-r--r--r-- 1 root root 0 Jul  5 10:52 /proc/cpuinfo
+beryl@rajan:~$ ls -al /proc/intrrupt
+ls: cannot access '/proc/intrrupt': No such file or directory
+beryl@rajan:~$ cat /proc/interrupts
+           CPU0       CPU1       CPU2       CPU3       
+  0:         22          0          0          0   IO-APIC   2-edge      timer
+  1:         11        737          0          0   IO-APIC   1-edge      i8042
+  5:          1          0          0          0   IO-APIC   5-edge      parport0
+  8:          1          0          0          0   IO-APIC   8-edge      rtc0
+  9:        273       3004          0          0   IO-APIC   9-fasteoi   acpi
+ 12:        209       4907          0          0   IO-APIC  12-edge      i8042
+ 16:        147       4449      55428          0   IO-APIC  16-fasteoi   ehci_hcd:usb1, ehci_hcd:usb2
+ 18:          2          0          0          0   IO-APIC  18-fasteoi   mmc0, firewire_ohci
+ 23:          0          0          0          0   IO-APIC  23-edge      lis3lv02d
+ 24:          0          0          0          0   PCI-MSI 458752-edge      PCIe PME
+ 25:          0          0          0          0   PCI-MSI 460800-edge      PCIe PME, pciehp
+ 26:          0          0          0          0   PCI-MSI 462848-edge      PCIe PME
+ 27:          0          0          0          0   PCI-MSI 464896-edge      PCIe PME
+ 28:       8423      98841          0          0   PCI-MSI 512000-edge      0000:00:1f.2
+ 29:          7          5         40       1514   PCI-MSI 409600-edge      enp0s25
+ 30:         80          0          0      97023   PCI-MSI 32768-edge      i915
+ 31:         14          0          0          0   PCI-MSI 360448-edge      mei_me
+ 32:          1          0     215218          0   PCI-MSI 18874368-edge      iwlwifi
+ 33:        634       1292          0          0   PCI-MSI 442368-edge      snd_hda_intel
+NMI:         50         49         49         49   Non-maskable interrupts
+LOC:     480565     369481     569386    2146020   Local timer interrupts
+SPU:          0          0          0          0   Spurious interrupts
+PMI:         50         49         49         49   Performance monitoring interrupts
+IWI:          0          0          0          0   IRQ work interrupts
+RTR:          0          0          0          0   APIC ICR read retries
+RES:     132883     113912     119955     119490   Rescheduling interrupts
+CAL:     161973     128373     138680     122079   Function call interrupts
+TLB:     160249     127003     137591     120857   TLB shootdowns
+TRM:          0        360        360        360   Thermal event interrupts
+THR:          0          0          0          0   Threshold APIC interrupts
+DFR:          0          0          0          0   Deferred Error APIC interrupts
+MCE:          0          0          0          0   Machine check exceptions
+MCP:         12         12         12         12   Machine check polls
+ERR:          0
+MIS:          0
+PIN:          0          0          0          0   Posted-interrupt notification event
+PIW:          0          0          0          0   Posted-interrupt wakeup event
+beryl@rajan:~$ 
+beryl@rajan:~$ 
+

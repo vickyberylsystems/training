@@ -1,0 +1,58 @@
+beryl@rajan:~$ pwd
+/home/beryl
+
+beryl@rajan:~$ cd ..
+beryl@rajan:/home$ pwd
+/home
+
+beryl@rajan:/home$ cd ..
+beryl@rajan:/$ pwd
+/
+
+beryl@rajan:/$ cd ..
+beryl@rajan:/$ pwd
+/
+
+beryl@rajan:/$ cd
+beryl@rajan:~$ cd
+beryl@rajan:~$ pwd
+/home/beryl
+
+beryl@rajan:~$ cd certs
+-bash: cd: certs: No such file or directory
+
+beryl@rajan:~$ cd razfile
+beryl@rajan:~/razfile$ cdtutorial
+cdtutorial: command not found
+
+beryl@rajan:~/razfile$ cd tutorial
+beryl@rajan:~/razfile/tutorial$ cd -
+/home/beryl/razfile
+beryl@rajan:~/razfile$ cd ~
+beryl@rajan:~$ cd ~username
+-bash: cd: ~username: No such file or directory
+beryl@rajan:~$ ls
+case                  Music         Public
+Desktop               node_modules  razfile
+Documents             pgdump        slack-desktop-4.0.2-amd64.deb
+Downloads             Pictures      Templates
+examples.desktop      Postman       Videos
+ImageMagick-7.0.8-36  practice
+beryl@rajan:~$ cd razfile/tutorial
+beryl@rajan:~/razfile/tutorial$ cd ~Pictures
+-bash: cd: ~Pictures: No such file or directory
+beryl@rajan:~/razfile/tutorial$ pwd
+/home/beryl/razfile/tutorial
+beryl@rajan:~/razfile/tutorial$ cd home
+-bash: cd: home: No such file or directory
+beryl@rajan:~/razfile/tutorial$ cd /home
+beryl@rajan:/home$ cd razfile
+-bash: cd: razfile: No such file or directory
+beryl@rajan:/home$ cd ..
+beryl@rajan:/$ cd razfile/tutorial
+-bash: cd: razfile/tutorial: No such file or directory
+beryl@rajan:/$ cd 
+beryl@rajan:~$ cd razfile/tutorial/linux
+beryl@rajan:~/razfile/tutorial/linux$ cat >day2.txt
+
+

@@ -1,0 +1,361 @@
+beryl@rajan:~$ ls
+case                  Music         Public
+Desktop               node_modules  razfile
+Documents             pgdump        slack-desktop-4.0.2-amd64.deb
+Downloads             Pictures      Templates
+examples.desktop      Postman       Videos
+ImageMagick-7.0.8-36  practice
+
+beryl@rajan:~$ ls -a
+.                 .gphoto                .profile
+..                .gsutil                .psql_history
+.atom             .gvfs                  Public
+.a.txt.swp        .ICEauthority          .python_history
+.bash_history     ImageMagick-7.0.8-36   razfile
+.bash_logout      .irb-history           .rediscli_history
+.bash_profile     .lesshst               .rvm
+.bashrc           .local                 .selected_editor
+.bundle           .mkshrc                slack-desktop-4.0.2-amd64.deb
+.byebug_hist      .mozilla               .ssh
+.cache            Music                  .sudo_as_admin_successful
+case              .nano                  Templates
+.compiz           node_modules           .thunderbird
+.config           .node_repl_history     Videos
+.dbus             .npm                   .vpython_cipd_cache
+Desktop           .npm-packages          .vpython-root
+.dmrc             .nvm                   .wget-hsts
+Documents         .pgadmin               .Xauthority
+Downloads         .pgAdmin4.startup.log  .xsession-errors
+examples.desktop  pgdump                 .xsession-errors.old
+.gconf            Pictures               .yarn
+.gem              .pki                   .yarnrc
+.gitconfig        Postman                .zlogin
+.gnupg            practice               .zshrc
+
+beryl@rajan:~$ ls -l
+total 59940
+drwxrwxr-x  2 beryl beryl     4096 Aug 22  2019 case
+drwxr-xrwx  2 beryl beryl     4096 Jul  1 13:07 Desktop
+drwxr-xr-x  5 beryl beryl     4096 Mar  1  2020 Documents
+drwxr-xr-x  2 beryl beryl     4096 Jul  1 12:44 Downloads
+-rw-r--r--  1 beryl beryl     8980 Feb 16  2019 examples.desktop
+drwxrwxr-x 15 beryl beryl     4096 Apr  2  2019 ImageMagick-7.0.8-36
+drwxr-xr-x  3 beryl beryl     4096 Mar  1  2020 Music
+drwxrwxr-x 38 beryl beryl     4096 Nov  6  2019 node_modules
+drwxrwxr-x  4 beryl beryl     4096 Oct  3  2019 pgdump
+drwxr-xr-x  2 beryl beryl     4096 Mar  1  2020 Pictures
+drwxrwxr-x  3 beryl beryl     4096 May 18  2019 Postman
+drwxrwxr-x  3 beryl beryl     4096 Nov 30  2020 practice
+drwxr-xr-x  2 beryl beryl     4096 Feb 17  2019 Public
+drwxrwxr-x  3 beryl beryl     4096 Jul  2 10:23 razfile
+-rw-rw-r--  1 beryl beryl 61298592 Aug 22  2019 slack-desktop-4.0.2-amd64.deb
+drwxr-xr-x  2 beryl beryl     4096 Feb 17  2019 Templates
+drwxr-xr-x  2 beryl beryl     4096 Mar  1  2020 Videos
+
+beryl@rajan:~$ ls lh
+ls: cannot access 'lh': No such file or directory
+
+beryl@rajan:~$ ls -lh
+total 59M
+drwxrwxr-x  2 beryl beryl 4.0K Aug 22  2019 case
+drwxr-xrwx  2 beryl beryl 4.0K Jul  1 13:07 Desktop
+drwxr-xr-x  5 beryl beryl 4.0K Mar  1  2020 Documents
+drwxr-xr-x  2 beryl beryl 4.0K Jul  1 12:44 Downloads
+-rw-r--r--  1 beryl beryl 8.8K Feb 16  2019 examples.desktop
+drwxrwxr-x 15 beryl beryl 4.0K Apr  2  2019 ImageMagick-7.0.8-36
+drwxr-xr-x  3 beryl beryl 4.0K Mar  1  2020 Music
+drwxrwxr-x 38 beryl beryl 4.0K Nov  6  2019 node_modules
+drwxrwxr-x  4 beryl beryl 4.0K Oct  3  2019 pgdump
+drwxr-xr-x  2 beryl beryl 4.0K Mar  1  2020 Pictures
+drwxrwxr-x  3 beryl beryl 4.0K May 18  2019 Postman
+drwxrwxr-x  3 beryl beryl 4.0K Nov 30  2020 practice
+drwxr-xr-x  2 beryl beryl 4.0K Feb 17  2019 Public
+drwxrwxr-x  3 beryl beryl 4.0K Jul  2 10:23 razfile
+-rw-rw-r--  1 beryl beryl  59M Aug 22  2019 slack-desktop-4.0.2-amd64.deb
+drwxr-xr-x  2 beryl beryl 4.0K Feb 17  2019 Templates
+drwxr-xr-x  2 beryl beryl 4.0K Mar  1  2020 Videos
+
+beryl@rajan:~$ ls -lhs
+total 59M
+4.0K drwxrwxr-x  2 beryl beryl 4.0K Aug 22  2019 case
+4.0K drwxr-xrwx  2 beryl beryl 4.0K Jul  1 13:07 Desktop
+4.0K drwxr-xr-x  5 beryl beryl 4.0K Mar  1  2020 Documents
+4.0K drwxr-xr-x  2 beryl beryl 4.0K Jul  1 12:44 Downloads
+ 12K -rw-r--r--  1 beryl beryl 8.8K Feb 16  2019 examples.desktop
+4.0K drwxrwxr-x 15 beryl beryl 4.0K Apr  2  2019 ImageMagick-7.0.8-36
+4.0K drwxr-xr-x  3 beryl beryl 4.0K Mar  1  2020 Music
+4.0K drwxrwxr-x 38 beryl beryl 4.0K Nov  6  2019 node_modules
+4.0K drwxrwxr-x  4 beryl beryl 4.0K Oct  3  2019 pgdump
+4.0K drwxr-xr-x  2 beryl beryl 4.0K Mar  1  2020 Pictures
+4.0K drwxrwxr-x  3 beryl beryl 4.0K May 18  2019 Postman
+4.0K drwxrwxr-x  3 beryl beryl 4.0K Nov 30  2020 practice
+4.0K drwxr-xr-x  2 beryl beryl 4.0K Feb 17  2019 Public
+4.0K drwxrwxr-x  3 beryl beryl 4.0K Jul  2 10:23 razfile
+ 59M -rw-rw-r--  1 beryl beryl  59M Aug 22  2019 slack-desktop-4.0.2-amd64.deb
+4.0K drwxr-xr-x  2 beryl beryl 4.0K Feb 17  2019 Templates
+4.0K drwxr-xr-x  2 beryl beryl 4.0K Mar  1  2020 Videos
+
+beryl@rajan:~$ ls -lhS
+total 59M
+-rw-rw-r--  1 beryl beryl  59M Aug 22  2019 slack-desktop-4.0.2-amd64.deb
+-rw-r--r--  1 beryl beryl 8.8K Feb 16  2019 examples.desktop
+drwxrwxr-x  2 beryl beryl 4.0K Aug 22  2019 case
+drwxr-xrwx  2 beryl beryl 4.0K Jul  1 13:07 Desktop
+drwxr-xr-x  5 beryl beryl 4.0K Mar  1  2020 Documents
+drwxr-xr-x  2 beryl beryl 4.0K Jul  1 12:44 Downloads
+drwxrwxr-x 15 beryl beryl 4.0K Apr  2  2019 ImageMagick-7.0.8-36
+drwxr-xr-x  3 beryl beryl 4.0K Mar  1  2020 Music
+drwxrwxr-x 38 beryl beryl 4.0K Nov  6  2019 node_modules
+drwxrwxr-x  4 beryl beryl 4.0K Oct  3  2019 pgdump
+drwxr-xr-x  2 beryl beryl 4.0K Mar  1  2020 Pictures
+drwxrwxr-x  3 beryl beryl 4.0K May 18  2019 Postman
+drwxrwxr-x  3 beryl beryl 4.0K Nov 30  2020 practice
+drwxr-xr-x  2 beryl beryl 4.0K Feb 17  2019 Public
+drwxrwxr-x  3 beryl beryl 4.0K Jul  2 10:23 razfile
+drwxr-xr-x  2 beryl beryl 4.0K Feb 17  2019 Templates
+drwxr-xr-x  2 beryl beryl 4.0K Mar  1  2020 Videos
+
+beryl@rajan:~$ cd razfile/tutorial 
+beryl@rajan:~/razfile/tutorial$ cat > "linux ls.txt"
+...................................................................................
+beryl@rajan:~$ ls
+case                  Music         Public
+Desktop               node_modules  razfile
+Documents             pgdump        slack-desktop-4.0.2-amd64.deb
+Downloads             Pictures      Templates
+examples.desktop      Postman       Videos
+ImageMagick-7.0.8-36  practice
+......................................................
+beryl@rajan:~$ ls -d*/
+ls: invalid option -- '*'
+Try 'ls --help' for more information.
+beryl@rajan:~$ ls -d
+.
+...........................................................................
+beryl@rajan:~$ ls -g
+total 59940
+drwxrwxr-x  2 beryl     4096 Aug 22  2019 case
+drwxr-xrwx  2 beryl     4096 Jul  1 13:07 Desktop
+drwxr-xr-x  5 beryl     4096 Mar  1  2020 Documents
+drwxr-xr-x  2 beryl     4096 Jul  1 12:44 Downloads
+-rw-r--r--  1 beryl     8980 Feb 16  2019 examples.desktop
+drwxrwxr-x 15 beryl     4096 Apr  2  2019 ImageMagick-7.0.8-36
+drwxr-xr-x  3 beryl     4096 Mar  1  2020 Music
+drwxrwxr-x 38 beryl     4096 Nov  6  2019 node_modules
+drwxrwxr-x  4 beryl     4096 Oct  3  2019 pgdump
+drwxr-xr-x  2 beryl     4096 Mar  1  2020 Pictures
+drwxrwxr-x  3 beryl     4096 May 18  2019 Postman
+drwxrwxr-x  3 beryl     4096 Nov 30  2020 practice
+drwxr-xr-x  2 beryl     4096 Feb 17  2019 Public
+drwxrwxr-x  3 beryl     4096 Jul  2 10:23 razfile
+-rw-rw-r--  1 beryl 61298592 Aug 22  2019 slack-desktop-4.0.2-amd64.deb
+drwxr-xr-x  2 beryl     4096 Feb 17  2019 Templates
+drwxr-xr-x  2 beryl     4096 Mar  1  2020 Videos
+................................................................................
+beryl@rajan:~$ ls -n
+total 59940
+drwxrwxr-x  2 1000 1000     4096 Aug 22  2019 case
+drwxr-xrwx  2 1000 1000     4096 Jul  1 13:07 Desktop
+drwxr-xr-x  5 1000 1000     4096 Mar  1  2020 Documents
+drwxr-xr-x  2 1000 1000     4096 Jul  1 12:44 Downloads
+-rw-r--r--  1 1000 1000     8980 Feb 16  2019 examples.desktop
+drwxrwxr-x 15 1000 1000     4096 Apr  2  2019 ImageMagick-7.0.8-36
+drwxr-xr-x  3 1000 1000     4096 Mar  1  2020 Music
+drwxrwxr-x 38 1000 1000     4096 Nov  6  2019 node_modules
+drwxrwxr-x  4 1000 1000     4096 Oct  3  2019 pgdump
+drwxr-xr-x  2 1000 1000     4096 Mar  1  2020 Pictures
+drwxrwxr-x  3 1000 1000     4096 May 18  2019 Postman
+drwxrwxr-x  3 1000 1000     4096 Nov 30  2020 practice
+drwxr-xr-x  2 1000 1000     4096 Feb 17  2019 Public
+drwxrwxr-x  3 1000 1000     4096 Jul  2 10:23 razfile
+-rw-rw-r--  1 1000 1000 61298592 Aug 22  2019 slack-desktop-4.0.2-amd64.deb
+drwxr-xr-x  2 1000 1000     4096 Feb 17  2019 Templates
+drwxr-xr-x  2 1000 1000     4096 Mar  1  2020 Videos
+........................................................................................................
+beryl@rajan:~$ ls --color=[red]
+ls: invalid argument ‘[red]’ for ‘--color’
+Valid arguments are:
+  - ‘always’, ‘yes’, ‘force’
+  - ‘never’, ‘no’, ‘none’
+  - ‘auto’, ‘tty’, ‘if-tty’
+...........................................................................
+Try 'ls --help' for more information.
+
+Try 'ls --help' for more information.
+....................................................................
+beryl@rajan:~$ ls li
+ls: cannot access 'li': No such file or directory
+.................................................................................
+beryl@rajan:~$ ls -li
+total 59940
+ 396744 drwxrwxr-x  2 beryl beryl     4096 Aug 22  2019 case
+ 262157 drwxr-xrwx  2 beryl beryl     4096 Jul  1 13:07 Desktop
+ 262161 drwxr-xr-x  5 beryl beryl     4096 Mar  1  2020 Documents
+ 262158 drwxr-xr-x  2 beryl beryl     4096 Jul  1 12:44 Downloads
+ 262147 -rw-r--r--  1 beryl beryl     8980 Feb 16  2019 examples.desktop
+ 660698 drwxrwxr-x 15 beryl beryl     4096 Apr  2  2019 ImageMagick-7.0.8-36
+ 262162 drwxr-xr-x  3 beryl beryl     4096 Mar  1  2020 Music
+ 532210 drwxrwxr-x 38 beryl beryl     4096 Nov  6  2019 node_modules
+1446773 drwxrwxr-x  4 beryl beryl     4096 Oct  3  2019 pgdump
+ 262163 drwxr-xr-x  2 beryl beryl     4096 Mar  1  2020 Pictures
+ 792828 drwxrwxr-x  3 beryl beryl     4096 May 18  2019 Postman
+ 262532 drwxrwxr-x  3 beryl beryl     4096 Nov 30  2020 practice
+ 262160 drwxr-xr-x  2 beryl beryl     4096 Feb 17  2019 Public
+ 393295 drwxrwxr-x  3 beryl beryl     4096 Jul  2 10:23 razfile
+ 275560 -rw-rw-r--  1 beryl beryl 61298592 Aug 22  2019 slack-desktop-4.0.2-amd64.deb
+ 262159 drwxr-xr-x  2 beryl beryl     4096 Feb 17  2019 Templates
+ 262164 drwxr-xr-x  2 beryl beryl     4096 Mar  1  2020 Videos
+...................................................................................................
+beryl@rajan:~$ ls -p
+case/                  Music/         Public/
+Desktop/               node_modules/  razfile/
+Documents/             pgdump/        slack-desktop-4.0.2-amd64.deb
+Downloads/             Pictures/      Templates/
+examples.desktop       Postman/       Videos/
+ImageMagick-7.0.8-36/  practice/
+beryl@rajan:~$ 
+................................................................
+beryl@rajan:~$ ls lt
+ls: cannot access 'lt': No such file or directory
+........................................................................................
+beryl@rajan:~$ ls -lt
+total 59940
+drwxrwxr-x  3 beryl beryl     4096 Jul  2 10:23 razfile
+drwxr-xrwx  2 beryl beryl     4096 Jul  1 13:07 Desktop
+drwxr-xr-x  2 beryl beryl     4096 Jul  1 12:44 Downloads
+drwxrwxr-x  3 beryl beryl     4096 Nov 30  2020 practice
+drwxr-xr-x  2 beryl beryl     4096 Mar  1  2020 Videos
+drwxr-xr-x  2 beryl beryl     4096 Mar  1  2020 Pictures
+drwxr-xr-x  3 beryl beryl     4096 Mar  1  2020 Music
+drwxr-xr-x  5 beryl beryl     4096 Mar  1  2020 Documents
+drwxrwxr-x 38 beryl beryl     4096 Nov  6  2019 node_modules
+drwxrwxr-x  4 beryl beryl     4096 Oct  3  2019 pgdump
+drwxrwxr-x  2 beryl beryl     4096 Aug 22  2019 case
+-rw-rw-r--  1 beryl beryl 61298592 Aug 22  2019 slack-desktop-4.0.2-amd64.deb
+drwxrwxr-x  3 beryl beryl     4096 May 18  2019 Postman
+drwxrwxr-x 15 beryl beryl     4096 Apr  2  2019 ImageMagick-7.0.8-36
+drwxr-xr-x  2 beryl beryl     4096 Feb 17  2019 Public
+drwxr-xr-x  2 beryl beryl     4096 Feb 17  2019 Templates
+-rw-r--r--  1 beryl beryl     8980 Feb 16  2019 examples.desktop
+...............................................................................................
+beryl@rajan:~$ ls ~
+case                  Music         Public
+Desktop               node_modules  razfile
+Documents             pgdump        slack-desktop-4.0.2-amd64.deb
+Downloads             Pictures      Templates
+examples.desktop      Postman       Videos
+ImageMagick-7.0.8-36  practice
+
+..........................................................................................
+
+ beryl@rajan:~$ ls -B
+case                  Music         razfile
+Desktop               node_modules  rename.txt
+Documents             pgdump        slack-desktop-4.0.2-amd64.deb
+Downloads             Pictures      Templates
+examples.desktop      Postman       Videos
+folder                practice
+ImageMagick-7.0.8-36  Public
+beryl@rajan:~$ ls -d
+.
+.....................................................................................
+beryl@rajan:~$ ls -D
+case                  Music         razfile
+Desktop               node_modules  rename.txt
+Documents             pgdump        slack-desktop-4.0.2-amd64.deb
+Downloads             Pictures      Templates
+examples.desktop      Postman       Videos
+folder                practice
+ImageMagick-7.0.8-36  Public
+................................................................................
+
+beryl@rajan:~$ ls -f
+Documents                  .gvfs
+Public                     .local
+Pictures                   .gem
+.mozilla                   .rvm
+Music                      .compiz
+.nano                      .bash_logout
+folder                     .xsession-errors.old
+.a.txt.swp                 .profile
+..                         .zshrc
+.yarnrc                    Templates
+.cache                     .bundle
+case                       .gphoto
+Downloads                  .lesshst
+.gnupg                     .gitconfig
+Postman                    pgdump
+examples.desktop           .bashrc
+.xsession-errors           .zlogin
+.mkshrc                    rename.txt
+Videos                     .psql_history
+ImageMagick-7.0.8-36       .dbus
+.                          .pki
+.node_repl_history         .byebug_hist
+razfile                    .vpython-root
+.gsutil                    slack-desktop-4.0.2-amd64.deb
+.ssh                       .rediscli_history
+.yarn                      .atom
+.wget-hsts                 .vpython_cipd_cache
+.dmrc                      .python_history
+.sudo_as_admin_successful  practice
+.selected_editor           .npm-packages
+node_modules               .npm
+Desktop                    .bash_history
+.gconf                     .Xauthority
+.pgadmin                   .bash_profile
+.pgAdmin4.startup.log      .config
+.thunderbird               .irb-history
+.nvm                       .ICEauthority
+beryl@rajan:~$ 
+
+.........................................................................
+beryl@rajan:~$ ls -F
+case/                  Music/         razfile/
+Desktop/               node_modules/  rename.txt
+Documents/             pgdump/        slack-desktop-4.0.2-amd64.deb
+Downloads/             Pictures/      Templates/
+examples.desktop       Postman/       Videos/
+folder/                practice/
+ImageMagick-7.0.8-36/  Public/
+beryl@rajan:~$ ls -aU
+Documents                  .gvfs
+Public                     .local
+Pictures                   .gem
+.mozilla                   .rvm
+Music                      .compiz
+.nano                      .bash_logout
+folder                     .xsession-errors.old
+.a.txt.swp                 .profile
+..                         .zshrc
+.yarnrc                    Templates
+.cache                     .bundle
+case                       .gphoto
+Downloads                  .lesshst
+.gnupg                     .gitconfig
+Postman                    pgdump
+examples.desktop           .bashrc
+.xsession-errors           .zlogin
+.mkshrc                    rename.txt
+Videos                     .psql_history
+ImageMagick-7.0.8-36       .dbus
+.                          .pki
+.node_repl_history         .byebug_hist
+razfile                    .vpython-root
+.gsutil                    slack-desktop-4.0.2-amd64.deb
+.ssh                       .rediscli_history
+.yarn                      .atom
+.wget-hsts                 .vpython_cipd_cache
+.dmrc                      .python_history
+.sudo_as_admin_successful  practice
+.selected_editor           .npm-packages
+node_modules               .npm
+Desktop                    .bash_history
+.gconf                     .Xauthority
+.pgadmin                   .bash_profile
+.pgAdmin4.startup.log      .config
+.thunderbird               .irb-history
+.nvm                       .ICEauthority
+beryl@rajan:~$ 
+
+

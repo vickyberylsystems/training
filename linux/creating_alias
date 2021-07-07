@@ -1,0 +1,63 @@
+
+beryl@rajan:~$ cd razfile/tutorial/linux
+
+beryl@rajan:~/razfile/tutorial/linux$ file marks.txt
+marks.txt: ASCII text
+
+beryl@rajan:~/razfile/tutorial/linux$ aias fi=file
+aias: command not found
+....................................................................
+beryl@rajan:~/razfile/tutorial/linux$ alias fi=file
+
+beryl@rajan:~/razfile/tutorial/linux$ 
+beryl@rajan:~/razfile/tutorial/linux$ fi marks.txt
+marks.txt: ASCII text
+beryl@rajan:~/razfile/tutorial/linux$ 
+beryl@rajan:~/razfile/tutorial/linux$ cd ..
+beryl@rajan:~/razfile/tutorial$ ls
+linux  mysql  ruby
+beryl@rajan:~/razfile/tutorial$ ls -l
+total 12
+drwxrwxr-x 2 beryl beryl 4096 Jul  3 11:36 linux
+drwxrwxr-x 2 beryl beryl 4096 Jul  1 17:08 mysql
+drwxrwxr-x 2 beryl beryl 4096 Jul  1 17:08 ruby
+
+;...................................................................
+
+beryl@rajan:~/razfile/tutorial$ alias ll='ls -l'
+........................................................
+beryl@rajan:~/razfile/tutorial$ 
+beryl@rajan:~/razfile/tutorial$ ll
+total 12
+drwxrwxr-x 2 beryl beryl 4096 Jul  3 12:05 linux
+drwxrwxr-x 2 beryl beryl 4096 Jul  1 17:08 mysql
+drwxrwxr-x 2 beryl beryl 4096 Jul  1 17:08 ruby
+beryl@rajan:~/razfile/tutorial$ 
+..................................................................
+
+beryl@rajan:~$ alias path='cd /razfile/tutorial/linux'
+beryl@rajan:~$ path
+bash: cd: /razfile/tutorial/linux: No such file or directory
+beryl@rajan:~$ alias path='cd /home/beryl/razfile/tutorial/linux'
+beryl@rajan:~$ path
+beryl@rajan:~/razfile/tutorial/linux$ 
+beryl@rajan:~/razfile/tutorial/linux$ alias c=cat
+beryl@rajan:~/razfile/tutorial/linux$ c marks.txt
+alen-50
+alias-60
+root-70
+nnnnnnn-80
+vicky-86
+
+................................................................................removing alias......................
+preet-85beryl@rajan:~/razfile/tutorial/linux$ rmalias c
+rmalias: command not found
+
+beryl@rajan:~/razfile/tutorial/linux$ unalias c
+beryl@rajan:~/razfile/tutorial/linux$ 
+beryl@rajan:~/razfile/tutorial/linux$ c marks.txt
+c: command not found
+beryl@rajan:~/razfile/tutorial/linux$ 
+
+
+
