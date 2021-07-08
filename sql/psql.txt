@@ -1,0 +1,203 @@
+
+# \q
+#help
+#\q
+#\? toget help
+#\l   list all db
+# 
+#create database test;   //create db
+#\l
+
+#drop database test ;    // to delete a database.
+
+
+### connect to database
+
+#psql --help
+
+#psql -h localhost -p portnumber -u vickytest
+
+#\q   to exit
+
+### other way to connect ro data base.....
+
+#psql
+#\l
+# \c test    //connect to database
+
+## create a table in postgres.................
+
+#create table person (
+	id INT ,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	gender VARCHAR(10),
+	dob  DATE );
+
+#\d   ..........used to describes table..........
+
+        list of relations
+schema | name | type |owner
+...................................
+public |person|table | ownername
+
+
+...............used to show table........
+
+#\d person
+
+...........create table with  constraints.............
+
+#create table person (
+        id BIGSERIAL NOT NULL PRIMARY KEY ,
+        first_name VARCHAR(50) NOT NULL ,
+        last_name VARCHAR(50) NOT NULL,
+        gender VARCHAR(10) NOT NULL ,
+        dob  DATE NOT NULL ,
+	email VARCHAR (100) );
+
+#\d
+#\d person
+.................inser records into table...............
+
+# insert into person (first_name ,last_name,gender,dob,email)
+#values (vicky,raz,m,'1998-04-24','vicky@gmail.com');
+
+..........................execute commad from file...........
+
+#\i "file path";
+ 
+select * from person;
+select first_name from person;
+select last_name from person;
+
+select ,first_name,last_name from person;
+
+selct * from person order by id;
+select * from person order by id ASC;
+
+select * from person order by id DESC;
+
+...............................select distinct value from table....    it remove duplicates from table.......
+
+select distinct country from person order by country;
+
+....................where clause..........................
+select * from person where country='germany';
+
+.................comparison command............................
+# select 1=1;
+
+#select 1<2;
+
+.............................limit command.................
+
+#select * from person limit 5;
+
+out---it display the first 5 rows of table.
+
+............................offset with limit...............
+
+#select * from person offset 5 limit 5;
+
+out-- display rows from 6 to 10.
+
+...................................................
+
+select * from person offset 10 ;
+
+out-- display rows from 11 to last.
+
+.....................................use fetch instead of limit in query.............................
+
+select * from person offset 5 fetch first 5 row only;
+
+out-- it also display the rows from 6 to 10.
+
+........................................................
+
+select * from person fetch first 5 row only;
+
+out--dispaly first 5 row of the table.
+
+.........................................................
+select * from person offset 5 fetch first 1 row only;
+
+out-- display only 6 th row of table;
+
+...............................................use of IN command instead multiple or command  ...... .............
+ 
+select * from person where  country='china' or country_of birth='china' or country='brazil' or country_ofbirth='brazil';
+
+use instead......
+
+select * from person where country IN ('china','brazil') or country_of_birth IN ('china','brazil');
+
+both gives the same result........
+
+...............................................between commands...........................
+
+select * from person 
+where dob between '1960-01-01' and '2020-01-01';
+
+out-- display the rows which has dob between these year.
+
+................................................LIKE COMMAND......... to search some pattern in output...............
+
+select * from person where email like '%.com';
+
+select * freom person where email like '@gmail.com';
+
+out-- it display all the rows with email end with @ gmail.com.
+
+.........................................
+
+select * from person where email like "_______gh@%";
+
+..................................................GROUP BY COMMAND    ................ 
+
+.......find the how many people born in each country...............................
+
+select country_of_birth , count(*) from person group by country_of_birth;
+
+
+................group by with having keyword.............
+
+select * from select country_of_birth , count(*) from person group by country_of_birth having count(*)>5;
+
+
+...........................................use of min ,max, sum agregate funstion................................................
+
+find  maximum salary,minimum salary  of employee table........................
+
+selct max(salary),min(salary) from person; 
+
+................................................
+ find name of person having maximum salary........
+
+select name from person where salary=max(salary);
+
+	 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
