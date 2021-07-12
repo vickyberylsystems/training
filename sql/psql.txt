@@ -7,7 +7,10 @@
 # 
 #create database test;   //create db
 #\l
-
+.....................................................
+postgres=# create database test;
+CREATE DATABASE
+.........................................................
 #drop database test ;    // to delete a database.
 
 
@@ -63,7 +66,55 @@ public |person|table | ownername
 # insert into person (first_name ,last_name,gender,dob,email)
 #values (vicky,raz,m,'1998-04-24','vicky@gmail.com');
 
-..........................execute commad from file...........
+postgres=# \c postgres
+You are now connected to database "postgres" as user "postgres".
+postgres=# \d
+              List of relations
+ Schema |     Name      |   Type   |  Owner   
+--------+---------------+----------+----------
+ public | emp           | table    | postgres
+ public | emp_id_seq    | sequence | postgres
+ public | person        | table    | postgres
+ public | person_id_seq | sequence | postgres
+(4 rows)
+..........................................................alter the data type of a column...... 
+postgres=# alter table emp
+postgres-# alter column mob_no type bigint;
+ALTER TABLE
+postgres=# insert into emp (first_name,last_name,gender,email,emp_id,mob_no,salary) values('sumit','kumar','m','sumitkumar@gmail.com','#154',9968865463,650000);
+INSERT 0 1
+
+,..................................................update the row value,,,,,.....................................
+
+postgres=# update emp set salary = 800000 where id=4; 
+UPDATE 1
+postgres=# update emp set salary = 550000 where id=1; 
+UPDATE 1
+postgres=# 
+
+..............................................................................................
+postgres=# SELECT CURRENT_TIMESTAMP;
+        current_timestamp         
+----------------------------------
+ 2021-07-09 12:28:52.891354+05:30
+(1 row)
+
+postgres=# SELECT (15 + 6) AS ADDITION ;
+ addition 
+----------
+       21
+(1 row)
+
+........................................use of where clause....................................
+
+postgres=# SELECT * FROM emp WHERE SALARY >= 650000;
+postgres=# SELECT * FROM emp WHERE first_name like '%p%';
+postgres=# SELECT * FROM emp WHERE SALARY in (450000,650000);
+postgres=# SELECT * FROM emp WHERE SALARY between 550000 and 700000;
+postgres=# SELECT * FROM emp WHERE SALARY not in (450000,650000);
+
+
+............................................execute commad from file...........................
 
 #\i "file path";
  
@@ -90,13 +141,13 @@ select * from person where country='germany';
 
 #select 1<2;
 
-.............................limit command.................
+..................................................limit command.................
 
 #select * from person limit 5;
 
 out---it display the first 5 rows of table.
 
-............................offset with limit...............
+........................................................offset with limit...............
 
 #select * from person offset 5 limit 5;
 
@@ -107,8 +158,61 @@ out-- display rows from 6 to 10.
 select * from person offset 10 ;
 
 out-- display rows from 11 to last.
+........................................................
 
-.....................................use fetch instead of limit in query.............................
+postgres=# select * from emp order by id limit 3 offset 2;
+ id | first_name | last_name | gender |         email          | emp_id |  mob_no  | salary 
+----+------------+-----------+--------+------------------------+--------+----------+--------
+  3 | riya       | kapoor    | f      | fabbfgbcc@system.com   | #144   | 45865463 | 750000
+  4 | neha       | khanna    | f      | dhjsfjjdddc@system.com | #145   | 55865463 | 800000
+  5 | amzad      | raza      | m      | vickyc@system.com      | #146   | 88865463 | 550000
+(3 rows)
+
+
+.........................find second max salry from emp table....................
+
+postgres=# select first_name,salary as second_max_sal from emp order by salary DESC limit 1 offset 1;
+ first_name | second_max_sal 
+------------+----------------
+ riya       |         750000
+(1 row)
+
+...............................................................use fetch instead of limit in.......................... query.............................
+
+                                                             ^
+postgres=# select salary from emp group by salary order by salary desc offset 1 fetch first 1 row only;
+ salary 
+--------
+ 750000
+(1 row)
+................................using nested select stetement..................................
+
+postgres=# SELECT MAX(Salary) FROM emp WHERE Salary NOT IN (SELECT MAX(Salary) FROM emp );
+  max   
+--------
+ 750000
+(1 row)
+
+..............................................................find theemployee having  nth maximun salary.....................
+
+
+SELECT Id, Salary
+FROM Employee e
+WHERE (N-1)=(SELECT COUNT(DISTINCT Salary) 
+FROM Employee e1 WHERE e1.Salary > e.Salary);
+
+...............................................................find 2nd highestpaying employee name............................ 
+
+postgres=# select e.first_name , e.salary 
+from employee e 
+where 1=(select count(distinct salary) from employee e1 where e1.salary > e.salary);
+
+ first_name | salary 
+------------+--------
+ Giacinta   | 730003
+(1 row)
+
+.............................................................
 
 select * from person offset 5 fetch first 5 row only;
 
@@ -142,7 +246,7 @@ where dob between '1960-01-01' and '2020-01-01';
 
 out-- display the rows which has dob between these year.
 
-................................................LIKE COMMAND......... to search some pattern in output...............
+.......................................................LIKE COMMAND......... to search some pattern in output...............
 
 select * from person where email like '%.com';
 
@@ -154,32 +258,199 @@ out-- it display all the rows with email end with @ gmail.com.
 
 select * from person where email like "_______gh@%";
 
-..................................................GROUP BY COMMAND    ................ 
+postgres=# SELECT * FROM emp WHERE first_name like '%p%' AND SALARY >= 650000;
+ id | first_name | last_name | gender | email | emp_id | mob_no | salary 
+----+------------+-----------+--------+-------+--------+--------+--------
+(0 rows)
 
-.......find the how many people born in each country...............................
+postgres=# SELECT * FROM emp WHERE first_name like '%p%' AND SALARY > 600000;
+ id | first_name | last_name | gender | email | emp_id | mob_no | salary 
+----+------------+-----------+--------+-------+--------+--------+--------
+(0 rows)
+
+postgres=# SELECT * FROM emp WHERE first_name like '%p%' AND SALARY > 300000;
+postgres=# select * from emp;
+postgres=# 
+
+
+..................................................GROUP BY COMMAND ....find the how many people born in each    country...............................
 
 select country_of_birth , count(*) from person group by country_of_birth;
+
+.............................................................
+postgres=# select salary,count(*) from emp group by salary;
+ salary | count 
+--------+-------
+ 800000 |     1
+ 550000 |     5
+ 350000 |     2
+ 750000 |     1
+ 650000 |     3
+ 500000 |     1
+ 450000 |     2
+ 400000 |     1
+  76000 |     1
+(9 rows)
+
 
 
 ................group by with having keyword.............
 
-select * from select country_of_birth , count(*) from person group by country_of_birth having count(*)>5;
+select country_of_birth , count(*) from person group by country_of_birth having count(*)>5;
 
 
-...........................................use of min ,max, sum agregate funstion................................................
+...........................................use of min ,max, sum functions ......................
 
 find  maximum salary,minimum salary  of employee table........................
 
 selct max(salary),min(salary) from person; 
 
-................................................
- find name of person having maximum salary........
+postgres=# select min(salary),max(salary),avg(salary),sum(salary),count(salary) from emp;
+  min  |  max   |         avg         |   sum   | count 
+-------+--------+---------------------+---------+-------
+ 76000 | 800000 | 519176.470588235294 | 8826000 |    17
+(1 row)
+
+............................................................ find name of person having maximum salary............................
 
 select name from person where salary=max(salary);
 
+
+
+......................................................select the alternate row data feom table...................................
+
+postgres=# Select id, emp_id from emp where mod(id, 2)=1 order by id;
+ id | emp_id 
+----+--------
+  1 | #123
+  3 | #144
+  5 | #146
+  7 | #148
+  9 | #150
+ 11 | #152
+ 13 | *141
+ 15 | *143
+ 17 | #154
+(9 rows)
+
+.......................................................find the sub string of data from a column ......................................
+
+postgres=# Select SUBSTRING(last_name, 1, 3) as employeesurname from emp limit 5;
+ employeesurname 
+-----------------
+ kap
+ kap
+ raz
+ par
+ sha
+(5 rows)
+
+.........................................................................lower(),upper(),initcap() function of string,..................
+
+postgres=# Select lower(first_name),upper(first_name),initcap(first_name) from emp limit 5;
+  lower   |  upper   | initcap  
+----------+----------+----------
+ anil     | ANIL     | Anil
+ riya     | RIYA     | Riya
+ amzad    | AMZAD    | Amzad
+ asma     | ASMA     | Asma
+ dharvesh | DHARVESH | Dharvesh
+(5 rows)
+
+....................................................coalesce() function use fill the full name where ddata having null value.......
+
+
+postgres=# select id, coalesce(first_name,last_name) from emp limit 4;
+ id | coalesce 
+----+----------
+  2 | anil
+  3 | riya
+  5 | amzad
+  6 | asma
+(4 rows)
+
+........................................Finding the Employees who have been hire before 2018. using date_part() function........
+
+postgres=# select first_name,hire_date from employee where date_part('year',hire_date)<=2018;
+ first_name | hire_date  
+------------+------------
+ Jessika    | 2018-07-20
+ Jaquenetta | 2018-11-23
+ Jocko      | 2018-06-23
+ Gran       | 2018-01-08
+ Grier      | 2018-03-12
+ Sara-ann   | 2018-01-30
+ Max        | 2018-07-15
+ Alecia     | 2018-02-23
+ Audy       | 2018-11-04
+(9 rows)
+
+........................................................................hire after 2018..................................
+
+select first_name,hire_date from employee where date_part('year',hire_date)>=2018 order by hire_date;
+
+ first_name | hire_date  
+------------+------------
+ Gran       | 2018-01-08
+ Sara-ann   | 2018-01-30
+ Alecia     | 2018-02-23
+ Grier      | 2018-03-12
+ Jocko      | 2018-06-23
+ Max        | 2018-07-15
+ Jessika    | 2018-07-20
+ Audy       | 2018-11-04
+ Jaquenetta | 2018-11-23
+ Bron       | 2019-01-29
+ Anne-marie | 2019-03-19
+ Tallie     | 2019-03-28
+ Ferdy      | 2019-07-22
+ Sarita     | 2019-10-14
+ Andromache | 2019-10-15
+ Felice     | 2019-10-27
+ Shannon    | 2019-10-28
+ Giacinta   | 2019-10-30
+ Nadiya     | 2019-11-09
+ Dulcie     | 2019-11-13
+ Gwenette   | 2020-02-08
+ Frayda     | 2020-02-15
+ Fancy      | 2020-04-16
+ Harriott   | 2020-04-17
+ Gina       | 2020-07-20
+ Florri     | 2020-07-21
+ Gelya      | 2020-08-04
+ Delmor     | 2020-10-14
+ Cristobal  | 2020-12-13
+ Elane      | 2020-12-17
+ Shani      | 2020-12-26
+ Freida     | 2021-01-07
+ Veronica   | 2021-01-08
+ Karon      | 2021-01-20
+ Ram        | 2021-02-13
+:
+
+..................................................................
+
+postgres=# SELECT DATE_PART('year', '2012-01-01'::date) - DATE_PART('year', '2011-10-02'::date);
+ ?column? 
+----------
+        1
+(1 row)
+
+postgres=# SELECT DATE_PART('month', '2012-01-01'::date) - DATE_PART('month', '2011-10-02'::date);
+ ?column? 
+----------
+       -9
+(1 row)
+
+postgres=# SELECT (DATE_PART('year', '2012-01-01'::date) - DATE_PART('year', '2011-10-02'::date)) * 12 +
+postgres-# (DATE_PART('month', '2012-01-01'::date) - DATE_PART('month', '2011-10-02'::date));
+ ?column? 
+----------
+        3
+(1 row)
+
 	 
  
-
 
 
 

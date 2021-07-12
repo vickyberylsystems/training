@@ -1,0 +1,288 @@
+postgres=# select * from emp;
+ id | first_name | last_name | gender | emp_id |   mob_no   | salary 
+----+------------+-----------+--------+--------+------------+--------
+  1 | dev        | kapoor    | m      | #1     |   86543563 | 550000
+  2 | anil       | kapoor    | m      | #2     |   86549863 |  76000
+  3 | riya       | kapoor    | f      | #3     |   45865463 | 750000
+  4 | neha       | khanna    | f      | #4     |   55865463 | 800000
+  5 | amzad      | raza      | m      | #5     |   88865463 | 550000
+  6 | asma       | parveen   | f      | #6     |   87665463 | 500000
+  7 | dharvesh   | sharma    | m      | #7     |   87865463 | 350000
+  8 | preet      | bharana   | m      | #8     |   87865463 | 350000
+  9 | ayush      | sharma    | m      | #9     |   98865463 | 450000
+ 10 | lucky      | sharma    | f      | #10    |   78865463 | 400000
+ 11 | rohit      | kumar     | m      | #11    |   68865463 | 450000
+ 12 | mehta      | sharma    | m      | #12    |  968865463 | 650000
+ 13 | kunal      | sharma    | m      | #13    |  966565463 | 650000
+ 14 | kunal      | kumar     | m      | #14    |   88565463 | 550000
+ 15 | bhawna     | sharma    | f      | #15    |   98565423 | 550000
+ 16 | deepak     | kumar     | m      | #16    |   68565423 | 550000
+ 17 | sumit      | kumar     | m      | #17    | 9968865463 | 650000
+(17 rows)
+.................................................................................................................................
+postgres=# select * from department;
+ emp_id |  d_name  | dep_id  | location 
+--------+----------+---------+----------
+ #1     | computer | 11      | delhi
+ #2     | hr       | hr00    | delhi
+ #5     | hr       | hr00    | kolkata
+ #3     | backend  | back00  | mumbai
+ #6     | backend  | back00  | kolkata
+ #4     | frontend | front00 | delhi
+ #7     | computer | 11      | delhi
+ #10    | computer | 11      | banglore
+ #8     | hr       | hr00    | banglore
+ #9     | hr       | hr00    | mumbai
+ #11    | backend  | back00  | mumbai
+ #12    | frontend | front00 | mumbai
+ #13    | frontend | front00 | banglore
+ #14    | frontend | front00 | delhi
+ #15    | manager  | man00   | banglore
+ #17    | manager  | man00   | delhi
+ #16    | manager  | man00   | banglore
+(17 rows)
+............................................................................................................................................
+postgres=# select * from emp e inner join department d on e.emp_id=d.emp_id; 
+ id | first_name | last_name | gender | emp_id |   mob_no   | salary | emp_id |  d_name  | dep_id  | location 
+----+------------+-----------+--------+--------+------------+--------+--------+----------+---------+----------
+  1 | dev        | kapoor    | m      | #1     |   86543563 | 550000 | #1     | computer | 11      | delhi
+  2 | anil       | kapoor    | m      | #2     |   86549863 |  76000 | #2     | hr       | hr00    | delhi
+  5 | amzad      | raza      | m      | #5     |   88865463 | 550000 | #5     | hr       | hr00    | kolkata
+  3 | riya       | kapoor    | f      | #3     |   45865463 | 750000 | #3     | backend  | back00  | mumbai
+  6 | asma       | parveen   | f      | #6     |   87665463 | 500000 | #6     | backend  | back00  | kolkata
+  4 | neha       | khanna    | f      | #4     |   55865463 | 800000 | #4     | frontend | front00 | delhi
+  7 | dharvesh   | sharma    | m      | #7     |   87865463 | 350000 | #7     | computer | 11      | delhi
+ 10 | lucky      | sharma    | f      | #10    |   78865463 | 400000 | #10    | computer | 11      | banglore
+  8 | preet      | bharana   | m      | #8     |   87865463 | 350000 | #8     | hr       | hr00    | banglore
+  9 | ayush      | sharma    | m      | #9     |   98865463 | 450000 | #9     | hr       | hr00    | mumbai
+ 11 | rohit      | kumar     | m      | #11    |   68865463 | 450000 | #11    | backend  | back00  | mumbai
+ 12 | mehta      | sharma    | m      | #12    |  968865463 | 650000 | #12    | frontend | front00 | mumbai
+ 13 | kunal      | sharma    | m      | #13    |  966565463 | 650000 | #13    | frontend | front00 | banglore
+ 14 | kunal      | kumar     | m      | #14    |   88565463 | 550000 | #14    | frontend | front00 | delhi
+ 15 | bhawna     | sharma    | f      | #15    |   98565423 | 550000 | #15    | manager  | man00   | banglore
+ 17 | sumit      | kumar     | m      | #17    | 9968865463 | 650000 | #17    | manager  | man00   | delhi
+ 16 | deepak     | kumar     | m      | #16    |   68565423 | 550000 | #16    | manager  | man00   | banglore
+(17 rows)
+
+............................................................................................................................................
+postgres=# select d.d_name , count(*) from emp e inner join department d on e.emp_id=d.emp_id group by (d.d_name); 
+  d_name  | count 
+----------+-------
+ backend  |     3
+ computer |     3
+ hr       |     4
+ frontend |     4
+ manager  |     3
+(5 rows)
+.............................................................................................................................................
+postgres=# select d.d_name , count(*) from emp e inner join department d on e.emp_id=d.emp_id group by (d.d_name) having d.d_name='hr'; 
+ d_name | count 
+--------+-------
+ hr     |     4
+(1 row)
+............................................................................................................................................
+postgres=# select d.location, count(*) from emp e inner join department d on e.emp_id=d.emp_id group by (d.location); 
+
+ location | count 
+----------+-------
+ kolkata  |     2
+ mumbai   |     4
+ delhi    |     6
+ banglore |     5
+(4 rows)
+..............................................................................................................................................
+postgres=# select d.location, count(*) from emp e inner join department d on e.emp_id=d.emp_id 
+group by (d.location) having d.location='delhi'; 
+
+ location | count 
+----------+-------
+ delhi    |     6
+(1 row)
+.............................................................................................................................................
+postgres=# select d.d_name,max(e.salary) from emp e inner join department d on e.emp_id=d.emp_id group by (d.d_name); 
+  d_name  |  max   
+----------+--------
+ backend  | 750000
+ computer | 550000
+ hr       | 550000
+ frontend | 800000
+ manager  | 650000
+(5 rows)
+...........................................................................................................................................
+postgres=# select d.d_name,min(e.salary) from emp e inner join department d on e.emp_id=d.emp_id group by (d.d_name); 
+  d_name  |  min   
+----------+--------
+ backend  | 450000
+ computer | 350000
+ hr       |  76000
+ frontend | 550000
+ manager  | 550000
+(5 rows)
+................................................................................................................................................
+postgres=# select d.d_name,sum(e.salary) from emp e inner join department d on e.emp_id=d.emp_id group by (d.d_name); 
+  d_name  |   sum   
+----------+---------
+ backend  | 1700000
+ computer | 1300000
+ hr       | 1426000
+ frontend | 2650000
+ manager  | 1750000
+(5 rows)
+.................................................................................................................................................
+postgres=# select e.first_name ,d.d_name from emp e join department d on e.emp_id=d.emp_id ;
+ first_name |  d_name  
+------------+----------
+ dev        | computer
+ anil       | hr
+ amzad      | hr
+ riya       | backend
+ asma       | backend
+ neha       | frontend
+ dharvesh   | computer
+ lucky      | computer
+ preet      | hr
+ ayush      | hr
+ rohit      | backend
+ mehta      | frontend
+ kunal      | frontend
+ kunal      | frontend
+ bhawna     | manager
+ sumit      | manager
+ deepak     | manager
+(17 rows)
+..........................................................................................................................................
+postgres=# select e.first_name,e.gender ,d.d_name from emp e join department d on e.emp_id=d.emp_id;
+ first_name | gender |  d_name  
+------------+--------+----------
+ dev        | m      | computer
+ anil       | m      | hr
+ amzad      | m      | hr
+ riya       | f      | backend
+ asma       | f      | backend
+ neha       | f      | frontend
+ dharvesh   | m      | computer
+ lucky      | f      | computer
+ preet      | m      | hr
+ ayush      | m      | hr
+ rohit      | m      | backend
+ mehta      | m      | frontend
+ kunal      | m      | frontend
+ kunal      | m      | frontend
+ bhawna     | f      | manager
+ sumit      | m      | manager
+ deepak     | m      | manager
+(17 rows)
+
+..........................................................................................................................................
+postgres=# select e.first_name ,d.d_name from emp e join department d on e.emp_id=d.emp_id where d.d_name='hr';
+ first_name | d_name 
+------------+--------
+ anil       | hr
+ amzad      | hr
+ preet      | hr
+ ayush      | hr
+(4 rows)
+............................................................................................................................................
+postgres=# select e.gender ,d.d_name from emp e join department d on e.emp_id=d.emp_id;
+ gender |  d_name  
+--------+----------
+ m      | computer
+ m      | hr
+ m      | hr
+ f      | backend
+ f      | backend
+ f      | frontend
+ m      | computer
+ f      | computer
+ m      | hr
+ m      | hr
+ m      | backend
+ m      | frontend
+ m      | frontend
+ m      | frontend
+ f      | manager
+ m      | manager
+ m      | manager
+(17 rows)
+
+..........................................................................................................................................
+postgres=# select e.gender ,d.d_name from emp e join department d on e.emp_id=d.emp_id where d.d_name='computer';
+ gender |  d_name  
+--------+----------
+ m      | computer
+ m      | computer
+ f      | computer
+(3 rows)
+............................................................................................................................................
+postgres=# select d.d_name,count(*) from emp e join department d on e.emp_id=d.emp_id where e.gender='f' group by d.d_name;
+  d_name  | count 
+----------+-------
+ backend  |     2
+ computer |     1
+ frontend |     1
+ manager  |     1
+(4 rows)
+.............................................................................................................................................
+postgres=# select d.d_name,count(*) from emp e join department d on e.emp_id=d.emp_id where e.gender='f' and d.d_name='computer' group by d.d_name;
+  d_name  | count 
+----------+-------
+ computer |     1
+(1 row)
+
+.............................................................................................................................................
+
+postgres=# select e.gender ,d.d_name,d.location from emp e join department d on e.emp_id=d.emp_id where d.location='delhi' and e.gender='m';
+ gender |  d_name  | location 
+--------+----------+----------
+ m      | computer | delhi
+ m      | hr       | delhi
+ m      | computer | delhi
+ m      | frontend | delhi
+ m      | manager  | delhi
+(5 rows)
+..............................................................................................................................................
+
+postgres=# select e.gender ,d.d_name,d.location from emp e join department d on e.emp_id=d.emp_id where d.location='delhi' and e.gender='f';
+ gender |  d_name  | location 
+--------+----------+----------
+ f      | frontend | delhi
+(1 row)
+............................................................................................................................................
+
+postgres=# select d.location , count(e.gender) from emp e join department d on e.emp_id=d.emp_id where e.gender='f' group by d.location;
+ location | count 
+----------+-------
+ banglore |     2
+ delhi    |     1
+ kolkata  |     1
+ mumbai   |     1
+(4 rows)
+
+...........................................................................................................................................
+
+postgres=# select * from emp join department on emp.emp_id=department.emp_id  join details on emp.id=details.id; 
+
+
+ id | first_name | last_name | gender | emp_id |   mob_no   | salary | emp_id |  d_name  | dep_id  | location | id | hire_date  |email         
+----+------------+-----------+--------+--------+------------+--------+--------+----------+---------+----------+----+------------+----------------------
+  1 | dev        | kapoor | m      | #1     |   86543563 | 550000 | #1     | computer | 11      | delhi    |  1 | 2019-10-28 |ibenzie0@dmoz.org
+  2 | anil       | kapoor| m      | #2     |   86549863 |  76000 | #2     | hr       | hr00    | delhi    |  2 | 2020-12-26 |hgsejfgjh@dmoz.org
+  3 | riya       | kapoor| f      | #3     |   45865463 | 750000 | #3     | backend  | back00  | mumbai   |  3 | 2019-01-29 |ijheyhedjh@moz.com
+  4 | neha       | khanna    | f      | #4     |   55865463 | 800000 | #4     | frontend | front00 | delhi    |  4 | 2019-10-14 | not provide
+  5 | amzad      | raza      | m      | #5     |   88865463 | 550000 | #5     | hr       | hr00    | kolkata  |  5 | 2020-04-16 | not provide
+  6 | asma       | parveen   | f      | #6     |   87665463 | 500000 | #6     | backend  | back00  | kolkata  |  6 | 2020-07-20 | not provide
+  7 | dharvesh   | sharma    | m      | #7     |   87865463 | 350000 | #7     | computer | 11      | delhi    |  7 | 2020-02-15 | not provide
+  8 | preet      | bharana   | m      | #8     |   87865463 | 350000 | #8     | hr       | hr00    | banglore |  8 | 2018-07-20 | not provide
+  9 | ayush      | sharma    | m      | #9     |   98865463 | 450000 | #9     | hr       | hr00    | mumbai   |  9 | 2018-11-23 | not provide
+ 10 | lucky      | sharma    | f      | #10    |   78865463 | 400000 | #10    | computer | 11      | banglore | 10 | 2019-10-30 | not provide
+ 11 | rohit      | kumar     | m      | #11    |   68865463 | 450000 | #11    | backend  | back00  | mumbai   | 11 | 2019-10-15 | not provide
+ 12 | mehta      | sharma    | m      | #12    |  968865463 | 650000 | #12    | frontend | front00 | mumbai   | 12 | 2021-04-20 | not provide
+ 13 | kunal      | sharma    | m      | #13    |  966565463 | 650000 | #13    | frontend | front00 | banglore | 13 | 2020-04-17 | not provide
+ 14 | kunal      | kumar     | m      | #14    |   88565463 | 550000 | #14    | frontend | front00 | delhi    | 14 | 2020-07-21 | not provide
+ 15 | bhawna     | sharma    | f      | #15    |   98565423 | 550000 | #15    | manager  | man00   | banglore | 15 | 2020-12-17 | not provide
+ 16 | deepak     | kumar     | m      | #16    |   68565423 | 550000 | #16    | manager  | man00   | banglore | 16 | 2018-06-23 | not provide
+ 17 | sumit      | kumar     | m      | #17    | 9968865463 | 650000 | #17    | manager  | man00   | delhi    | 17 | 2021-02-13 | not provide
+(17 rows)
+
+
+
