@@ -260,29 +260,109 @@ postgres=# select d.location , count(e.gender) from emp e join department d on e
 
 ...........................................................................................................................................
 
-postgres=# select * from emp join department on emp.emp_id=department.emp_id  join details on emp.id=details.id; 
+postgres=# select * from emp e join department d on e.id=d.emp_id join details d1 on d.emp_id=d1.id;
 
-
- id | first_name | last_name | gender | emp_id |   mob_no   | salary | emp_id |  d_name  | dep_id  | location | id | hire_date  |email         
-----+------------+-----------+--------+--------+------------+--------+--------+----------+---------+----------+----+------------+----------------------
-  1 | dev        | kapoor | m      | #1     |   86543563 | 550000 | #1     | computer | 11      | delhi    |  1 | 2019-10-28 |ibenzie0@dmoz.org
-  2 | anil       | kapoor| m      | #2     |   86549863 |  76000 | #2     | hr       | hr00    | delhi    |  2 | 2020-12-26 |hgsejfgjh@dmoz.org
-  3 | riya       | kapoor| f      | #3     |   45865463 | 750000 | #3     | backend  | back00  | mumbai   |  3 | 2019-01-29 |ijheyhedjh@moz.com
-  4 | neha       | khanna    | f      | #4     |   55865463 | 800000 | #4     | frontend | front00 | delhi    |  4 | 2019-10-14 | not provide
-  5 | amzad      | raza      | m      | #5     |   88865463 | 550000 | #5     | hr       | hr00    | kolkata  |  5 | 2020-04-16 | not provide
-  6 | asma       | parveen   | f      | #6     |   87665463 | 500000 | #6     | backend  | back00  | kolkata  |  6 | 2020-07-20 | not provide
-  7 | dharvesh   | sharma    | m      | #7     |   87865463 | 350000 | #7     | computer | 11      | delhi    |  7 | 2020-02-15 | not provide
-  8 | preet      | bharana   | m      | #8     |   87865463 | 350000 | #8     | hr       | hr00    | banglore |  8 | 2018-07-20 | not provide
-  9 | ayush      | sharma    | m      | #9     |   98865463 | 450000 | #9     | hr       | hr00    | mumbai   |  9 | 2018-11-23 | not provide
- 10 | lucky      | sharma    | f      | #10    |   78865463 | 400000 | #10    | computer | 11      | banglore | 10 | 2019-10-30 | not provide
- 11 | rohit      | kumar     | m      | #11    |   68865463 | 450000 | #11    | backend  | back00  | mumbai   | 11 | 2019-10-15 | not provide
- 12 | mehta      | sharma    | m      | #12    |  968865463 | 650000 | #12    | frontend | front00 | mumbai   | 12 | 2021-04-20 | not provide
- 13 | kunal      | sharma    | m      | #13    |  966565463 | 650000 | #13    | frontend | front00 | banglore | 13 | 2020-04-17 | not provide
- 14 | kunal      | kumar     | m      | #14    |   88565463 | 550000 | #14    | frontend | front00 | delhi    | 14 | 2020-07-21 | not provide
- 15 | bhawna     | sharma    | f      | #15    |   98565423 | 550000 | #15    | manager  | man00   | banglore | 15 | 2020-12-17 | not provide
- 16 | deepak     | kumar     | m      | #16    |   68565423 | 550000 | #16    | manager  | man00   | banglore | 16 | 2018-06-23 | not provide
- 17 | sumit      | kumar     | m      | #17    | 9968865463 | 650000 | #17    | manager  | man00   | delhi    | 17 | 2021-02-13 | not provide
+ id | first_name | last_name | gender |   mob_no   | salary |  d_name  | dep_id  | location | emp_id | id | hire_date  |        email         
+----+------------+-----------+--------+------------+--------+----------+---------+----------+--------+----+------------+----------------------
+  1 | dev        | kapoor    | m      |   86543563 | 550000 | computer | 11      | delhi    |      1 |  1 | 2019-10-28 |  ibenzie0@dmoz.org
+  2 | anil       | kapoor    | m      |   86549863 |  76000 | hr       | hr00    | delhi    |      2 |  2 | 2020-12-26 | kjhgsejfgjh@dmoz.org
+  3 | riya       | kapoor    | f      |   45865463 | 750000 | hr       | hr00    | kolkata  |      3 |  3 | 2019-01-29 | dhijheyhedjh@moz.com
+  4 | neha       | khanna    | f      |   55865463 | 800000 | backend  | back00  | mumbai   |      4 |  4 | 2019-10-14 | not provide
+  5 | amzad      | raza      | m      |   88865463 | 550000 | backend  | back00  | kolkata  |      5 |  5 | 2020-04-16 | not provide
+  6 | asma       | parveen   | f      |   87665463 | 500000 | frontend | front00 | delhi    |      6 |  6 | 2020-07-20 | not provide
+  7 | dharvesh   | sharma    | m      |   87865463 | 350000 | computer | 11      | delhi    |      7 |  7 | 2020-02-15 | not provide
+  8 | preet      | bharana   | m      |   87865463 | 350000 | computer | 11      | banglore |      8 |  8 | 2018-07-20 | not provide
+  9 | ayush      | sharma    | m      |   98865463 | 450000 | hr       | hr00    | banglore |      9 |  9 | 2018-11-23 | not provide
+ 10 | lucky      | sharma    | f      |   78865463 | 400000 | hr       | hr00    | mumbai   |     10 | 10 | 2019-10-30 | not provide
+ 11 | rohit      | kumar     | m      |   68865463 | 450000 | backend  | back00  | mumbai   |     11 | 11 | 2019-10-15 | not provide
+ 12 | mehta      | sharma    | m      |  968865463 | 650000 | frontend | front00 | mumbai   |     12 | 12 | 2021-04-20 | not provide
+ 13 | kunal      | sharma    | m      |  966565463 | 650000 | frontend | front00 | banglore |     13 | 13 | 2020-04-17 | not provide
+ 14 | kunal      | kumar     | m      |   88565463 | 550000 | frontend | front00 | delhi    |     14 | 14 | 2020-07-21 | not provide
+ 15 | bhawna     | sharma    | f      |   98565423 | 550000 | manager  | man00   | banglore |     15 | 15 | 2020-12-17 | not provide
+ 16 | deepak     | kumar     | m      |   68565423 | 550000 | manager  | man00   | delhi    |     16 | 16 | 2018-06-23 | not provide
+ 17 | sumit      | kumar     | m      | 9968865463 | 650000 | manager  | man00   | banglore |     17 | 17 | 2021-02-13 | not provide
 (17 rows)
 
+
+.........................................................................................................................................
+
+## SELF JOIN...............
+
+postgres=# select e1.first_name as f_name , e2.last_name as l_name from emp e1,emp e2 where e1.id=e2.id;
+  f_name  | l_name  
+----------+---------
+ dev      | kapoor
+ anil     | kapoor
+ riya     | kapoor
+ neha     | khanna
+ amzad    | raza
+ asma     | parveen
+ dharvesh | sharma
+ preet    | bharana
+ ayush    | sharma
+ lucky    | sharma
+ rohit    | kumar
+ mehta    | sharma
+ kunal    | sharma
+ kunal    | kumar
+ bhawna   | sharma
+ deepak   | kumar
+ sumit    | kumar
+(17 rows)
+...............................................................................................................................................
+
+## LEFT OUTER JOIN,....
+
+postgres=# select * from details left outer join department d on details.id=d.emp_id;
+ id | hire_date  |        email         |  d_name  | dep_id  | location | emp_id 
+----+------------+----------------------+----------+---------+----------+--------
+  1 | 2019-10-28 |  ibenzie0@dmoz.org   | computer | 11      | delhi    |      1
+  2 | 2020-12-26 | kjhgsejfgjh@dmoz.org | hr       | hr00    | delhi    |      2
+  3 | 2019-01-29 | dhijheyhedjh@moz.com | hr       | hr00    | kolkata  |      3
+  4 | 2019-10-14 | not provide          | backend  | back00  | mumbai   |      4
+  5 | 2020-04-16 | not provide          | backend  | back00  | kolkata  |      5
+  6 | 2020-07-20 | not provide          | frontend | front00 | delhi    |      6
+  7 | 2020-02-15 | not provide          | computer | 11      | delhi    |      7
+  8 | 2018-07-20 | not provide          | computer | 11      | banglore |      8
+  9 | 2018-11-23 | not provide          | hr       | hr00    | banglore |      9
+ 10 | 2019-10-30 | not provide          | hr       | hr00    | mumbai   |     10
+ 11 | 2019-10-15 | not provide          | backend  | back00  | mumbai   |     11
+ 12 | 2021-04-20 | not provide          | frontend | front00 | mumbai   |     12
+ 13 | 2020-04-17 | not provide          | frontend | front00 | banglore |     13
+ 14 | 2020-07-21 | not provide          | frontend | front00 | delhi    |     14
+ 15 | 2020-12-17 | not provide          | manager  | man00   | banglore |     15
+ 16 | 2018-06-23 | not provide          | manager  | man00   | delhi    |     16
+ 17 | 2021-02-13 | not provide          | manager  | man00   | banglore |     17
+ 18 | 2019-07-22 | not provide          |          |         |          |       
+ 19 | 2018-01-08 | not provide          |          |         |          |       
+ 20 | 2020-12-13 | not provide          |          |         |          |       
+(20 rows)
+.............................................................................................................................................
+## RIGHT OUTER JOIN......
+
+postgres=# select * from details right outer join department d on details.id=d.emp_id;
+ id | hire_date  |        email         |  d_name  | dep_id  | location | emp_id 
+----+------------+----------------------+----------+---------+----------+--------
+  1 | 2019-10-28 |  ibenzie0@dmoz.org   | computer | 11      | delhi    |      1
+  2 | 2020-12-26 | kjhgsejfgjh@dmoz.org | hr       | hr00    | delhi    |      2
+  3 | 2019-01-29 | dhijheyhedjh@moz.com | hr       | hr00    | kolkata  |      3
+  4 | 2019-10-14 | not provide          | backend  | back00  | mumbai   |      4
+  5 | 2020-04-16 | not provide          | backend  | back00  | kolkata  |      5
+  6 | 2020-07-20 | not provide          | frontend | front00 | delhi    |      6
+  7 | 2020-02-15 | not provide          | computer | 11      | delhi    |      7
+  8 | 2018-07-20 | not provide          | computer | 11      | banglore |      8
+  9 | 2018-11-23 | not provide          | hr       | hr00    | banglore |      9
+ 10 | 2019-10-30 | not provide          | hr       | hr00    | mumbai   |     10
+ 11 | 2019-10-15 | not provide          | backend  | back00  | mumbai   |     11
+ 12 | 2021-04-20 | not provide          | frontend | front00 | mumbai   |     12
+ 13 | 2020-04-17 | not provide          | frontend | front00 | banglore |     13
+ 14 | 2020-07-21 | not provide          | frontend | front00 | delhi    |     14
+ 15 | 2020-12-17 | not provide          | manager  | man00   | banglore |     15
+ 16 | 2018-06-23 | not provide          | manager  | man00   | delhi    |     16
+ 17 | 2021-02-13 | not provide          | manager  | man00   | banglore |     17
+(17 rows)
+
+
+............................................................................................................................................
 
 
