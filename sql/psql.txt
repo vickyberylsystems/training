@@ -450,6 +450,32 @@ postgres-# (DATE_PART('month', '2012-01-01'::date) - DATE_PART('month', '2011-10
 (1 row)
 
 	 
+...........................................................................................................................................
+
+postgres=# select age(hire_date) from details;
+           age           
+-------------------------
+ 1 year 8 mons 16 days
+ 6 mons 18 days
+ 2 years 5 mons 15 days
+ 1 year 8 mons 30 days
+ 1 year 2 mons 27 days
+ 11 mons 24 days
+ 1 year 4 mons 27 days
+ 2 years 11 mons 24 days
+ 2 years 7 mons 20 days
+ 1 year 8 mons 14 days
+ 1 year 8 mons 29 days
+ 2 mons 23 days
+ 1 year 2 mons 26 days
+ 11 mons 23 days
+ 6 mons 27 days
+ 3 years 20 days
+ 5 mons
+ 1 year 11 mons 22 days
+ 3 years 6 mons 5 days
+ 7 mons
+(20 rows)
  
 
 

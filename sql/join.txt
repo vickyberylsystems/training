@@ -365,4 +365,42 @@ postgres=# select * from details right outer join department d on details.id=d.e
 
 ............................................................................................................................................
 
+postgres=# select id from details where hire_date >'2021-01-01';
+ id 
+----
+ 12
+ 17
+(2 rows)
+...........................................................................................................................................
+postgres=# select e.first_name,d.hire_date from emp e join details d on e.id=d.id where hire_date>'2020-07-01';
+ first_name | hire_date  
+------------+------------
+ anil       | 2020-12-26
+ asma       | 2020-07-20
+ mehta      | 2021-04-20
+ kunal      | 2020-07-21
+ bhawna     | 2020-12-17
+ sumit      | 2021-02-13
+(6 rows)
+.............................................................................................................................................
+postgres=# select e.first_name,d.hire_date from emp e join details d on e.id=d.id where hire_date between '2020-07-01' and '2021-01-01';
+ first_name | hire_date  
+------------+------------
+ anil       | 2020-12-26
+ asma       | 2020-07-20
+ kunal      | 2020-07-21
+ bhawna     | 2020-12-17
+(4 rows)
+,...........................................................................................................................................
+
+postgres=# select concat(e.first_name,' ',e.last_name) as name,d.hire_date  from emp e join details d on e.id=d.id where hire_date >'2021-01-01';
+     name     | hire_date  
+--------------+------------
+ mehta sharma | 2021-04-20
+ sumit kumar  | 2021-02-13
+(2 rows)
+
+............................................................................................................................................
+
+
 
