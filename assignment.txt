@@ -1,0 +1,287 @@
+postgres=# select a.a_name,e1.salary from aircraft a,emp e1 where a_id in (select c.a_id from certified c join emp e on e.id=c.emp_id where e.salary >80000 and e1.id=e.id); 
+   a_name    | salary  
+-------------+---------
+ airindia    | 1200000
+ goair       |   85000
+ airways     |   95000
+ airfrance   |   90000
+ finnar      |   88000
+ kml_airways |   92000
+(6 rows)
+
+........................................................................question 1. ..........................................................
+
+postgres=# select a.a_name from aircraft a where a_id in (select c.a_id from certified c join emp e on e.id=c.emp_id where e.salary >80000); 
+   a_name    
+-------------
+ airindia
+ goair
+ airways
+ airfrance
+ finnar
+ kml_airways
+(6 rows)
+.............................................................................................................
+
+postgres=# select a_id , a_name from aircraft where a_id in (111,666,777,888,999,2222); 
+ a_id |   a_name    
+------+-------------
+  111 | airindia
+  666 | goair
+  777 | airways
+  888 | airfrance
+  999 | finnar
+ 2222 | kml_airways
+(6 rows)
+...................................................................... question 2 ........................................................
+
+postgres=# select c.emp_id,max(a.cruisingrange) from certified c join aircraft a on a.a_id=c.a_id group by c.emp_id having count(*)>=3;
+ emp_id |  max  
+--------+-------
+      3 |  9000
+      5 | 11000
+      1 | 11000
+(3 rows)
+
+..................................................................question 3 ...............................................................
+
+postgres=# select e.first_name from emp e where e.salary<(select min(f.price) from flight f where f.start_from='los angelis' and f.land_to='honolulu');
+ first_name 
+------------
+ dev
+ riya
+ neha
+ amzad
+ asma
+ preet
+ ayush
+ lucky
+ rohit
+ mehta
+ kunal
+ bhawna
+ deepak
+(13 rows)
+
+postgres=# select e.first_name,e.salary from emp e where e.salary<(select min(f.price) from flight f where f.start_from='los angelis' and f.land_to='honolulu');
+ first_name | salary 
+------------+--------
+ dev        |  50000
+ riya       |  65000
+ neha       |  75000
+ amzad      |  80000
+ asma       |  85000
+ preet      |  90000
+ ayush      |  88000
+ lucky      |  75000
+ rohit      |  92000
+ mehta      |  82000
+ kunal      |   3000
+ bhawna     |   4000
+ deepak     |   5500
+(13 rows)
+
+....................................................................question 4 .............................................................
+
+postgres=# select a.a_name, avg(salary) 
+           from emp e join certified c on e.id=c.emp_id join aircraft a on c.a_id=a.a_id 
+           where a.cruisingrange>=10000 group by a.a_name;
+  a_name   |        avg         
+-----------+--------------------
+ airfrance | 73333.333333333333
+ vistara   | 80000.000000000000
+(2 rows)
+
+postgres=# select a.a_name, avg(salary) from emp e join certified c on e.id=c.emp_id join aircraft a on c.a_id=a.a_id where a.cruisingrange>=8000 group by a.a_name;
+   a_name    |        avg         
+-------------+--------------------
+ goair       | 75000.000000000000
+ finnar      | 76500.000000000000
+ kml_airways | 92000.000000000000
+ airfrance   | 73333.333333333333
+ vistara     | 80000.000000000000
+(5 rows)
+
+........................................................................... queation 5 ......................................................
+
+postgres=# select e.first_name from emp e join certified c on e.id=c.emp_id join aircraft a on c.a_id=a.a_id where a.a_name='airindia';
+ first_name 
+------------
+ anil
+(1 row)
+
+postgres=# select e.id,e.first_name,a.a_name from emp e join certified c on e.id=c.emp_id join aircraft a on c.a_id=a.a_id
+           where a.a_name='airindia';
+ id | first_name |  a_name  
+----+------------+----------
+  2 | anil       | airindia
+(1 row)
+
+postgres=# select e.id,e.first_name,a.a_name from emp e join certified c on e.id=c.emp_id join aircraft a on c.a_id=a.a_id 
+           where a.a_name like'air%';
+
+ id | first_name |  a_name   
+----+------------+-----------
+  2 | anil       | airindia
+  4 | neha       | airasia
+  7 | dharvesh   | airways
+  8 | preet      | airfrance
+  1 | dev        | airfrance
+  1 | dev        | airways
+  5 | amzad      | airways
+  5 | amzad      | airfrance
+(8 rows)
+
+
+..............................................................question 6 ...................................................................
+
+postgres=# select a.a_id from  aircraft a 
+           where a.cruisingrange > (select min(f.distance) from flight f where f.start_from='los angelis' and f.land_to='honolulu');
+ a_id 
+------
+  333
+  444
+  555
+  666
+  777
+  888
+  999
+ 1111
+ 2222
+(9 rows)
+............................................................................................................................................
+postgres=# select a.a_id,a.cruisingrange from  aircraft a where a.cruisingrange > (select min(f.distance) from flight f where                f.start_from='los angelis' and f.land_to='honolulu');
+ 
+a_id | cruisingrange 
+------+---------------
+  333 |          7000
+  444 |          6500
+  555 |         10000
+  666 |          9000
+  777 |          7600
+  888 |         11000
+  999 |          8898
+ 1111 |          6500
+ 2222 |          8500
+(9 rows)
+.................................................................question no 7 (g).......................................................
+
+postgres=# select id from emp where salary >100000;
+ id 
+----
+  2
+ 13
+ 17
+(3 rows)
+
+......................................................................................
+postgres=# SELECT DISTINCT F.start_from, F.land_to
+FROM Flight F
+WHERE NOT EXISTS ( SELECT * FROM Emp E WHERE E.salary > 100000 AND
+NOT EXISTS ( SELECT * FROM Aircraft A, Certified C WHERE A.cruisingrange > F.distance AND E.id = C.emp_id AND A.a_id = C.a_id) );
+ start_from | land_to 
+------------+---------
+(0 rows)
+
+.........................................................question h .....................................................................
+
+postgres=# select e1.first_name from emp e1 where id in (select distinct e.id from emp e,certified c where e.id=c.emp_id and c.a_id in (select a.a_id from aircraft a where a.cruisingrange >3000));
+ first_name 
+------------
+ dev
+ anil
+ riya
+ neha
+ amzad
+ asma
+ dharvesh
+ preet
+ ayush
+ lucky
+ rohit
+(11 rows)
+
+postgres=# select e.first_name from emp e left join certified c on c.emp_id=e.id left join aircraft a on a.a_id=c.a_id where c.a_id IS NULL;
+ first_name 
+------------
+ raz
+ sumit
+ deepak
+ bhawna
+ kunal
+ kunal
+ mehta
+(7 rows)
+
+
+........................................................................................................................................
+
+
+............................................................question no L .................................................................
+
+postgres=# select distinct e.first_name from emp e join certified c on e.id=c.emp_id join aircraft a on a.a_id=c.a_id where a.cruisingrange >1000 ;
+ first_name 
+------------
+ preet
+ amzad
+ anil
+ asma
+ rohit
+ ayush
+ neha
+ dev
+ dharvesh
+ riya
+ lucky
+(11 rows)
+
+............................................................queation no M .................................................................
+
+
+
+
+........................................................... queation no N .............................. ................................
+
+postgres=# select distinct e.first_name from emp e join certified c on e.id=c.emp_id join aircraft a on a.a_id=c.a_id where a.cruisingrange >1000 and a.a_name like 'air%';
+ first_name 
+------------
+ amzad
+ anil
+ dev
+ dharvesh
+ neha
+ preet
+(6 rows)
+
+
+postgres=# select distinct e.first_name,a.cruisingrange from emp e join certified c on e.id=c.emp_id join aircraft a on a.a_id=c.a_id where a.cruisingrange >1000 and a.a_name like 'air%';
+ first_name | cruisingrange 
+------------+---------------
+ amzad      |          7600
+ amzad      |         11000
+ anil       |          4000
+ dev        |          7600
+ dev        |         11000
+ dharvesh   |          7600
+ neha       |          6500
+ preet      |         11000
+(8 rows)
+
+
+
+............................................................................................................................................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
