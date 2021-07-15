@@ -173,15 +173,33 @@ postgres=# select id from emp where salary >100000;
  13
  17
 (3 rows)
+...........................................................................................................................................
+postgres=# select start_from,land_to from flight  where distance< (select distinct a.cruisingrange from emp e join certified c on e.id=c.emp_id join aircraft a on a.a_id=c.a_id  where e.salary >100000);
+ start_from |  land_to  
+------------+-----------
+ Mexico     | Indonesia
+ Senegal    | Sweden
+ Ukraine    | Mongolia
+(3 rows)
 
-......................................................................................
-postgres=# SELECT DISTINCT F.start_from, F.land_to
-FROM Flight F
-WHERE NOT EXISTS ( SELECT * FROM Emp E WHERE E.salary > 100000 AND
-NOT EXISTS ( SELECT * FROM Aircraft A, Certified C WHERE A.cruisingrange > F.distance AND E.id = C.emp_id AND A.a_id = C.a_id) );
- start_from | land_to 
-------------+---------
-(0 rows)
+.....................................................after modification of data ...... and using join.....................................
+
+
+postgres=# select distinct(concat(start_from,'-',land_to)) as routes from flight as f
+inner join aircraft as a on a.cruisingrange>f.distance
+inner join certified as c on c.a_id = a.a_id
+inner join emp as e on e.id = c.emp_id where e.salary > 100000;
+       routes        
+---------------------
+ hollywood-new york
+ new jursey-new york
+ Ukraine-Mongolia
+ medison-new jursey
+ medison-hollywood
+ Mexico-Indonesia
+ Senegal-Sweden
+(7 rows)
+
 
 .........................................................question h .....................................................................
 
@@ -214,7 +232,44 @@ postgres=# select e.first_name from emp e left join certified c on c.emp_id=e.id
 (7 rows)
 
 
-........................................................................................................................................
+.............................................................question J  ..................................................................
+
+postgres=# select e.first_name, e.salary from emp e where e.id NOT in (select distinct c.emp_id from certified c)
+and e.salary > (select avg(e1.salary) from emp e1 where e1.id in (select c1.emp_id from certified c1));
+ first_name | salary 
+------------+--------
+(0 rows)
+
+
+postgres=# select temp1.avg-temp2.avg from (select avg(e.salary) as avg from emp e where e.id in (select distinct c.emp_id from certified c)) as temp1,(select avg(salary) as avg from emp) as temp2;
+      ?column?      
+--------------------
+ 50808.080808080808
+(1 row)
+
+..............................................................question k ....................................................................
+
+postgres=# select avg(e1.salary) from emp e1 where e1.id in (select c1.emp_id from certified c1);
+         avg         
+---------------------
+ 181363.636363636364
+(1 row)
+
+
+postgres=# select e.first_name, e.salary from emp e where e.id NOT in (select distinct c.emp_id from certified c)
+and e.salary < (select avg(e1.salary) from emp e1 where e1.id in (select c1.emp_id from certified c1));
+ first_name | salary 
+------------+--------
+ mehta      |  82000
+ kunal      | 150000
+ kunal      |   3000
+ bhawna     |   4000
+ deepak     |   5500
+ sumit      | 105000
+ raz        |   5500
+(7 rows)
+
+
 
 
 ............................................................question no L .................................................................
@@ -236,6 +291,22 @@ postgres=# select distinct e.first_name from emp e join certified c on e.id=c.em
 (11 rows)
 
 ............................................................queation no M .................................................................
+
+postgres=# select distinct e.first_name from emp e join certified c1 on e.id=c1.emp_id where c1.a_id in (select a.a_id from certified c join aircraft a on c.a_id =a.a_id where a.cruisingrange >3000 group by a.a_id);
+ first_name 
+------------
+ preet
+ amzad
+ anil
+ asma
+ rohit
+ ayush
+ dev
+ neha
+ dharvesh
+ riya
+ lucky
+(11 rows)
 
 
 
@@ -270,8 +341,6 @@ postgres=# select distinct e.first_name,a.cruisingrange from emp e join certifie
 
 
 ............................................................................................................................................
-
-
 
 
 
