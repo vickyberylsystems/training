@@ -9,7 +9,7 @@ postgres=# select a.a_name,e1.salary from aircraft a,emp e1 where a_id in (selec
  kml_airways |   92000
 (6 rows)
 
-........................................................................question 1. ..........................................................
+........................................................................question 1.a ..........................................................
 
 postgres=# select a.a_name from aircraft a where a_id in (select c.a_id from certified c join emp e on e.id=c.emp_id where e.salary >80000); 
    a_name    
@@ -33,7 +33,7 @@ postgres=# select a_id , a_name from aircraft where a_id in (111,666,777,888,999
   999 | finnar
  2222 | kml_airways
 (6 rows)
-...................................................................... question 2 ........................................................
+...................................................................... question 2 b........................................................
 
 postgres=# select c.emp_id,max(a.cruisingrange) from certified c join aircraft a on a.a_id=c.a_id group by c.emp_id having count(*)>=3;
  emp_id |  max  
@@ -43,7 +43,7 @@ postgres=# select c.emp_id,max(a.cruisingrange) from certified c join aircraft a
       1 | 11000
 (3 rows)
 
-..................................................................question 3 ...............................................................
+..................................................................question 3 .c..............................................................
 
 postgres=# select e.first_name from emp e where e.salary<(select min(f.price) from flight f where f.start_from='los angelis' and f.land_to='honolulu');
  first_name 
@@ -81,7 +81,7 @@ postgres=# select e.first_name,e.salary from emp e where e.salary<(select min(f.
  deepak     |   5500
 (13 rows)
 
-....................................................................question 4 .............................................................
+....................................................................question 4 .d............................................................
 
 postgres=# select a.a_name, avg(salary) 
            from emp e join certified c on e.id=c.emp_id join aircraft a on c.a_id=a.a_id 
@@ -102,7 +102,7 @@ postgres=# select a.a_name, avg(salary) from emp e join certified c on e.id=c.em
  vistara     | 80000.000000000000
 (5 rows)
 
-........................................................................... queation 5 ......................................................
+........................................................................... queation 5 .e.....................................................
 
 postgres=# select e.first_name from emp e join certified c on e.id=c.emp_id join aircraft a on c.a_id=a.a_id where a.a_name='airindia';
  first_name 
@@ -133,7 +133,7 @@ postgres=# select e.id,e.first_name,a.a_name from emp e join certified c on e.id
 (8 rows)
 
 
-..............................................................question 6 ...................................................................
+..............................................................question 6 .f..................................................................
 
 postgres=# select a.a_id from  aircraft a 
            where a.cruisingrange > (select min(f.distance) from flight f where f.start_from='los angelis' and f.land_to='honolulu');
@@ -234,13 +234,6 @@ postgres=# select e.first_name from emp e left join certified c on c.emp_id=e.id
 
 .............................................................question J  ..................................................................
 
-postgres=# select e.first_name, e.salary from emp e where e.id NOT in (select distinct c.emp_id from certified c)
-and e.salary > (select avg(e1.salary) from emp e1 where e1.id in (select c1.emp_id from certified c1));
- first_name | salary 
-------------+--------
-(0 rows)
-
-
 postgres=# select temp1.avg-temp2.avg from (select avg(e.salary) as avg from emp e where e.id in (select distinct c.emp_id from certified c)) as temp1,(select avg(salary) as avg from emp) as temp2;
       ?column?      
 --------------------
@@ -268,6 +261,14 @@ and e.salary < (select avg(e1.salary) from emp e1 where e1.id in (select c1.emp_
  sumit      | 105000
  raz        |   5500
 (7 rows)
+
+..................................................................................
+
+postgres=# select e.first_name, e.salary from emp e where e.id NOT in (select distinct c.emp_id from certified c)
+and e.salary > (select avg(e1.salary) from emp e1 where e1.id in (select c1.emp_id from certified c1));
+ first_name | salary 
+------------+--------
+(0 rows)
 
 
 
@@ -307,9 +308,16 @@ postgres=# select distinct e.first_name from emp e join certified c1 on e.id=c1.
  riya
  lucky
 (11 rows)
+..................................................................................
 
-
-
+postgres=# select distinct e.first_name from emp e join certified c1 on e.id=c1.emp_id where c1.a_id in (select a.a_id from certified c join aircraft a on c.a_id =a.a_id where a.cruisingrange >3000 group by a.a_id having count(a.a_id)>2);
+ first_name 
+------------
+ preet
+ amzad
+ dev
+ dharvesh
+(4 rows)
 
 ........................................................... queation no N .............................. ................................
 
