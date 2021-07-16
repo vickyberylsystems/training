@@ -1,3 +1,4 @@
+
 name   marks   branch   yop
 alen   50     cs      2018
 alia   60     cse     2019
@@ -9,7 +10,30 @@ khushbu88     EC      2016
 tarun  77     sci     2020
 dharvesh 88   cse     2020
 
-practice the vi editor :
+practice the vi editor:
 
-   
+vi filename == create a new file if it already does not not exists otherwise open an existing file.
 
+vi -R filename ==open file in read mode.
+
+view filename ==open file in only read mode.
+
+##go to insert mode:
+
+i==insert text befor the current cursor location.
+
+I==insert text at the begrnning of the current line.
+
+a== insert text after the current location.
+
+A==insert text at the end of the the currnt line.
+
+o==create a new line for the text entry after cursor cursor location.
+
+O==create a new line for the text entry above the cursor location.
+
+.................................................
+
+## Deleting 
+
+x== delete a charecter below the cursor.

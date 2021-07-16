@@ -360,5 +360,3 @@ postgres=# select distinct e.first_name,a.cruisingrange from emp e join certifie
 
 
 
-
-
