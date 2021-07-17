@@ -1,0 +1,264 @@
+
+beryl@beryl:~$ irb
+3.0.1 :001 > hello
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+3.0.1 :002 > put "hello"
+(irb):2:in `<main>': undefined method `put' for main:Object (NoMethodError)
+Did you mean?  puts
+               putc
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+3.0.1 :003 > puts "hello"
+hello
+ => nil 
+3.0.1 :004 > puts "hello ruby!"
+hello ruby!
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+3.0.1 :008"> this is used to taking multiple line input
+3.0.1 :010"> print <<"EOF";
+3.0.1 :011"> this is the first line
+3.0.1 :013 > EOF
+this is the first line
+ => nil 
+3.0.1 :014'> <<'eoc'
+3.0.1 :017 > print<<'eoc'
+3.0.1 :018 > echo hey there ,i am ruby
+s/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+3.0.1 :020'> print <<'eoc'
+3.0.1 :021'> echo hey there , i am ruby
+3.0.1 :022 > eoc
+3.0.1 :029 > eoc
+echo hey there , i am ruby
+=begin 
+this is comment line
+this is another comment line
+=end
+ => nil 
+3.0.1 :030'> print <<'eoc'
+3.0.1 :031'> echo hey there , i am ruby #comment
+3.0.1 :032 > eoc
+echo hey there , i am ruby #comment
+ => nil 
+3.0.1 :033 > print"hello ruby"
+hello ruby => nil 
+hello ruby => nil 
+3.0.1 :035 > puts "vicky \n raz"
+vicky 
+ => nil 
+3.0.1 :036 > puts "vicky \r raz"
+ razy 
+3.0.1 :037 > puts "vicky\rraz"
+razky
+3.0.1 :038 > puts "vicky\traz"
+vicky	raz
+3.0.1 :039 > puts "vicky\f raz"
+vicky
+ => nil 
+3.0.1 :040 > puts "vicky \f raz"
+       raz
+ => nil 
+vicky raz
+ => nil 
+vicky    raz
+ => nil 
+vickraz
+ => nil 
+vicky raz
+ => nil 
+vicky  raz
+ => nil 
+3.0.1 :046 > puts "vicky \e raz"
+ => nil 
+vicky raz
+3.0.1 :048 > puts "vicky\e raz"
+vicky raz
+ => nil 
+3.0.1 :049 > puts "vicky \s raz"
+vicky   raz
+ => nil 
+3.0.1 :050 > puts "vicky \nnn raz"
+vicky 
+ => nil 
+3.0.1 :051 > "45 \nnn"
+ => "45 \nnn" 
+3.0.1 :052 > " \nnn 34"
+ => " \nnn 34" 
+/home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/workspace.rb:116:in `eval': (irb):53: invalid hex escape (SyntaxError)
+puts "vicky\x raz"
+           ^~
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gem	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+3.0.1 :054 > ruby Strings
+(irb):54:in `<main>': uninitialized constant Strings (NameError)
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+3.0.1 :055 > Ruby Strings
+(irb):55:in `<main>': uninitialized constant Strings (NameError)
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+3.0.1 :056 > ruby help
+
+Enter the method name you want to look up.
+You can use tab to autocomplete.
+Enter a blank line to exit.
+
+>> Strings
+Nothing known about Strings
+>> Arrays
+Nothing known about Arrays
+>> Array
+Nothing known about Array
+>> /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb.rb:427:in `raise': abort then interrupt! (IRB::Abort)
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/rdoc/ri/driver.rb:1125:in `readline'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/rdoc/ri/driver.rb:1125:in `block in interactive'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/rdoc/ri/driver.rb:1123:in `loop'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/rdoc/ri/driver.rb:1123:in `interactive'
+	from (irb):56:in `<main>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+3.0.1 :057 > 
+ => false 
+ => true 
+3.0.1 :059 > a==b
+(irb):59:in `<main>': undefined local variable or method `a' for main:Object (NameError)
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+3.0.1 :060 > {a}=={a}
+in `eval': (irb):60: syntax error, unexpected '}', expecting => (Syntax{a}=={a}
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gem	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+3.0.1 :061 > 1==1.0
+3.0.1 :062 > 1.eql?(1.0)
+3.0.1 :063 > (1...10)===5
+ => true 
+ => false 
+ => false 
+ => true 
+3.0.1 :067 > 5.ord()
+ => 5 
+3.0.1 :068 > ord(5)
+(irb):68:in `<main>': undefined method `ord' for main:Object (NoMethodError)
+s/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+3.0.1 :069 > ord(a)
+bject (NameError)
+s/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+(irb):70:in `<main>': undefined method `ord' for main:Object (NoMethodE	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gem	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+3.0.1 :071 > "a".ord()
+ => 97 
+3.0.1 :072 > "0".ord()
+ => 48 
+3.0.1 :073 > 0.ord()
+3.0.1 :074 > 16.to_s(2)
+ => "10000" 
+3.0.1 :075 > 16.to_s(8)
+ => "20" 
+3.0.1 :076 > 16.to_s(16)
+ => "10" 
+3.0.1 :077 > "1000110".to_i(2)
+ => 70 
+3.0.1 :078 > 1.upto(10).each { |n| puts "%04b" % n }
+0001
+0010
+0100
+0101
+0110
+0111
+1000
+1001
+1010
+ => 1 
+3.0.1 :079 > 1.upto(10).each { |n| puts "b" % n }
+b
+b
+b
+b
+b
+b
+b
+b
+b
+ => 1 
+3.0.1 :080 > 1.upto(10).each { |n| puts "%b" % n }
+1
+10
+100
+101
+110
+111
+1000
+1001
+1010
+ => 1 
+3.0.1 :081 > 1.upto(10).each { |n| puts "08%b" % n }
+081
+0810
+08100
+08101
+08110
+08111
+081000
+081001
+081010
+ => 1 
+3.0.1 :082 > 1.upto(10).each { |n| puts "04%b" % n }
+041
+0410
+04100
+04110
+041000
+041010
+3.0.1 :083 > 1.upto(10).each { |n| puts "%04b" % n }
+0010
+0100
+0110
+1000
+1010
+ => 1 
+00000010
+00000011
+00000100
+00000101
+00000110
+00000111
+00001000
+00001001
+00001010
+ => {} 
+3.0.1 :086 > table[1]
+ => "1" 
+3.0.1 :087 > table[2]
+ => "10" 
+3.0.1 :088 > table[4]
+ => "100" 
+3.0.1 :089 > table[7]
+ => "111" 
+3.0.1 :090 > table[16]
+ => "10000" 
+3.0.1 :091 > table[15]
+ => "1111" 
+3.0.1 :092 > table
+ => {1=>"1", 2=>"10", 4=>"100", 7=>"111", 16=>"10000", 15=>"1111"} 
+3.0.1 :093 > foo=24
+ => 24 
+3.0.1 :094 > defined? foo
+ => "local-variable" 
+3.0.1 :095 > defined ? $_
+3.0.1 :096 > 
+/home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/workspace.rb:116:in `eval': (irb):96: syntax error, unexpected end-of-input, expecting ':' (SyntaxError)
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+3.0.1 :097 > exit
+beryl@beryl:~$ cd Desktop
+beryl@beryl:~/Desktop$ cd vicky
+beryl@beryl:~/Desktop/vicky$ touch practice_1607.txt
+beryl@beryl:~/Desktop/vicky$ 
+

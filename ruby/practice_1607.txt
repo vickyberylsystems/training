@@ -1,0 +1,788 @@
+beryl@beryl:~$ cd Desktop
+beryl@beryl:~/Desktop$ cd vicky
+beryl@beryl:~/Desktop/vicky$ cat class.rb
+cat: class.rb: No such file or directory
+beryl@beryl:~/Desktop/vicky$ cat >> class.rb
+class Customer
+   @@no_of_customers = 0
+   def initialize(id, name, addr)
+      @cust_id = id
+      @cust_name = name
+      @cust_addr = addr
+   end
+end
+
+cust1=Customer.new('1','john','delhi')
+
+beryl@beryl:~/Desktop/vicky$ cat class.rb
+class Customer
+   @@no_of_customers = 0
+   def initialize(id, name, addr)
+      @cust_id = id
+      @cust_name = name
+      @cust_addr = addr
+   end
+end
+
+cust1=Customer.new('1','john','delhi')
+
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+beryl@beryl:~/Desktop/vicky$ vi class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+1
+john
+delhi
+beryl@beryl:~/Desktop/vicky$ vi class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+1
+john
+delhi
+0
+beryl@beryl:~/Desktop/vicky$ vi class.rb
+beryl@beryl:~/Desktop/vicky$ vi class.rb
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+
+Command 'vim' not found, but can be installed with:
+
+sudo apt install vim       
+sudo apt install vim-gtk3  
+sudo apt install vim-tiny  
+sudo apt install neovim    
+sudo apt install vim-athena
+sudo apt install vim-gtk   
+sudo apt install vim-nox   
+
+beryl@beryl:~/Desktop/vicky$ cd ..
+beryl@beryl:~/Desktop$ cd ..
+beryl@beryl:~$ sudo apt install vim
+[sudo] password for beryl: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  vim-common vim-runtime vim-tiny
+Suggested packages:
+  ctags vim-doc vim-scripts indent
+The following NEW packages will be installed:
+  vim vim-runtime
+The following packages will be upgraded:
+  vim-common vim-tiny
+2 upgraded, 2 newly installed, 0 to remove and 289 not upgraded.
+Need to get 6,587 kB/7,134 kB of archives.
+After this operation, 32.0 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://in.archive.ubuntu.com/ubuntu bionic-updates/main amd64 vim-runtime all 2:8.0.1453-1ubuntu1.4 [5,435 kB]
+Get:2 http://in.archive.ubuntu.com/ubuntu bionic-updates/main amd64 vim amd64 2:8.0.1453-1ubuntu1.4 [1,152 kB]
+Fetched 6,587 kB in 2s (3,111 kB/s)
+(Reading database ... 143264 files and directories currently installed.)
+Preparing to unpack .../vim-tiny_2%3a8.0.1453-1ubuntu1.4_amd64.deb ...
+Unpacking vim-tiny (2:8.0.1453-1ubuntu1.4) over (2:8.0.1453-1ubuntu1.3) ...
+Preparing to unpack .../vim-common_2%3a8.0.1453-1ubuntu1.4_all.deb ...
+Unpacking vim-common (2:8.0.1453-1ubuntu1.4) over (2:8.0.1453-1ubuntu1.3) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../vim-runtime_2%3a8.0.1453-1ubuntu1.4_all.deb ...
+Adding 'diversion of /usr/share/vim/vim80/doc/help.txt to /usr/share/vim/vim80/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim80/doc/tags to /usr/share/vim/vim80/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:8.0.1453-1ubuntu1.4) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a8.0.1453-1ubuntu1.4_amd64.deb ...
+Unpacking vim (2:8.0.1453-1ubuntu1.4) ...
+Setting up vim-common (2:8.0.1453-1ubuntu1.4) ...
+Setting up vim-runtime (2:8.0.1453-1ubuntu1.4) ...
+Setting up vim-tiny (2:8.0.1453-1ubuntu1.4) ...
+Setting up vim (2:8.0.1453-1ubuntu1.4) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+Processing triggers for gnome-menus (3.13.3-11ubuntu1.1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+Processing triggers for desktop-file-utils (0.23-1ubuntu3.18.04.2) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+beryl@beryl:~$ cd Desktop
+beryl@beryl:~/Desktop$ cd vicky
+beryl@beryl:~/Desktop/vicky$ ls
+class.rb  eof.rb  test.rb  training
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+class.rb:23: syntax error, unexpected end-of-input, expecting keyword_end
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+Traceback (most recent call last):
+	2: from class.rb:19:in `<main>'
+	1: from class.rb:19:in `new'
+class.rb:4:in `initialize': uninitialized class variable @@no_of_customer in Customer (NameError)
+Did you mean?  @@no_of_customers
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+1
+1
+john
+delhi
+1
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+1
+john
+delhi
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+class.rb:30: syntax error, unexpected end-of-input, expecting keyword_end
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+class.rb:30: syntax error, unexpected end-of-input, expecting keyword_end
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+class.rb:30: syntax error, unexpected end-of-input, expecting keyword_end
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+class.rb:30: syntax error, unexpected end-of-input, expecting keyword_end
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+1
+john
+delhi
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+1
+john
+delhi
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+1
+john
+delhi
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi
+no_of custtomer= 2
+2
+preet
+faridabad
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi 
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad 
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi '
+'
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad '
+'
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi 
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad 
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi
+
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad
+
+beryl@beryl:~/Desktop/vicky$ vi begin_end.rb
+beryl@beryl:~/Desktop/vicky$ ruby begin_end.rb
+initializing ruby program
+this is the main ruby program
+terminating the programming
+beryl@beryl:~/Desktop/vicky$ vim global_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby global_var.rb
+global_var.rb:17: syntax error, unexpected end-of-input, expecting keyword_end
+obj2.display_global
+                   ^
+beryl@beryl:~/Desktop/vicky$ vim global_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby global_var.rb
+global_var.rb:17: syntax error, unexpected end-of-input, expecting keyword_end
+obj2.display_global()
+                     ^
+beryl@beryl:~/Desktop/vicky$ vim global_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby global_var.rb
+global var in Gclass1 is 10
+global var in Gclas2 is 10
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Total number of customers: 1
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address Wisdom Apartments, Ludhiya
+Customer id 2
+Customer name Poul
+Customer address New Empire road, Khandala
+Traceback (most recent call last):
+class_var.rb:28:in `<main>': undefined local variable or method `cust2' for main:Object (NameError)
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address Wisdom Apartments, Ludhiya
+Customer id 2
+Customer name Poul
+Customer address New Empire road, Khandala
+Total number of customers: 1
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address Wisdom Apartments, Ludhiya
+Total number of customers: 1
+Customer id 2
+Customer name Poul
+Customer address New Empire road, Khandala
+Traceback (most recent call last):
+class_var.rb:29:in `<main>': undefined local variable or method `obj' for main:Object (NameError)
+Did you mean?  obj4
+               obj3
+               obj2
+               obj1
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address Wisdom Apartments, Ludhiya
+Total number of customers: 1
+Customer id 2
+Customer name Poul
+Customer address New Empire road, Khandala
+Traceback (most recent call last):
+class_var.rb:29:in `<main>': undefined local variable or method `obj' for main:Object (NameError)
+Did you mean?  obj4
+               obj3
+               obj2
+               obj1
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address Wisdom Apartments, Ludhiya
+Total number of customers: 1
+Customer id 2
+Customer name Poul
+Customer address New Empire road, Khandala
+Total number of customers: 2
+Customer id 3
+Customer name Raghu
+Customer address Madapur, Hyderabad
+Customer id 4
+Customer name Rahman
+Customer address Akkayya palem, Vishakhapatnam
+Total number of customers: 3
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address Wisdom Apartments, Ludhiya
+Total number of customers: 2
+Customer id 2
+Customer name Poul
+Customer address New Empire road, Khandala
+Total number of customers: 2
+Customer id 3
+Customer name Raghu
+Customer address Madapur, Hyderabad
+Customer id 4
+Customer name Rahman
+Customer address Akkayya palem, Vishakhapatnam
+Total number of customers: 4
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address Wisdom Apartments, Ludhiya
+Total number of customers: 2 
+Customer id 2
+Customer name Poul
+Customer address New Empire road, Khandala
+Total number of customers: 2 
+Customer id 3
+Customer name Raghu
+Customer address Madapur, Hyderabad
+Customer id 4
+Customer name Rahman
+Customer address Akkayya palem, Vishakhapatnam
+Total number of customers: 4 
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address Wisdom Apartments, Ludhiya
+Total number of customers: 2
+
+Customer id 2
+Customer name Poul
+Customer address New Empire road, Khandala
+Total number of customers: 2
+
+Customer id 3
+Customer name Raghu
+Customer address Madapur, Hyderabad
+Customer id 4
+Customer name Rahman
+Customer address Akkayya palem, Vishakhapatnam
+Total number of customers: 4
+
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address
+  Ludhiya
+Total number of customers: 2
+
+Customer id 2
+Customer name Poul
+Customer address
+  Khandala
+Total number of customers: 2
+
+Customer id 3
+Customer name Raghu
+Customer address
+ Madapur, Hyderabad
+Customer id 4
+Customer name Rahman
+Customer address
+ Akkayya palem, Vishakhapatnam
+Total number of customers: 4
+
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ vim class_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby class_var.rb
+Customer id 1
+Customer name John
+Customer address  Ludhiya
+Total number of customers: 2
+
+Customer id 2
+Customer name Poul
+Customer address  Khandala
+Total number of customers: 2
+
+Customer id 3
+Customer name Raghu
+Customer address Madapur, Hyderabad
+Customer id 4
+Customer name Rahman
+Customer address Akkayya palem, Vishakhapatnam
+Total number of customers: 4
+
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+Traceback (most recent call last):
+constant_var.rb:14:in `<main>': undefined method `dispaly' for #<Constant:0x000056452e3420a0> (NoMethodError)
+Did you mean?  display
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+Traceback (most recent call last):
+constant_var.rb:14:in `<main>': undefined method `dispaly' for #<Constant:0x0000558d0bd5e1a0> (NoMethodError)
+Did you mean?  display
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+Traceback (most recent call last):
+	1: from constant_var.rb:14:in `<main>'
+constant_var.rb:9:in `display': undefined local variable or method `var' for #<Constant:0x0000555c7a91e250> (NameError)
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+Traceback (most recent call last):
+	1: from constant_var.rb:14:in `<main>'
+constant_var.rb:9:in `display': undefined local variable or method `var' for #<Constant:0x000055aef580e130> (NameError)
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+Traceback (most recent call last):
+	1: from constant_var.rb:14:in `<main>'
+constant_var.rb:9:in `display': undefined local variable or method `var' for #<Constant:0x0000562214bcd810> (NameError)
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+var = 
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+var = 
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+var = vicky
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+global var = vicky
+instance var= raz
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+global var = vicky
+instance var= raz
+instance var outsisde function 
+beryl@beryl:~/Desktop/vicky$ vim constant_var.rb
+beryl@beryl:~/Desktop/vicky$ ruby constant_var.rb
+first constant= 100
+second constant= 200
+global var = vicky
+instance var= raz
+instance var outsisde function 
+beryl@beryl:~/Desktop/vicky$ ruby list
+Traceback (most recent call last):
+ruby: No such file or directory -- list (LoadError)
+beryl@beryl:~/Desktop/vicky$ cd ~
+beryl@beryl:~$ ruby list
+Traceback (most recent call last):
+ruby: No such file or directory -- list (LoadError)
+beryl@beryl:~$ ruby string
+Traceback (most recent call last):
+ruby: No such file or directory -- string (LoadError)
+beryl@beryl:~$ ruby String
+Traceback (most recent call last):
+ruby: No such file or directory -- String (LoadError)
+beryl@beryl:~$ ruby String list
+Traceback (most recent call last):
+ruby: No such file or directory -- String (LoadError)
+beryl@beryl:~$ 
+beryl@beryl:~$ irp
+
+Command 'irp' not found, but there are 14 similar ones.
+
+beryl@beryl:~$ irb
+irb(main):001:0> ?a
+=> "a"
+irb(main):002:0> ^C
+irb(main):002:0> exit
+beryl@beryl:~$ cd Desktop
+beryl@beryl:~/Desktop$ cd vicky
+beryl@beryl:~/Desktop/vicky$ touch install_ruby.txt
+beryl@beryl:~/Desktop/vicky$ cd ~
+beryl@beryl:~$ irb
+irb(main):001:0> exit
+beryl@beryl:~$ cd Desktop
+beryl@beryl:~/Desktop$ cd vicky
+beryl@beryl:~/Desktop/vicky$ ls
+begin_end.rb  class_var.rb     eof.rb         install_ruby.txt  training
+class.rb      constant_var.rb  global_var.rb  test.rb
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi
+
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad
+
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad
+beryl@beryl:~/Desktop/vicky$ vim class.rb
+beryl@beryl:~/Desktop/vicky$ ruby class.rb
+no_of custtomer= 1
+id= 1
+customer_name = john
+customer address = delhi
+
+no_of custtomer= 2
+id= 2
+customer_name = preet
+customer address = faridabad
+
+beryl@beryl:~/Desktop/vicky$ cd ~
+beryl@beryl:~$ 
+beryl@beryl:~$ sudo apt update
+[sudo] password for beryl: 
+Hit:1 http://in.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://in.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]             
+Get:3 http://in.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]           
+Hit:4 https://deb.nodesource.com/node_12.x bionic InRelease                              
+Hit:5 https://dl.yarnpkg.com/debian stable InRelease                                     
+Get:6 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]              
+Get:8 http://in.archive.ubuntu.com/ubuntu bionic-updates/main amd64 DEP-11 Metadata [294 kB]
+Hit:9 http://dl.google.com/linux/chrome/deb stable InRelease                             
+Get:10 http://in.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 DEP-11 Metadata [287 kB]
+Get:11 http://in.archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 DEP-11 Metadata [2,468 B]
+Get:12 http://in.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 DEP-11 Metadata [9,272 B]
+Get:13 http://security.ubuntu.com/ubuntu bionic-security/main amd64 DEP-11 Metadata [48.4 kB]
+Hit:7 https://packagecloud.io/slacktechnologies/slack/debian jessie InRelease
+Get:14 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 DEP-11 Metadata [57.7 kB]
+Get:15 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 DEP-11 Metadata [2,464 B]
+Fetched 954 kB in 3s (343 kB/s)                
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+289 packages can be upgraded. Run 'apt list --upgradable' to see them.
+beryl@beryl:~$ apt install vs code
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+beryl@beryl:~$ sudo apt install software-properties-common apt-transport-https wget
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+software-properties-common is already the newest version (0.96.24.32.14).
+wget is already the newest version (1.19.4-1ubuntu2.2).
+wget set to manually installed.
+The following NEW packages will be installed:
+  apt-transport-https
+0 upgraded, 1 newly installed, 0 to remove and 289 not upgraded.
+Need to get 4,348 B of archives.
+After this operation, 154 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://in.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 apt-transport-https all 1.6.14 [4,348 B]
+Fetched 4,348 B in 0s (54.7 kB/s)               
+Selecting previously unselected package apt-transport-https.
+(Reading database ... 145031 files and directories currently installed.)
+Preparing to unpack .../apt-transport-https_1.6.14_all.deb ...
+Unpacking apt-transport-https (1.6.14) ...
+Setting up apt-transport-https (1.6.14) ...
+beryl@beryl:~$ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+OK
+beryl@beryl:~$ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+Hit:1 http://in.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 https://deb.nodesource.com/node_12.x bionic InRelease                              
+Hit:3 http://in.archive.ubuntu.com/ubuntu bionic-updates InRelease                       
+Hit:4 http://in.archive.ubuntu.com/ubuntu bionic-backports InRelease                     
+Hit:5 https://dl.yarnpkg.com/debian stable InRelease                                     
+Get:6 https://packages.microsoft.com/repos/vscode stable InRelease [3,959 B]             
+Hit:7 http://security.ubuntu.com/ubuntu bionic-security InRelease                        
+Get:8 https://packages.microsoft.com/repos/vscode stable/main amd64 Packages [250 kB]    
+Hit:10 http://dl.google.com/linux/chrome/deb stable InRelease                
+Hit:9 https://packagecloud.io/slacktechnologies/slack/debian jessie InRelease
+Fetched 254 kB in 3s (78.7 kB/s)
+Reading package lists... Done
+beryl@beryl:~$ sudo apt update
+Hit:1 http://in.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://in.archive.ubuntu.com/ubuntu bionic-updates InRelease                       
+Hit:3 http://in.archive.ubuntu.com/ubuntu bionic-backports InRelease                     
+Hit:4 https://deb.nodesource.com/node_12.x bionic InRelease                              
+Hit:5 https://dl.yarnpkg.com/debian stable InRelease                                     
+Hit:6 https://packages.microsoft.com/repos/vscode stable InRelease                       
+Hit:7 http://security.ubuntu.com/ubuntu bionic-security InRelease                        
+Hit:9 http://dl.google.com/linux/chrome/deb stable InRelease                             
+Hit:8 https://packagecloud.io/slacktechnologies/slack/debian jessie InRelease
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+289 packages can be upgraded. Run 'apt list --upgradable' to see them.
+beryl@beryl:~$ sudo apt install code
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  code
+0 upgraded, 1 newly installed, 0 to remove and 289 not upgraded.
+Need to get 77.1 MB of archives.
+After this operation, 295 MB of additional disk space will be used.
+Get:1 https://packages.microsoft.com/repos/vscode stable/main amd64 code amd64 1.58.2-1626302803 [77.1 MB]
+Fetched 77.1 MB in 2min 42s (476 kB/s)                                                   
+Selecting previously unselected package code.
+(Reading database ... 145035 files and directories currently installed.)
+Preparing to unpack .../code_1.58.2-1626302803_amd64.deb ...
+Unpacking code (1.58.2-1626302803) ...
+Setting up code (1.58.2-1626302803) ...
+gpg: WARNING: unsafe ownership on homedir '/home/beryl/.gnupg'
+Processing triggers for gnome-menus (3.13.3-11ubuntu1.1) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+Processing triggers for desktop-file-utils (0.23-1ubuntu3.18.04.2) ...
+Processing triggers for shared-mime-info (1.9-2) ...
+beryl@beryl:~$ code
+beryl@beryl:~$ 
+
+beryl@beryl:~$ cd Desktop
+beryl@beryl:~/Desktop$ cd vicky
+beryl@beryl:~/Desktop/vicky$ ls
+begin_end.rb  class_var.rb     eof.rb         install_ruby.txt  training
+class.rb      constant_var.rb  global_var.rb  test.rb
+beryl@beryl:~/Desktop/vicky$ vim scope_opr.rb
+beryl@beryl:~/Desktop/vicky$ ruby scope_opr.rb
+scope_opr.rb:4: warning: already initialized constant MR_COUNT
+scope_opr.rb:1: warning: previous definition of MR_COUNT was here
+scope_opr.rb:5: warning: already initialized constant Foo::MR_COUNT
+scope_opr.rb:3: warning: previous definition of MR_COUNT was here
+1
+2
+beryl@beryl:~/Desktop/vicky$ ruby scope_opr.rb
+scope_opr.rb:4: warning: already initialized constant MR_COUNT
+scope_opr.rb:1: warning: previous definition of MR_COUNT was here
+scope_opr.rb:5: warning: already initialized constant Foo::MR_COUNT
+scope_opr.rb:3: warning: previous definition of MR_COUNT was here
+1
+2
+beryl@beryl:~/Desktop/vicky$ vim scope_opr.rb
+beryl@beryl:~/Desktop/vicky$ ruby scope_opr.rb
+ out there inside one
+ inside two
+ out there inside two
+ inside two out there
+#<Proc:0x0000557cfce95a88@scope_opr.rb:17>
+ in there inside two
+beryl@beryl:~/Desktop/vicky$ vim hello.rb
+beryl@beryl:~/Desktop/vicky$ ruby hello.rb
+beryl@beryl:~/Desktop/vicky$ vim hello.rb
+beryl@beryl:~/Desktop/vicky$ ruby hello.rb
+
+welcome to runy
+beryl@beryl:~/Desktop/vicky$ vim hello.rb
+beryl@beryl:~/Desktop/vicky$ ruby hello.rb
+Traceback (most recent call last):
+	1: from hello.rb:9:in `<main>'
+hello.rb:3:in `hello': undefined local variable or method `raz' for #<Hello:0x000055edfd1d64b0> (NameError)
+Did you mean?  rand
+beryl@beryl:~/Desktop/vicky$ vim hello.rb
+beryl@beryl:~/Desktop/vicky$ ruby hello.rb
+vicky raz
+hey!
+beryl@beryl:~/Desktop/vicky$ vim hello.rb
+beryl@beryl:~/Desktop/vicky$ ruby hello.rb
+vicky raz
+hey!
+
+welcome to runy
+beryl@beryl:~/Desktop/vicky$ vim if_else.rb
+beryl@beryl:~/Desktop/vicky$ ruby if_else.rb
+x is 1
+beryl@beryl:~/Desktop/vicky$ vim unless.rb
+beryl@beryl:~/Desktop/vicky$ ruby unless.rb
+2 is less than 5
+beryl@beryl:~/Desktop/vicky$ vim unless.rb
+beryl@beryl:~/Desktop/vicky$ vim switch_case.rb
+beryl@beryl:~/Desktop/vicky$ ruby switch_case.rb
+little child
+beryl@beryl:~/Desktop/vicky$ vim switch_case.rb
+beryl@beryl:~/Desktop/vicky$ cd training
+beryl@beryl:~/Desktop/vicky/training$ git init
+Reinitialized existing Git repository in /home/beryl/Desktop/vicky/training/.git/
+beryl@beryl:~/Desktop/vicky/training$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   assignment.txt
+	modified:   linux/vi_editor.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	linux/.vi_editor.txt.swp
+	ruby/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+beryl@beryl:~/Desktop/vicky/training$ git add .
+beryl@beryl:~/Desktop/vicky/training$ git commit -m "today i started with ruby and execute few programs like class,objects,var,contional,switch case , while "
+[main eda7faf] today i started with ruby and execute few programs like class,objects,var,contional,switch case , while
+ 16 files changed, 279 insertions(+), 4 deletions(-)
+ create mode 100644 linux/.vi_editor.txt.swp
+ create mode 100644 ruby/begin_end.rb
+ create mode 100644 ruby/class.rb
+ create mode 100644 ruby/class_var.rb
+ create mode 100644 ruby/constant_var.rb
+ create mode 100644 ruby/eof.rb
+ create mode 100644 ruby/global_var.rb
+ create mode 100644 ruby/hello.rb
+ create mode 100644 ruby/if_else.rb
+ create mode 100644 ruby/install_ruby.txt
+ create mode 100644 ruby/scope_opr.rb
+ create mode 100644 ruby/switch_case.rb
+ create mode 100644 ruby/test.rb
+ create mode 100644 ruby/unless.rb
+beryl@beryl:~/Desktop/vicky/training$ git push -f origin main
+Username for 'https://github.com': vickyberylsystems
+Password for 'https://vickyberylsystems@github.com': 
+Counting objects: 20, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (20/20), 4.38 KiB | 747.00 KiB/s, done.
+Total 20 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/vickyberylsystems/training.git
+   e78967b..eda7faf  main -> main
+beryl@beryl:~/Desktop/vicky/training$ 
+
