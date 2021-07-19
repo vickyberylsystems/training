@@ -342,6 +342,82 @@ h e l l o  => "hello"
  => "helloworld" 
 3.0.1 :096 > 
 
+..........................................................................................................................................
+                                                  check pattern with start_with("prefix") and end_with("suffix","another")
+
+3.0.1 :100 > "welcome world of happiness".end_with?("o")
+ => false 
+
+3.0.1 :101 > "welcome world of happiness".end_with?("wo")
+ => false 
+
+3.0.1 :102 > "welcome world of happiness".start_with?("")
+ => true 
+
+3.0.1 :103 > "welcome world of happiness".start_with?("wel")
+ => true 
+
+3.0.1 :104 > "welcome world of happiness".start_with?("ness")
+ => false 
+
+3.0.1 :105 > "welcome world of happiness".start_with?("ness")
+ => false
+
+3.0.1 :108 > "hello".end_with?("heaven", "ello")     #=> true
+ => true 
+.........................................................................................................................................
+                                                               string.eql?()    function
+
+3.0.1 :109 > s="hello"
+ => "hello" 
+3.0.1 :110 > s.eql? ("jjo")
+ => false 
+3.0.1 :111 > s.eql? ("hello")
+ => true 
+3.0.1 :112 > 
+.......................................................................................................................
+                                                                string split() and Bigdecimal split() function
+3.0.1 :130 > s
+ => "welcome to the ruby world" 
+
+3.0.1 :131 > s.split(/ /)
+ => ["welcome", "to", "the", "ruby", "world"] 
+
+3.0.1 :132 > s.split(/,/)
+ => ["welcome to the ruby world"] 
+
+3.0.1 :133 > s.split(/ /,2)
+ => ["welcome", "to the ruby world"] 
+
+3.0.1 :134 > s.split(/ /,3)
+ => ["welcome", "to", "the ruby world"] 
+3.0.1 :135 > 
+.....................................................................
+3.0.1 :120 > a=BigDecimal("10")
+ => 0.1e2 
+3.0.1 :121 > a.split()
+ => [1, "1", 10, 2] 
+3.0.1 :122 > b=-BigDecimal("10")
+ => -0.1e2 
+3.0.1 :123 > b.split()
+ => [-1, "1", 10, 2] 
+3.0.1 :124 > c=BigDecimal('11.43')
+ => 0.1143e2 
+3.0.1 :125 > c.split()
+ => [1, "1143", 10, 2] 
+3.0.1 :126 > c= BigDecimal('12')*12
+ => 0.144e3 
+3.0.1 :127 > c.split()
+ => [1, "144", 10, 3] 
+3.0.1 :128 > d= BigDecimal('10')-(22 ** 7.1) ** 10
+ => -0.2051211007305863999999999999999999999999999999999999999999999999999... 
+3.0.1 :129 > d.split()
+ => 
+[-1,
+ "20512110073058639999999999999999999999999999999999999999999999999999999999999999999999999999999",
+ 10,
+ 96] 
+3.0.1 :130 > s
 
 
 
