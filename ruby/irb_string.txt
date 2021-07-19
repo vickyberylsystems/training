@@ -505,9 +505,53 @@ P<r>o<g><r><a><m>
  => "" 
 3.0.1 :186 > s
  => "mr.vicky malhotra" 
+..................................................................................................................................
+                                                                     string.lines funtion........gives an array of lines string
+3.0.1 :190"> s="welcome to ruby tutorial
+3.0.1 :191"> this is going to be fun"
+ => "welcome to ruby tutorial\nthis is going to be fun" 
 
+3.0.1 :192 > s.lines
+ => ["welcome to ruby tutorial\n", "this is going to be fun"] 
+3.0.1 :193 > 
 
+3.0.1 :202 > s="welcome to ruby tutorial"
+ => "welcome to ruby tutorial" 
+
+3.0.1 :203 > s.lines(chomp: true)
+ => ["welcome to ruby tutorial"] 
+
+3.0.1 :204 > s.lines(' ',chomp: true)
+ => ["welcome", "to", "ruby", "tutorial"] 
+
+3.0.1 :195"> s="welcome to ruby tutorial
+3.0.1 :196">  this is going to be fun"
+ => "welcome to ruby tutorial\n this is going to be fun" 
+
+3.0.1 :198 > s.lines(' ')
+["welcome ",
+ "to ",
+ "ruby ",
+ "tutorial\n ",
+ "this ",
+ "is ",
+ "going ",
+ "to ",
+ "be ",
+ "fun"] 
  
+3.0.1 :201 > s.lines(' ',chomp: true)
+ => 
+["welcome",
+ "to",
+ "ruby",
+ "tutorial\n",
+ "this",
+ "is",
+ "going",
+ "to",
+ "be",
+ "fun"] 
 
 
 
