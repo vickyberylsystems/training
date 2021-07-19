@@ -251,6 +251,101 @@ beryl@beryl:~$ irb
  => 25 
 ........................................................................................................................................
 
+3.0.1 :060 > "hello".delete "l"
+ => "heo" 
+3.0.1 :061 > "hello".delete "lo"
+ => "he" 
+3.0.1 :062 > "hello".delete "aeiou" "^e"
+ => "hll" 
+3.0.1 :063 > "hello".delete "aeiou", "^e"
+ => "hell" 
+3.0.1 :064 > "hello".delete "ej-m", "^e"
+ => "heo" 
+3.0.1 :065 > "hello".delete "ej-m"
+ => "ho" 
+
+3.0.1 :072 > "hello".delete_prefix("hel")     #=> "lo"
+ => "lo" 
+3.0.1 :073 > 
+3.0.1 :073 > "hello".delete_prefix("llo") #=> "hello"
+ => "hello" 
+3.0.1 :074 > 
+3.0.1 :074 > "hello".delete_suffix("llo") 
+ => "he" 
+3.0.1 :075 > "hello".delete_suffix("hel")          # it does not delete anythong there is not suffix with matching pattern in string.
+ => "hello" 
+3.0.1 :076 > 
+
+......................................................................................................................................
+                                                                              .each_ function
+0.1 :080 > "hello".each_char {|c| print c, ' ' }
+h e l l o  => "hello" 
+
+3.0.1 :082 > "hello".each_byte {|c| print c, ' ' }
+104 101 108 108 111  => "hello" 
+
+3.0.1 :083 > "hello".each_codepoint {|c| print c, ' ' }
+104 101 108 108 111  => "hello" 
+
+3.0.1 :084 > a='hi'
+ => "hi" 
+
+3.0.1 :085 > a.each_byte {|c| print c, ' ' }
+104 105  => "hi" 
+
+3.0.1 :086 > "hello world".each_line {|s| p s}
+"hello world"
+ => "hello world" 
+
+3.0.1 :087 > "hello\n world".each_line {|s| p s}
+"hello\n"
+" world"
+ => "hello\n world" 
+
+3.0.1 :089 > "hello\nworld".each_line('l') {|s| p s}
+"hel"
+"l"
+"d"
+ => "hello\nworld" 
+
+3.0.1 :090 > "hello\n\n\nworld".each_line('') {|s| p s}
+"hello\n\n"
+"world"
+
+3.0.1 :091 > "hello\nworld".each_line(chomp: true) {|s| p s}
+"hello"
+"world"
+ => "hello\nworld" 
+
+3.0.1 :092 > "hello\n\nworld".each_line(chomp: true) {|s| p s}
+""
+"world"
+ => "hello\n\nworld" 
+
+3.0.1 :093 > "hello\nworld".each_line('l', chomp: true) {|s| p s}
+"he"
+""
+"o\nwor"
+"d"
+ => "hello\nworld" 
+
+3.0.1 :094 > "helloworld".each_line('l', chomp: true) {|s| p s}
+"he"
+""
+"owor"
+"d"
+ => "helloworld" 
+
+3.0.1 :095 > "helloworld".each_line('lo', chomp: true) {|s| p s}
+"hel"
+"world"
+ => "helloworld" 
+3.0.1 :096 > 
+
+
+
+
+
 
 
 
