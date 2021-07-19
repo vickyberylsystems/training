@@ -1,0 +1,217 @@
+beryl@beryl:~$ irb
+3.0.1 :001 > s=String.new
+ => "" 
+3.0.1 :002 > s.encoding
+ => #<Encoding:ASCII-8BIT> 
+
+3.0.1 :003 > s=String.new("welcome to ruby \u{e7}a?")
+ => "welcome to ruby ça?" 
+
+3.0.1 :004 > s.encoding
+ => #<Encoding:UTF-8> 
+3.0.1 :005 >
+ 
+3.0.1 :006 > s1=String.new('fool',encoding: 'ASCII')
+ => "fool" 
+3.0.1 :007 > s2='fool'.force_encoding('ASCII')
+ => "fool" 
+
+3.0.1 :008 > s1==s2
+ => true 
+
+3.0.1 :009 > String.new(capacity: 1)
+ => "" 
+
+3.0.1 :010 > String.new(capacity: 4096)
+ => "" 
+
+3.0.1 :011 > String.new('hello',encoding:'UTF-8',capacity:2)
+ => "hello" 
+
+3.0.1 :012 > String.new('hello',encoding:'UTF-8',capacity:25)
+ => "hello" 
+3.0.1 :013 > 
+
+...............................................................................................
+3.0.1 :013 > "%05d" %123
+ => "00123" 
+3.0.1 :014 > "%0d" %123
+ => "123" 
+3.0.1 :015 > "%02d" %123
+ => "123" 
+3.0.1 :016 > "%08d" %123
+ => "00000123" 
+3.0.1 :017 > "%02f" %123
+ => "123.000000" 
+3.0.1 :018 > "%0f" %123
+ => "123.000000" 
+3.0.1 :019 > "%05f" %123
+ => "123.000000" 
+3.0.1 :020 > "%0.5f" %123
+ => "123.00000" 
+3.0.1 :021 > "%.01f" %123
+ => "123.0" 
+3.0.1 :022 > "%.1f" %123
+ => "123.0" 
+
+3.0.1 :023 > "%.2f" %123
+ => "123.00" 
+
+3.0.1 :024 > "%-5s: %016x" % ["id" , self.object_id]
+ => "id   : 0000000000000104" 
+
+3.0.1 :025 > "%-5s: %016x" % ["id" , self.object_id]
+3.0.1 :025 > "%-5s: %010x" % ["id" , self.object_id]
+ => "id   : 0000000104" 
+
+3.0.1 :026 > "%-5s: %05x" % ["id" , self.object_id]
+ => "id   : 00104" 
+
+3.0.1 :028 > "%-5s: %05x" % ["Id" , self.object_id]
+ => "Id   : 00104" 
+3.0.1 :029 > self.object_id
+ => 260 
+
+3.0.1 :033 > ["Id" , self.object_id]
+ => ["Id", 260] 
+3.0.1 :034 > "%-5s: %05x" % ["Id" , self.object_id]
+ => "Id   : 00104" 
+3.0.1 :035 > "%-s: %05x" % ["Id" , self.object_id]
+ => "Id: 00104" 
+3.0.1 :036 > "%-2s: %05x" % ["Id" , self.object_id]
+ => "Id: 00104" 
+
+3.0.1 :042 > 
+3.0.1 :043 > "foo = %{foo}" %{foo:'bar'}
+ => "foo = bar" 
+
+3.0.1 :044 > "f=%{f} , b=%{b}" % {f:"fool",b: 'benz'}
+ => "f=fool , b=benz" 
+3.0.1 :045 > 
+
+3.0.1 :046 > h={f:"fool",b: 'benz'}
+ => {:f=>"fool", :b=>"benz"} 
+
+3.0.1 :047 > "f=%{f},b=%{b}" %h
+ => "f=fool,b=benz" 
+
+3.0.1 :048 > arr=['vick','raz','ruby','tutorial']
+ => ["vick", "raz", "ruby", "tutorial"] 
+
+3.0.1 :049 > "1=%v" % arr
+(irb):49:in `%': malformed format string - %v (ArgumentError)
+	from (irb):49:in `<main>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/
+
+..............................................................3.0.1 :050 > #string + new string--> new_string
+ => nil 
+
+3.0.1 :051 > "hello" + self.to_s
+ => "hellomain" 
+
+3.0.1 :052 > "hello " + "vicky! "
+ => "hello vicky! " 
+
+3.0.1 :053 > 
+
+3.0.1 :054 > #string <<object -->new_string
+ => nil 
+
+3.0.1 :055 > s='learn '
+ => "learn " 
+
+3.0.1 :056"> s <<"ruby"
+
+3.0.1 :057"> 
+ => "learn ruby" 
+
+3.0.1 :058 > s << 33     #return the ascii code of integer and then concatinate to old string .
+ => "learn ruby!" 
+
+3.0.1 :060 > 
+...............................................................................3.0.1 :061 > # string comparision.(<=>)
+ => nil 
+3.0.1 :062 > 
+3.0.1 :062 > "foo" <=> "foo"
+ => 0 
+3.0.1 :063 > 
+3.0.1 :064 > "foo" <=> "food"
+ => -1 
+3.0.1 :065 > "food" <=> "foo"
+ => 1 
+3.0.1 :066 > "FOO" <=> "foo"
+ => -1 
+3.0.1 :067 > "foo" <=> "FOO"
+ => 1 
+3.0.1 :068 > "foo" <=> 1
+ => nil 
+3.0.1 :069 > 
+3.0.1 :072 > s = "FOO"
+ => "FOO" 
+3.0.1 :073 > s=='FOO'
+ => true 
+3.0.1 :074 > s=='FOOd'
+ => false 
+3.0.1 :075 > 
+
+..................................3.0.1 :075 > # string =~ regexp-->integer  (if exp match the return the starting index from the string) 
+ => nil 
+3.0.1 :076 > 
+3.0.1 :077 > s="fool"
+ => "fool" 
+3.0.1 :078 > s=~/f/
+ => 0 
+3.0.1 :079 > s=~/l/
+ => 3 
+3.0.1 :080 > s=~/o/
+ => 1 
+3.0.1 :081 > s=~/x/
+ => nil 
+3.0.1 :082 > s2='ol'
+ => "ol" 
+3.0.1 :083 > s=~/s2/
+ => nil 
+
+
+3.0.1 :093 > s="Hello there "
+ => "Hello there " 
+3.0.1 :094 > s[/[aeiou](.)\l/] 
+ => "ell" 
+3.0.1 :095 > s[/[aeiou](.)\o/] 
+ => nil 
+3.0.1 :096 > s[/[aeiou](.)\t/] 
+ => nil 
+3.0.1 :097 > s[/[aeiou](.)\l/] 
+ => "ell" 
+3.0.1 :098 > s[/[aeiou](.)\1/,0] 
+ => "ell" 
+3.0.1 :099 > s[/[aeiou](.)\2/,0] 
+/home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/workspace.rb:116:in `eval': (irb):99: invalid backref number/name: /[aeiou](.)\2/ (SyntaxError)
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /home/beryl/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+3.0.1 :100 > s[/[aeiou](.)\1/,0] 
+ => "ell" 
+3.0.1 :101 > s[/[aeiou](.)\1/,1] 
+ => "l" 
+3.0.1 :102 > 
+3.0.1 :102 > 'abc'.force_encoding("UTF-8").ascii_only?
+ => true 
+3.0.1 :103 > 'abc123'.force_encoding("UTF-8").ascii_only?
+ => true 
+3.0.1 :104 > 'abc123@4#$'.force_encoding("UTF-8").ascii_only?
+ => true 
+3.0.1 :105 > 'abc123@4#$\yu\n'.force_encoding("UTF-8").ascii_only?
+ => true 
+3.0.1 :106 > 'abc123\u{@4#$\yu\}n'.force_encoding("UTF-8").ascii_only?
+ => true 
+3.0.1 :107 > 'abc\u{6666}'.force_encoding("UTF-8").ascii_only?
+ => true 
+3.0.1 :108 > 
+3.0.1 :109 > "\x80\u3042".bytesize
+ => 4 
+
+
+
+
+
