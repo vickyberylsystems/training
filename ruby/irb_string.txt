@@ -393,6 +393,8 @@ h e l l o  => "hello"
  => ["welcome", "to", "the ruby world"] 
 3.0.1 :135 > 
 .....................................................................
+BigDecimal split() function return a list with 4 elements 1.sign, 2.significant digit, 3.exponent 4. power
+.................................................................................................
 3.0.1 :120 > a=BigDecimal("10")
  => 0.1e2 
 3.0.1 :121 > a.split()
@@ -419,7 +421,51 @@ h e l l o  => "hello"
  96] 
 3.0.1 :130 > s
 
+..............................................................................................................................................
+                                                           string.gsum()  function Syntax: str.gsub(pattern, replacement)
+ 
+                           Returns:A copy of the string with all occurrences of pattern substituted for the second argument.
 
+3.0.1 :137 > "hello".gsub(/[aeiou]/, '*')
+ => "h*ll*" 
+
+3.0.1 :138 > puts "program".gsub(/[aeiou]/,'<l>')
+pr<l>gr<l>m
+
+3.0.1 :144 > "program".gsub(/([aeiou])/,'<\1>')
+ => "pr<o>gr<a>m" 
+
+3.0.1 :152 > "program".gsub(/[aeiou]/,'*')
+ => "pr*gr*m" 
+
+3.0.1 :153 > "program".gsub(/([aeiou])/,'*')
+ => "pr*gr*m" 
+
+3.0.1 :150 > "program".gsub(/[aeiou]/,'<\1>')
+ => "pr<>gr<>m" 
+
+3.0.1 :151 > "prgrm".gsub(/[aeiou]/,'<\1>')
+ => "prgrm" 
+........................................................
+3.0.1 :156 > puts "Sample".gsub!(/[ae]/, '*')                 
+3.0.1 :157 > puts "Program".gsub!(/([gmra])/, '<\1>')
+S*mpl*
+P<r>o<g><r><a><m>
+ => nil
+;............................................................ 
+3.0.1 :158 > 
+3.0.1 :158 > "welcome".gsub(/(?<foo>[aeiou])/, '{\k<foo>}')
+ => "w{e}lc{o}m{e}" 
+
+3.0.1 :162 > "hello".gsub(/./) {|s| s.ord.to_s + ' '}
+ => "104 101 108 108 111 " 
+3.0.1 :163 > 
+
+
+
+
+
+ 
 
 
 
