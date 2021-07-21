@@ -1,0 +1,137 @@
+emp_managment=# \d emp
+                                     Table "public.emp"
+   Column   |         Type          | Collation | Nullable |             Default             
+------------+-----------------------+-----------+----------+---------------------------------
+ id         | bigint                |           | not null | nextval('emp_id_seq'::regclass)
+ first_name | character varying(50) |           |          | 
+ last_name  | character varying(20) |           |          | 
+ gender     | character varying(10) |           |          | 
+ salary     | integer               |           |          | 
+ dep_id     | integer               |           |          | 
+Indexes:
+    "emp_pkey" PRIMARY KEY, btree (id)
+Foreign-key constraints:
+    "emp_dep_id_fkey" FOREIGN KEY (dep_id) REFERENCES department(dep_id)
+Referenced by:
+    TABLE "details" CONSTRAINT "details_id_fkey" FOREIGN KEY (id) REFERENCES emp(id)
+    TABLE "projectassign" CONSTRAINT "projectassign_emp_id_fkey" FOREIGN KEY (emp_id) REFERENCES emp(id)
+
+
+
+
+emp_managment=# \d department
+                    Table "public.department"
+ Column |         Type          | Collation | Nullable | Default 
+--------+-----------------------+-----------+----------+---------
+ d_name | character varying(50) |           |          | 
+ dep_id | integer               |           | not null | 
+Indexes:
+    "department_pkey" PRIMARY KEY, btree (dep_id)
+Referenced by:
+    TABLE "emp" CONSTRAINT "emp_dep_id_fkey" FOREIGN KEY (dep_id) REFERENCES department(dep_id)
+
+
+
+emp_managment-# \d projects
+                     Table "public.projects"
+ Column |          Type          | Collation | Nullable | Default 
+--------+------------------------+-----------+----------+---------
+ p_id   | integer                |           | not null | 
+ p_name | character varying(100) |           |          | 
+ c_name | character varying(100) |           |          | 
+Indexes:
+    "projects_pkey" PRIMARY KEY, btree (p_id)
+Referenced by:
+    TABLE "projectassign" CONSTRAINT "projectassign_p_id_fkey" FOREIGN KEY (p_id) REFERENCES projects(p_id)
+
+
+emp_managment-# \d projectassign 
+           Table "public.projectassign"
+ Column |  Type   | Collation | Nullable | Default 
+--------+---------+-----------+----------+---------
+ emp_id | integer |           | not null | 
+ p_id   | integer |           |          | 
+Foreign-key constraints:
+    "projectassign_emp_id_fkey" FOREIGN KEY (emp_id) REFERENCES emp(id)
+    "projectassign_p_id_fkey" FOREIGN KEY (p_id) REFERENCES projects(p_id)
+
+
+
+emp_managment=# \d details 
+                       Table "public.details"
+  Column   |          Type          | Collation | Nullable | Default 
+-----------+------------------------+-----------+----------+---------
+ id        | integer                |           | not null | 
+ hire_date | date                   |           |          | 
+ email     | character varying(100) |           |          | 
+Foreign-key constraints:
+    "details_id_fkey" FOREIGN KEY (id) REFERENCES emp(id)
+
+.....................................................................................................................................
+
+ques--find d_name e_name salary of 2nd highest salary;
+
+emp_managment=# select d.d_name ,e.first_name,e.salary from department as d inner join emp as e on d.dep_id=e.dep_id where salary in 
+(select e.salary from emp e group by salary order by salary desc limit 1 offset 1);
+  d_name  | first_name | salary 
+----------+------------+--------
+ frontend | kunal      | 150000
+(1 row)
+
+...................................................................................................................................
+
+ques-- find ename and countof project having more than eaual to 3  projects.....
+
+emp_managment=# select e.first_name from emp e inner join projectassign p on e.id=p.emp_id group by e.id having count(p.p_id)>=3;
+ first_name 
+------------
+ kunal
+ dharvesh
+ amzad
+ preet
+(4 rows)
+
+emp_managment=# select e.first_name,count(p.p_id) from emp e 
+                inner join projectassign p on e.id=p.emp_id group by e.id having count(p.p_id)>=3;
+
+ first_name | count 
+------------+-------
+ kunal      |     5
+ dharvesh   |     3
+ amzad      |     3
+ preet      |     3
+(4 rows)
+
+
+..........................................................................................................................................
+
+select ename and hire_date of emp who is working on p_id =4..
+
+emp_managment=# select * from emp as e inner join details as d on e.id=d.id 
+where e.id in (select distinct p.emp_id from projectassign p where p.p_id=4); 
+ id | first_name | last_name | gender | salary | dep_id | id | hire_date  |           email            
+----+------------+-----------+--------+--------+--------+----+------------+----------------------------
+  5 | amzad      | raza      | m      |  80000 |      2 |  5 | 2020-04-16 | amzad.raza@outlook.com
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |  7 | 2020-02-15 | darvesh.sharma@outlook.com
+  8 | preet      | bharana   | m      |  90000 |      2 |  8 | 2018-07-20 | preet7878@gmail.com
+  9 | ayush      | sharma    | m      |  88000 |      2 |  9 | 2018-11-23 | ayush_sharma@gmail.com
+ 11 | rohit      | kumar     | m      |  92000 |      3 | 11 | 2019-10-15 | rohitkumar@gmail.com
+ 13 | kunal      | sharma    | m      | 150000 |      4 | 13 | 2020-04-17 | kunal.sharma@gmai.com
+(6 rows)
+
+........................................................................................................................................
+
+emp_managment=# select d.d_name,max(e.salary) from emp as e inner join department as d on e.dep_id=d.dep_id group by d.dep_id; 
+
+  d_name   |   max   
+-----------+---------
+ backend   |   92000
+ assis_man |  105000
+ frontend  |  150000
+ fullstack |   95000
+ manager   | 1200000
+ kanteen   |    5500
+ hr        |   75000
+(7 rows)
+
+
