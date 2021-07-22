@@ -351,10 +351,93 @@ postgres=# select distinct e.first_name,a.cruisingrange from emp e join certifie
 ............................................................................................................................................
 
 
+emp_managment=# select * from emp e inner join projectassign as p on e.id=p.emp_id;
+ id | first_name | last_name | gender | salary | dep_id | emp_id | p_id 
+----+------------+-----------+--------+--------+--------+--------+------
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    1
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    2
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    4
+  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    1
+  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    4
+  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    5
+  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    4
+  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    5
+  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    1
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    1
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    2
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    3
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    4
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    5
+ 12 | mehta      | sharma    | m      |  82000 |      4 |     12 |    5
+ 11 | rohit      | kumar     | m      |  92000 |      3 |     11 |    4
+  9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    4
+  9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    5
+(18 rows)
 
 
+emp_managment=# select avg(e.salary) from emp e inner join projectassign as p  on e.id=p.emp_id group by p.p_id;
+         avg         
+---------------------
+ 150000.000000000000
+  98000.000000000000
+  99166.666666666667
+ 122500.000000000000
+ 103750.000000000000
+(5 rows)
+
+emp_managment=# select avg(e.salary) from emp e inner join projectassign as p  on e.id=p.emp_id group by p.p_id having avg(e.salary) >(select avg(salary)  from emp);
+         avg         
+---------------------
+ 150000.000000000000
+(1 row)
 
 
+emp_managment=# select e.first_name,e.salary from emp e where e.salary>(select avg(salary) from emp group by dep_id having dep_id=2);
+ first_name | salary  
+------------+---------
+ dharvesh   |   95000
+ preet      |   90000
+ rohit      |   92000
+ kunal      |  150000
+ sumit      |  105000
+ anil       | 1200000
+(6 rows)
+
+emp_managment=# select e.first_name,e.salary from emp e where e.salary>(select avg(salary) from emp group by dep_id having dep_id=3);
+ first_name | salary  
+------------+---------
+ dharvesh   |   95000
+ preet      |   90000
+ ayush      |   88000
+ amzad      |   80000
+ asma       |   85000
+ rohit      |   92000
+ kunal      |  150000
+ mehta      |   82000
+ sumit      |  105000
+ anil       | 1200000
+ raz        |   76767
+(11 rows)
+
+emp_managment=# select e.first_name,e.salary from emp e where e.salary>(select avg(salary) from emp group by dep_id having dep_id=4);
+ first_name | salary  
+------------+---------
+ kunal      |  150000
+ sumit      |  105000
+ anil       | 1200000
+(3 rows)
+
+emp_managment=# select e.first_name,e.salary from emp e where e.salary>(select avg(salary) from emp group by dep_id having dep_id=5);
+ first_name | salary  
+------------+---------
+ kunal      |  150000
+ anil       | 1200000
+(2 rows)
+
+emp_managment=# select e.first_name,e.salary from emp e where e.salary>(select avg(salary) from emp group by dep_id having dep_id=6);
+ first_name | salary 
+------------+--------
+(0 rows)
 
 
 
