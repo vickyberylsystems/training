@@ -72,11 +72,14 @@ Foreign-key constraints:
 ques--find d_name e_name salary of 2nd highest salary;
 
 emp_managment=# select d.d_name ,e.first_name,e.salary from department as d inner join emp as e on d.dep_id=e.dep_id where salary in 
-(select e.salary from emp e group by salary order by salary desc limit 1 offset 1);
+                      (select e.salary from emp e group by salary order by salary desc limit 1 offset 1);
+  
   d_name  | first_name | salary 
 ----------+------------+--------
  frontend | kunal      | 150000
 (1 row)
+
+
 
 ...................................................................................................................................
 
@@ -104,11 +107,11 @@ emp_managment=# select e.first_name,count(p.p_id) from emp e
 
 
 ..........................................................................................................................................
-
-select ename and hire_date of emp who is working on p_id =4..
+                                                            select ename and hire_date of emp who is working on p_id =4..
 
 emp_managment=# select * from emp as e inner join details as d on e.id=d.id 
-where e.id in (select distinct p.emp_id from projectassign p where p.p_id=4); 
+                 where e.id in (select distinct p.emp_id from projectassign p where p.p_id=4); 
+
  id | first_name | last_name | gender | salary | dep_id | id | hire_date  |           email            
 ----+------------+-----------+--------+--------+--------+----+------------+----------------------------
   5 | amzad      | raza      | m      |  80000 |      2 |  5 | 2020-04-16 | amzad.raza@outlook.com
@@ -119,7 +122,7 @@ where e.id in (select distinct p.emp_id from projectassign p where p.p_id=4);
  13 | kunal      | sharma    | m      | 150000 |      4 | 13 | 2020-04-17 | kunal.sharma@gmai.com
 (6 rows)
 
-........................................................................................................................................
+.............................................................max salary in each department       .....................................
 
 emp_managment=# select d.d_name,max(e.salary) from emp as e inner join department as d on e.dep_id=d.dep_id group by d.dep_id; 
 
@@ -146,33 +149,51 @@ emp_managment=# select e.first_name ,d.d_name,e.salary from emp e inner join dep
  neha       | hr        |   75647
 (7 rows)
 
+emp_managment=# select d.d_name ,e.first_name,e.salary from emp e 
+                      inner join department d on d.dep_id=e.dep_id inner join 
+                                (select e.dep_id,max(e.salary) as sal from emp e group by e.dep_id) max 
+                                            on e.dep_id=max.dep_id where max.sal=e.salary ;
+
+  d_name   | first_name | salary  
+-----------+------------+---------
+ fullstack | dharvesh   |   95000
+ kanteen   | deepak     |    5500
+ backend   | rohit      |   92000
+ frontend  | kunal      |  150000
+ assis_man | sumit      |  105000
+ manager   | anil       | 1200000
+ hr        | neha       |   75647
+(7 rows)
+
+...................................................................2nd max salary in each department   .......................
+
+emp_managment=# select e.dep_id,max(e.salary) as sec_max from emp e 
+                       where e.salary < (select max(e1.salary) from emp e1 where e.dep_id=e1.dep_id) group by e.dep_id;
+ dep_id | sec_max 
+--------+---------
+      0 |    3000
+      1 |   75000
+      2 |   90000
+      3 |   85000
+      4 |   82000
+(5 rows)
 
 
+emp_managment=# select first_name, dep_id, salary from emp where salary in 
+                             (select max(e.salary) as sec_max from emp e 
+                                 where e.salary < (select max(e1.salary) from emp e1 where e.dep_id=e1.dep_id) group by e.dep_id);
+ first_name | dep_id | salary 
+------------+--------+--------
+ lucky      |      1 |  75000
+ preet      |      2 |  90000
+ kunal      |      0 |   3000
+ asma       |      3 |  85000
+ mehta      |      4 |  82000
+(5 rows)
 
-emp_managment=# select * from emp e inner join projectassign as p on e.id=p.emp_id;
- id | first_name | last_name | gender | salary | dep_id | emp_id | p_id 
-----+------------+-----------+--------+--------+--------+--------+------
-  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    1
-  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    2
-  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    4
-  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    1
-  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    4
-  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    5
-  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    4
-  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    5
-  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    1
- 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    1
- 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    2
- 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    3
- 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    4
- 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    5
- 12 | mehta      | sharma    | m      |  82000 |      4 |     12 |    5
- 11 | rohit      | kumar     | m      |  92000 |      3 |     11 |    4
-  9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    4
-  9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    5
-(18 rows)
+;;;;;;;;;;;;;;;;;,....................................................................................................
 
-
+;.......................................................................................................................................
 emp_managment=# select avg(e.salary) from emp e inner join projectassign as p  on e.id=p.emp_id group by p.p_id;
          avg         
 ---------------------
@@ -395,9 +416,10 @@ emp_managment=# select e.first_name,d.hire_date,age(current_date,d.hire_date),e.
 
 (7 rows)
 
-emp_managment=# select e.first_name,d.hire_date,e,dep_id from emp e inner join details d on e.id=d.id
-where d.hire_date in (select min(hire_date) as
-hire_date from emp e inner join details d on d.id=e.id group by e.dep_id);
+emp_managment=# select e.first_name,d.hire_date,e,dep_id from emp e inner join 
+                                  details d on e.id=d.id where d.hire_date in (select min(hire_date) as
+                                             hire_date from emp e inner join details d on d.id=e.id group by e.dep_id);
+
  first_name | hire_date  |              e              | dep_id 
 ------------+------------+-----------------------------+--------
  raz        | 2019-07-22 | (18,raz,kumar,m,76767,4)    |      4
@@ -409,4 +431,91 @@ hire_date from emp e inner join details d on d.id=e.id group by e.dep_id);
  sumit      | 2021-02-13 | (17,sumit,kumar,m,105000,5) |      5
 (7 rows)
 
+.............................................................join on emp and projectassign   ..........................................
+
+
+emp_managment=# select * from emp e inner join projectassign as p on e.id=p.emp_id;
+ id | first_name | last_name | gender | salary | dep_id | emp_id | p_id 
+----+------------+-----------+--------+--------+--------+--------+------
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    1
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    2
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    4
+  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    1
+  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    4
+  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    5
+  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    4
+  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    5
+  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    1
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    1
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    2
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    3
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    4
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    5
+ 12 | mehta      | sharma    | m      |  82000 |      4 |     12 |    5
+ 11 | rohit      | kumar     | m      |  92000 |      3 |     11 |    4
+  9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    4
+  9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    5
+(18 rows)
+
+
+
+emp_managment=# select p.emp_id,count(p.p_id) as projects,e.first_name from emp e inner join 
+                                                    projectassign p on e.id=p.emp_id group by p.emp_id,e.first_name;
+ emp_id | projects | first_name 
+--------+----------+------------
+      5 |        3 | amzad
+     11 |        1 | rohit
+     13 |        5 | kunal
+      8 |        3 | preet
+      9 |        2 | ayush
+      7 |        3 | dharvesh
+     12 |        1 | mehta
+(7 rows)
+
+
+emp_managment=# select p.emp_id,e.first_name,ps.p_name from emp e inner join 
+                                  projectassign p on e.id=p.emp_id inner join 
+                                            projects ps on p.p_id=ps.p_id where e.id =7;
+
+ emp_id | first_name |      p_name      
+--------+------------+------------------
+      7 | dharvesh   | emp_managment
+      7 | dharvesh   | home automation
+      7 | dharvesh   | self driving car
+(3 rows)
+
+emp_managment=# select p.emp_id,e.first_name,ps.p_name from emp e inner join 
+                                 projectassign p on e.id=p.emp_id inner join 
+                                   projects ps on p.p_id=ps.p_id where e.first_name ='dharvesh';
+
+ emp_id | first_name |      p_name      
+--------+------------+------------------
+      7 | dharvesh   | emp_managment
+      7 | dharvesh   | home automation
+      7 | dharvesh   | self driving car
+(3 rows)
+
+....................................................inner join on all 5 tables .....................................................
+
+ id | first_name | last_name | gender | salary | dep_id | emp_id | p_id | p_id |       p_name        |    c_name     |  d_name   | dep_id | id | hire_date  |           email            
+----+------------+-----------+--------+--------+--------+--------+------+------+---------------------+---------------+-----------+--------+----+------------+----------------------------
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    1 |    1 | emp_managment       | john wick     | fullstack |      2 |  7 | 2020-02-15 | darvesh.sharma@outlook.com
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    2 |    2 | home automation     | creistien     | fullstack |      2 |  7 | 2020-02-15 | darvesh.sharma@outlook.com
+  7 | dharvesh   | sharma    | m      |  95000 |      2 |      7 |    4 |    4 | self driving car    | robert deniel | fullstack |      2 |  7 | 2020-02-15 | darvesh.sharma@outlook.com
+  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    1 |    1 | emp_managment       | john wick     | fullstack |      2 |  8 | 2018-07-20 | preet7878@gmail.com
+  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    4 |    4 | self driving car    | robert deniel | fullstack |      2 |  8 | 2018-07-20 | preet7878@gmail.com
+  8 | preet      | bharana   | m      |  90000 |      2 |      8 |    5 |    5 | database management | cedrick       | fullstack |      2 |  8 | 2018-07-20 | preet7878@gmail.com
+  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    4 |    4 | self driving car    | robert deniel | fullstack |      2 |  5 | 2020-04-16 | amzad.raza@outlook.com
+  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    5 |    5 | database management | cedrick       | fullstack |      2 |  5 | 2020-04-16 | amzad.raza@outlook.com
+  5 | amzad      | raza      | m      |  80000 |      2 |      5 |    1 |    1 | emp_managment       | john wick     | fullstack |      2 |  5 | 2020-04-16 | amzad.raza@outlook.com
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    1 |    1 | emp_managment       | john wick     | frontend  |      4 | 13 | 2020-04-17 | kunal.sharma@gmai.com
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    2 |    2 | home automation     | creistien     | frontend  |      4 | 13 | 2020-04-17 | kunal.sharma@gmai.com
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    3 |    3 | billing managemet   | mahendra      | frontend  |      4 | 13 | 2020-04-17 | kunal.sharma@gmai.com
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    4 |    4 | self driving car    | robert deniel | frontend  |      4 | 13 | 2020-04-17 | kunal.sharma@gmai.com
+ 13 | kunal      | sharma    | m      | 150000 |      4 |     13 |    5 |    5 | database management | cedrick       | frontend  |      4 | 13 | 2020-04-17 | kunal.sharma@gmai.com
+ 12 | mehta      | sharma    | m      |  82000 |      4 |     12 |    5 |    5 | database management | cedrick       | frontend  |      4 | 12 | 2021-04-20 | not provided
+ 11 | rohit      | kumar     | m      |  92000 |      3 |     11 |    4 |    4 | self driving car    | robert deniel | backend   |      3 | 11 | 2019-10-15 | rohitkumar@gmail.com
+  9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    4 |    4 | self driving car    | robert deniel | fullstack |      2 |  9 | 2018-11-23 | ayush_sharma@gmail.com
+  9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    5 |    5 | database management | cedrick       | fullstack |      2 |  9 | 2018-11-23 | ayush_sharma@gmail.com
+(18 rows)
 
