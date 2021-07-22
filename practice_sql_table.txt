@@ -137,7 +137,8 @@ emp_managment=# select d.d_name,max(e.salary) from emp as e inner join departmen
  hr        |   75000
 (7 rows)
 
-emp_managment=# select e.first_name ,d.d_name,e.salary from emp e inner join department d on d.dep_id=e.dep_id where salary in (select max(salary) from emp group by dep_id);
+emp_managment=# select e.first_name ,d.d_name,e.salary from emp e inner join 
+                                     department d on d.dep_id=e.dep_id where salary in (select max(salary) from emp group by dep_id);
  first_name |  d_name   | salary  
 ------------+-----------+---------
  dharvesh   | fullstack |   95000
@@ -512,6 +513,20 @@ emp_managment=# select p.p_id,p1.p_name,count(p.emp_id) as no_of_emp from projec
     2 | home automation     |         2
 (5 rows)
 
+emp_managment=# select p.p_id,count(p.emp_id) as no_of_emp from projectassign p inner join
+                                   projects p1 on p.p_id=p1.p_id group by p.p_id,p1.p_name having p1.p_name like '%car%';
+ p_id | no_of_emp 
+------+-----------
+    4 |         6
+(1 row)
+
+
+                                                                ^
+emp_managment=# select p.p_id ,count(p.emp_id) as no_of_emp from projectassign p group by p.p_id having p.p_id=5;
+ p_id | no_of_emp 
+------+-----------
+    5 |         5
+(1 row)
 
 
 ;...............................................................employee who working on project like x get 20% hike  .....................
@@ -557,4 +572,28 @@ emp_managment=# select e.first_name,1.2*e.salary as inceased_sal from emp e wher
 (18 rows)
 
 
+........................................................................................................
+emp_managment=# 
+emp_managment=# select * from projectassign p inner join projects p1 on p.p_id=p1.p_id;
+ emp_id | p_id | p_id |       p_name        |    c_name     
+--------+------+------+---------------------+---------------
+      7 |    1 |    1 | emp_managment       | john wick
+      7 |    2 |    2 | home automation     | creistien
+      7 |    4 |    4 | self driving car    | robert deniel
+      8 |    1 |    1 | emp_managment       | john wick
+      8 |    4 |    4 | self driving car    | robert deniel
+      8 |    5 |    5 | database management | cedrick 
+      5 |    4 |    4 | self driving car    | robert deniel
+      5 |    5 |    5 | database management | cedrick 
+      5 |    1 |    1 | emp_managment       | john wick
+     13 |    1 |    1 | emp_managment       | john wick
+     13 |    2 |    2 | home automation     | creistien
+     13 |    3 |    3 | billing managemet   | mahendra
+     13 |    4 |    4 | self driving car    | robert deniel
+     13 |    5 |    5 | database management | cedrick 
+     12 |    5 |    5 | database management | cedrick 
+     11 |    4 |    4 | self driving car    | robert deniel
+      9 |    4 |    4 | self driving car    | robert deniel
+      9 |    5 |    5 | database management | cedrick 
+(18 rows)
 
