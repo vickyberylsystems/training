@@ -318,7 +318,9 @@ emp_managment=# select e.first_name,e.salary from emp e left join projectassign 
 
 .........................................................................
 
-emp_managment=# select e.first_name,e.salary from emp e left join projectassign as p on e.id=p.emp_id group by e.first_name,e.salary having salary >(select avg(e.salary) from emp e inner join projectassign as p on e.id=p.emp_id);
+emp_managment=# select e.first_name,e.salary from emp e left join 
+                  projectassign as p on e.id=p.emp_id group by e.first_name,e.salary
+                           having salary >(select avg(distinct(e.salary)) from emp e inner join projectassign as p on e.id=p.emp_id);
  first_name | salary  
 ------------+---------
  anil       | 1200000
@@ -355,7 +357,9 @@ emp_managment=# select * from emp e inner join details d on e.id=d.id inner join
 
 .......................................................................................................................
 
-emp_managment=# select e.first_name,e.dep_id,age(current_date,d.hire_date) exp from emp e inner join details d on d.id=e.id group by e.dep_id,d.hire_date,e.first_name order by exp desc ;  
+emp_managment=# select e.first_name,e.dep_id,age(current_date,d.hire_date) exp from emp e inner join
+                                     details d on d.id=e.id group by e.dep_id,d.hire_date,e.first_name order by exp desc ;  
+ 
  first_name | dep_id |          exp           
 ------------+--------+------------------------
  deepak     |      0 | 3 years 29 days
@@ -495,6 +499,39 @@ emp_managment=# select p.emp_id,e.first_name,ps.p_name from emp e inner join
       7 | dharvesh   | self driving car
 (3 rows)
 
+..................................................................no of emp working on each project..............................
+
+emp_managment=# select p.p_id,p1.p_name,count(p.emp_id) as no_of_emp from projectassign p inner join
+                                          projects p1 on p.p_id=p1.p_id group by p.p_id,p1.p_name;
+ p_id |       p_name        | no_of_emp 
+------+---------------------+-----------
+    4 | self driving car    |         6
+    3 | billing managemet   |         1
+    5 | database management |         5
+    1 | emp_managment       |         4
+    2 | home automation     |         2
+(5 rows)
+
+
+
+;...............................................................employee who working on project like x get 20% hike  .....................
+
+emp_managment=# select e.first_name,1.2*e.salary as inceased_sal from emp e where e.id in 
+                                         (select p.emp_id from projectassign p inner join 
+                                                     projects p1 on p.p_id=p1.p_id where p1.p_name like '%car%');
+
+ first_name | inceased_sal 
+------------+--------------
+ dharvesh   |     114000.0
+ preet      |     108000.0
+ ayush      |     105600.0
+ amzad      |      96000.0
+ rohit      |     110400.0
+ kunal      |     180000.0
+(6 rows)
+
+
+
 ....................................................inner join on all 5 tables .....................................................
 
  id | first_name | last_name | gender | salary | dep_id | emp_id | p_id | p_id |       p_name        |    c_name     |  d_name   | dep_id | id | hire_date  |           email            
@@ -518,4 +555,6 @@ emp_managment=# select p.emp_id,e.first_name,ps.p_name from emp e inner join
   9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    4 |    4 | self driving car    | robert deniel | fullstack |      2 |  9 | 2018-11-23 | ayush_sharma@gmail.com
   9 | ayush      | sharma    | m      |  88000 |      2 |      9 |    5 |    5 | database management | cedrick       | fullstack |      2 |  9 | 2018-11-23 | ayush_sharma@gmail.com
 (18 rows)
+
+
 
