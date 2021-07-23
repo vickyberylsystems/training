@@ -630,5 +630,22 @@ emp_managment=# select e.first_name,count(p.p_id) from emp e left join projectas
 ..........................................................................................................................................
 
 
+emp_managment=# select avg_all,avg_hv_pr from (select avg(e.salary) from emp e left join projectassign p on p.emp_id=e.id) as avg_all
+,(select avg(e.salary) from emp e inner join projectassign p on p.emp_id=e.id) as avg_hv_pr  ;
+        avg_all        |       avg_hv_pr       
+-----------------------+-----------------------
+ (125514.275862068966) | (105277.777777777778)
+(1 row)
+
+
+diff between avg sal of all emp and emp having projects..................
+
+emp_managment=# select (avg_all.avg-avg_hv_pr.avg) as diff 
+                from (select avg(e.salary) as avg  from emp e left join projectassign p on p.emp_id=e.id) as avg_all ,
+                      (select avg(e.salary) as avg from emp e inner join projectassign p on p.emp_id=e.id) as avg_hv_pr  ;
+        diff        
+--------------------
+ 20236.498084291188
+(1 row)
 
 
