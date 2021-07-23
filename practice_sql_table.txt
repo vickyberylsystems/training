@@ -597,3 +597,38 @@ emp_managment=# select * from projectassign p inner join projects p1 on p.p_id=p
       9 |    5 |    5 | database management | cedrick 
 (18 rows)
 
+;;............................................................................................................................
+                   find emp having at least one project in their hand   .............. and having 0 projects ...........
+
+emp_managment=# select e.first_name,count(p.p_id) from emp e left join projectassign p on p.emp_id=e.id group by e.first_name having count(p.p_id)<1;
+ first_name | count 
+------------+-------
+ raz        |     0
+ anil       |     0
+ asma       |     0
+ dev        |     0
+ neha       |     0
+ sumit      |     0
+ deepak     |     0
+ bhawna     |     0
+ riya       |     0
+ lucky      |     0
+(10 rows)
+
+emp_managment=# select e.first_name,count(p.p_id) from emp e left join projectassign p on p.emp_id=e.id group by e.first_name having count(p.p_id)>=1;
+ first_name | count 
+------------+-------
+ preet      |     3
+ amzad      |     3
+ mehta      |     1
+ kunal      |     5
+ ayush      |     2
+ rohit      |     1
+ dharvesh   |     3
+(7 rows)
+
+..........................................................................................................................................
+
+
+
+
