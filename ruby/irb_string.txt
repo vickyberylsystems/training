@@ -613,4 +613,36 @@ h e l l o  => "hello"
 9
  => nil 
 
+.....................................................................................squeeze function   .................................
+
+3.0.1 :049 > 
+3.0.1 :049 > s='yellow moon'
+ => "yellow moon" 
+3.0.1 :050 > s.squeeze
+ => "yelow mon" 
+3.0.1 :051 > s.squeeze(" ")
+ => "yellow moon" 
+3.0.1 :052 > s.squeeze("a-z")
+ => "yelow mon" 
+........................................
+3.0.1 :053 > s='yellow      moon'
+ => "yellow      moon" 
+3.0.1 :054 > s.squeeze(" ")
+ => "yellow moon" 
+3.0.1 :055 > s.squeeze
+ => "yelow mon" 
+..........................................................................
+
+3.0.1 :056 > 'hello'.sub(/[aeiou]/,'*')
+ => "h*llo" 
+3.0.1 :057 > value = "bird"
+ => "bird" 
+
+3.0.1 :058 > value.sub('ird','ark')
+ => "bark" 
+3.0.1 :059 > 'holle'.sub(/[aeiou]/,'*')
+ => "h*lle" 
+3.0.1 :060 > 'holle'.gsub(/[aeiou]/,'*')
+ => "h*ll*" 
+3.0.1 :061 > 
 
