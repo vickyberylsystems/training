@@ -168,8 +168,12 @@
 3.0.1 :111 > str=""
  => "" 
 
-3.0.1 :112 > words.reverse_each {|wrd| str+="#{wrd}"}                               # iterate in reverse using reverse_each method......
+3.0.1 :112 > words.reverse_each {|wrd| str+="#{wrd} "}                               # iterate in reverse using reverse_each method......
  => ["ruby", "provide", "%w", "to", "take", "string", "array", "with", "space"] 
+
+3.0.1 :267 > puts str
+  space  with  array  string  take  to  %w  provide  ruby 
+ => nil 
 
 .........................................................................................................................................
                                                             array.map function create another array using block modifiaction.....
@@ -390,6 +394,8 @@
 3.0.1 :254 > a.count(2)
  => 1 
 3.0.1 :255 > 
+..............................................................
+
 
 
 
