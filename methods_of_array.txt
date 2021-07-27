@@ -171,8 +171,19 @@
 3.0.1 :112 > words.reverse_each {|wrd| str+="#{wrd}"}                               # iterate in reverse using reverse_each method......
  => ["ruby", "provide", "%w", "to", "take", "string", "array", "with", "space"] 
 
+.........................................................................................................................................
+                                                            array.map function create another array using block modifiaction.....
+3.0.1 :113 > arr
+ => [1, 2, 4, 5, 6, 7, 8, 9] 
 
+3.0.1 :114 > arr.map {|e| 2*e}
+ => [2, 4, 8, 10, 12, 14, 16, 18] 
 
-3.0.1 :113 > 
+3.0.1 :115 > arr
+ => [1, 2, 4, 5, 6, 7, 8, 9] 
+
+3.0.1 :116 > arr.map {|e| e**2}
+ => [1, 4, 16, 25, 36, 49, 64, 81] 
+
 
 
