@@ -341,6 +341,16 @@
 
 3.0.1 :197 > a = array.assoc('a')
  => ["a", "b", "c", "d", "e"] 
+
+3.0.1 :350 > a = [ [ 1, "one"], [2, "two"], [3, "three"], ["ii", "two"] ]        # arr.rassoc()
+ => [[1, "one"], [2, "two"], [3, "three"], ["ii", "two"]] 
+
+3.0.1 :351 > a.rassoc('two')                                     # Searches through the array whose elements are also arrays.
+ => [2, "two"]                                                   # Compares obj with the second element of each contained array using obj.==.
+
+3.0.1 :352 > a.rassoc(2)                                        #
+ => nil 
+
 .........................................................................................................................................
                                                                 bsearch{|| condition}........                                                  
 
