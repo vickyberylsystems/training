@@ -150,3 +150,29 @@
 3.0.1 :088 > 
 
 .........................................................................................................................................
+                                                            remove duplicates from array.......using arr.uniq.......
+                                                             return another array with all uniq elements........
+3.0.1 :098 > arr
+ => [1, 2, 4, 5, 6, 7, 8, 9, 9, 5, 7] 
+3.0.1 :099 > arr.uniq
+ => [1, 2, 4, 5, 6, 7, 8, 9] 
+...................................................................................................................................
+
+3.0.1 :109 > arr.each {|ele| print ele-=1," " }                # iterate array using .each method............
+0 1 3 4 5 6 7 8  => [1, 2, 4, 5, 6, 7, 8, 9] 
+
+
+3.0.1 :110 > words=%w[ruby provide %w to take string array with space]
+ => ["ruby", "provide", "%w", "to", "take", "string", "array", "with", "sp... 
+
+3.0.1 :111 > str=""
+ => "" 
+
+3.0.1 :112 > words.reverse_each {|wrd| str+="#{wrd}"}                               # iterate in reverse using reverse_each method......
+ => ["ruby", "provide", "%w", "to", "take", "string", "array", "with", "space"] 
+
+
+
+3.0.1 :113 > 
+
+
