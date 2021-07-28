@@ -11,12 +11,13 @@ end
 
 def main
 	file=open("series_resistance.txt","r+")
-	
-	arr=file.readline().split()
-	p arr
-	ans=series_resistance(arr)
-        puts ans	
-	file.write("output == #{ans}")
+	for arr in file.readline().chomp.split()	
+	   arr=file.readline()
+	   p arr
+	   ans=series_resistance(arr)
+           puts ans	
+	   file.write("output == #{ans}")
+	  end
 	file.close()
 end
 
