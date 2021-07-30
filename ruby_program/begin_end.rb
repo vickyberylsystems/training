@@ -6,4 +6,4 @@ BEGIN {
 END {
 	puts "terminating the programming"
 
-   }	
+    }	
